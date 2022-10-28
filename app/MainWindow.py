@@ -24,9 +24,11 @@ class MainWindow(QMainWindow):
 
 
     def __init_connect(self):
+        pass
         # self.ui.btnStart.clicked.connect(self.on_click_start)
 
     def save_config(self):
+        pass
         # self.config.setting["id"] = self.ui.leID.text().strip()
         # self.config.setting["password"] = Crypto.encrypt(
         #     self.ui.lePassword.text().strip()
