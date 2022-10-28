@@ -29,15 +29,3 @@ class Config(metaclass=Singleton):
         with open("config.yaml", "w", encoding="utf-8") as file:
             yaml.dump(self.__data, file, default_flow_style=False, allow_unicode=True)
 
-    def get_site_config_by_name(self, name):
-        for data in self.__data["site"]:
-            if data["name"] == name:
-                return data
-        return None
-
-    def get_site_config_by_url(self, url: str):
-        for data in self.__data["site"]:
-            for filter in data["filter"]:
-                if re.search(filter, url):
-                    return data
-        return None

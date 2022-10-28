@@ -27,6 +27,22 @@
         "documentation": {}
     },
     {
+        "label": "Enum",
+        "importPath": "enum",
+        "description": "enum",
+        "isExtraImport": true,
+        "detail": "enum",
+        "documentation": {}
+    },
+    {
+        "label": "Enum",
+        "importPath": "enum",
+        "description": "enum",
+        "isExtraImport": true,
+        "detail": "enum",
+        "documentation": {}
+    },
+    {
         "label": "yaml",
         "kind": 6,
         "isExtraImport": true,
@@ -561,14 +577,6 @@
         "documentation": {}
     },
     {
-        "label": "Enum",
-        "importPath": "enum",
-        "description": "enum",
-        "isExtraImport": true,
-        "detail": "enum",
-        "documentation": {}
-    },
-    {
         "label": "Config",
         "importPath": "lib.Config",
         "description": "lib.Config",
@@ -695,6 +703,15 @@
         "description": ".venv.Scripts.activate_this",
         "peekOfCode": "sys.prefix = base",
         "detail": ".venv.Scripts.activate_this",
+        "documentation": {}
+    },
+    {
+        "label": "SettingEnum",
+        "kind": 6,
+        "importPath": "app.constant.SettingEnum",
+        "description": "app.constant.SettingEnum",
+        "peekOfCode": "class SettingEnum(str, Enum):\n    SCALE = \"scale\"\n    TITLE_SIZE = \"title_size\"\n    MODEL_NAME = \"model_name\"\n    TTA_MODE = \"tta_mode\"\n    FORMAT = \"format\"\n    JPG_OPTIMIZE = \"jpg_optimize\"",
+        "detail": "app.constant.SettingEnum",
         "documentation": {}
     },
     {

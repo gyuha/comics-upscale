@@ -45,6 +45,4 @@ class MainWindow(QMainWindow):
 
     def on_click_start(self):
         self.save_config()
-        self.driver = get_driver()
-        self.login()
 
