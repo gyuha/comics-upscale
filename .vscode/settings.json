@@ -1,5 +1,5 @@
 {
-    "pyqt-integration.qtdesigner.path": "C:\\workspace\\comics-upscale\\.venv\\Lib\\site-packages\\PySide6\\designer.exe",
-    "pyqt-integration.pyrcc.cmd": "C:\\workspace\\comics-upscale\\.venv\\Lib\\site-packages\\PySide6\\rcc.exe",
-    "pyqt-integration.pyuic.cmd": "C:\\workspace\\comics-upscale\\.venv\\Lib\\site-packages\\PySide6\\uic"
+    "qtForPython.rcc.path": "C:\\workspace\\comics-upscale\\.venv\\Lib\\site-packages\\PySide6\\rcc.exe",
+    "qtForPython.designer.path": "C:\\workspace\\comics-upscale\\.venv\\Lib\\site-packages\\PySide6\\designer.exe",
+    "qtForPython.uic.path": "C:\\workspace\\comics-upscale\\.venv\\Lib\\site-packages\\PySide6\\uic.exe"
 }
