@@ -1,342 +1,391 @@
-# -*- coding: utf-8 -*-
+/********************************************************************************
+** Form generated from reading UI file 'MainWindow.ui'
+**
+** Created by: Qt User Interface Compiler version 6.4.0
+**
+** WARNING! All changes made in this file will be lost when recompiling UI file!
+********************************************************************************/
 
-################################################################################
-## Form generated from reading UI file 'MainWindow.ui'
-##
-## Created by: Qt User Interface Compiler version 6.4.0
-##
-## WARNING! All changes made in this file will be lost when recompiling UI file!
-################################################################################
+#ifndef UI_MAINWINDOW_H
+#define UI_MAINWINDOW_H
 
-from PySide6.QtCore import (QCoreApplication, QDate, QDateTime, QLocale,
-    QMetaObject, QObject, QPoint, QRect,
-    QSize, QTime, QUrl, Qt)
-from PySide6.QtGui import (QAction, QBrush, QColor, QConicalGradient,
-    QCursor, QFont, QFontDatabase, QGradient,
-    QIcon, QImage, QKeySequence, QLinearGradient,
-    QPainter, QPalette, QPixmap, QRadialGradient,
-    QTransform)
-from PySide6.QtWidgets import (QApplication, QCheckBox, QComboBox, QFormLayout,
-    QHBoxLayout, QLabel, QListWidget, QListWidgetItem,
-    QMainWindow, QPushButton, QSizePolicy, QSpacerItem,
-    QStatusBar, QVBoxLayout, QWidget)
+#include <QtCore/QVariant>
+#include <QtGui/QAction>
+#include <QtWidgets/QApplication>
+#include <QtWidgets/QCheckBox>
+#include <QtWidgets/QComboBox>
+#include <QtWidgets/QFormLayout>
+#include <QtWidgets/QHBoxLayout>
+#include <QtWidgets/QLabel>
+#include <QtWidgets/QListWidget>
+#include <QtWidgets/QMainWindow>
+#include <QtWidgets/QPushButton>
+#include <QtWidgets/QSpacerItem>
+#include <QtWidgets/QStatusBar>
+#include <QtWidgets/QVBoxLayout>
+#include <QtWidgets/QWidget>
 
-class Ui_MainWindow(object):
-    def setupUi(self, MainWindow):
-        if not MainWindow.objectName():
-            MainWindow.setObjectName(u"MainWindow")
-        MainWindow.resize(784, 636)
-        self.action_always_top = QAction(MainWindow)
-        self.action_always_top.setObjectName(u"action_always_top")
-        self.action_always_top.setCheckable(True)
-        self.action_clipboard_toggle = QAction(MainWindow)
-        self.action_clipboard_toggle.setObjectName(u"action_clipboard_toggle")
-        self.action_clipboard_toggle.setCheckable(True)
-        self.action_clipboard_toggle.setChecked(True)
-        self.action_exit = QAction(MainWindow)
-        self.action_exit.setObjectName(u"action_exit")
-        self.centralwidget = QWidget(MainWindow)
-        self.centralwidget.setObjectName(u"centralwidget")
-        self.centralwidget.setMaximumSize(QSize(16777215, 16777215))
-        self.centralwidget.setAutoFillBackground(False)
-        self.verticalLayout = QVBoxLayout(self.centralwidget)
-        self.verticalLayout.setSpacing(0)
-        self.verticalLayout.setObjectName(u"verticalLayout")
-        self.verticalLayout.setContentsMargins(0, 0, 0, 0)
-        self.verticalLayout_2 = QVBoxLayout()
-        self.verticalLayout_2.setObjectName(u"verticalLayout_2")
-        self.horizontalLayout = QHBoxLayout()
-        self.horizontalLayout.setObjectName(u"horizontalLayout")
-        self.horizontalLayout.setContentsMargins(10, 10, 10, 10)
-        self.formLayout_2 = QFormLayout()
-        self.formLayout_2.setObjectName(u"formLayout_2")
-        self.formLayout_2.setLabelAlignment(Qt.AlignRight|Qt.AlignTrailing|Qt.AlignVCenter)
-        self.formLayout_2.setHorizontalSpacing(10)
-        self.formLayout_2.setVerticalSpacing(10)
-        self.formLayout_2.setContentsMargins(-1, -1, 5, -1)
-        self.label = QLabel(self.centralwidget)
-        self.label.setObjectName(u"label")
+QT_BEGIN_NAMESPACE
 
-        self.formLayout_2.setWidget(0, QFormLayout.LabelRole, self.label)
+class Ui_MainWindow
+{
+public:
+    QAction *action_always_top;
+    QAction *action_clipboard_toggle;
+    QAction *action_exit;
+    QWidget *centralwidget;
+    QVBoxLayout *verticalLayout;
+    QVBoxLayout *verticalLayout_2;
+    QHBoxLayout *horizontalLayout;
+    QFormLayout *formLayout_2;
+    QLabel *label;
+    QComboBox *cb_format;
+    QLabel *label_4;
+    QComboBox *cb_scale_ratio;
+    QFormLayout *formLayout_3;
+    QLabel *label_2;
+    QComboBox *cb_tile_size;
+    QLabel *label_5;
+    QComboBox *cb_model_name;
+    QFormLayout *formLayout;
+    QLabel *label_3;
+    QCheckBox *checkBox;
+    QLabel *label_6;
+    QComboBox *cb_jpg_optimize;
+    QListWidget *listWidget;
+    QHBoxLayout *horizontalLayout_3;
+    QPushButton *pushButton_2;
+    QPushButton *pushButton_3;
+    QSpacerItem *horizontalSpacer;
+    QPushButton *btn_start;
+    QStatusBar *statusbar;
 
-        self.cb_format = QComboBox(self.centralwidget)
-        self.cb_format.addItem("")
-        self.cb_format.addItem("")
-        self.cb_format.addItem("")
-        self.cb_format.setObjectName(u"cb_format")
+    void setupUi(QMainWindow *MainWindow)
+    {
+        if (MainWindow->objectName().isEmpty())
+            MainWindow->setObjectName("MainWindow");
+        MainWindow->resize(784, 636);
+        action_always_top = new QAction(MainWindow);
+        action_always_top->setObjectName("action_always_top");
+        action_always_top->setCheckable(true);
+        action_clipboard_toggle = new QAction(MainWindow);
+        action_clipboard_toggle->setObjectName("action_clipboard_toggle");
+        action_clipboard_toggle->setCheckable(true);
+        action_clipboard_toggle->setChecked(true);
+        action_exit = new QAction(MainWindow);
+        action_exit->setObjectName("action_exit");
+        centralwidget = new QWidget(MainWindow);
+        centralwidget->setObjectName("centralwidget");
+        centralwidget->setMaximumSize(QSize(16777215, 16777215));
+        centralwidget->setAutoFillBackground(false);
+        verticalLayout = new QVBoxLayout(centralwidget);
+        verticalLayout->setSpacing(0);
+        verticalLayout->setObjectName("verticalLayout");
+        verticalLayout->setContentsMargins(0, 0, 0, 0);
+        verticalLayout_2 = new QVBoxLayout();
+        verticalLayout_2->setObjectName("verticalLayout_2");
+        horizontalLayout = new QHBoxLayout();
+        horizontalLayout->setObjectName("horizontalLayout");
+        horizontalLayout->setContentsMargins(10, 10, 10, 10);
+        formLayout_2 = new QFormLayout();
+        formLayout_2->setObjectName("formLayout_2");
+        formLayout_2->setLabelAlignment(Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter);
+        formLayout_2->setHorizontalSpacing(10);
+        formLayout_2->setVerticalSpacing(10);
+        formLayout_2->setContentsMargins(-1, -1, 5, -1);
+        label = new QLabel(centralwidget);
+        label->setObjectName("label");
 
-        self.formLayout_2.setWidget(0, QFormLayout.FieldRole, self.cb_format)
+        formLayout_2->setWidget(0, QFormLayout::LabelRole, label);
 
-        self.label_4 = QLabel(self.centralwidget)
-        self.label_4.setObjectName(u"label_4")
+        cb_format = new QComboBox(centralwidget);
+        cb_format->addItem(QString());
+        cb_format->addItem(QString());
+        cb_format->addItem(QString());
+        cb_format->setObjectName("cb_format");
 
-        self.formLayout_2.setWidget(1, QFormLayout.LabelRole, self.label_4)
+        formLayout_2->setWidget(0, QFormLayout::FieldRole, cb_format);
 
-        self.cb_scale_ratio = QComboBox(self.centralwidget)
-        self.cb_scale_ratio.addItem("")
-        self.cb_scale_ratio.addItem("")
-        self.cb_scale_ratio.addItem("")
-        self.cb_scale_ratio.setObjectName(u"cb_scale_ratio")
+        label_4 = new QLabel(centralwidget);
+        label_4->setObjectName("label_4");
 
-        self.formLayout_2.setWidget(1, QFormLayout.FieldRole, self.cb_scale_ratio)
+        formLayout_2->setWidget(1, QFormLayout::LabelRole, label_4);
 
+        cb_scale_ratio = new QComboBox(centralwidget);
+        cb_scale_ratio->addItem(QString());
+        cb_scale_ratio->addItem(QString());
+        cb_scale_ratio->addItem(QString());
+        cb_scale_ratio->setObjectName("cb_scale_ratio");
 
-        self.horizontalLayout.addLayout(self.formLayout_2)
-
-        self.formLayout_3 = QFormLayout()
-        self.formLayout_3.setObjectName(u"formLayout_3")
-        self.formLayout_3.setLabelAlignment(Qt.AlignRight|Qt.AlignTrailing|Qt.AlignVCenter)
-        self.formLayout_3.setHorizontalSpacing(10)
-        self.formLayout_3.setVerticalSpacing(10)
-        self.formLayout_3.setContentsMargins(-1, -1, 5, -1)
-        self.label_2 = QLabel(self.centralwidget)
-        self.label_2.setObjectName(u"label_2")
-
-        self.formLayout_3.setWidget(0, QFormLayout.LabelRole, self.label_2)
-
-        self.cb_tile_size = QComboBox(self.centralwidget)
-        self.cb_tile_size.addItem("")
-        self.cb_tile_size.addItem("")
-        self.cb_tile_size.addItem("")
-        self.cb_tile_size.addItem("")
-        self.cb_tile_size.addItem("")
-        self.cb_tile_size.addItem("")
-        self.cb_tile_size.addItem("")
-        self.cb_tile_size.addItem("")
-        self.cb_tile_size.addItem("")
-        self.cb_tile_size.addItem("")
-        self.cb_tile_size.addItem("")
-        self.cb_tile_size.addItem("")
-        self.cb_tile_size.addItem("")
-        self.cb_tile_size.addItem("")
-        self.cb_tile_size.addItem("")
-        self.cb_tile_size.addItem("")
-        self.cb_tile_size.addItem("")
-        self.cb_tile_size.addItem("")
-        self.cb_tile_size.addItem("")
-        self.cb_tile_size.addItem("")
-        self.cb_tile_size.addItem("")
-        self.cb_tile_size.addItem("")
-        self.cb_tile_size.addItem("")
-        self.cb_tile_size.addItem("")
-        self.cb_tile_size.addItem("")
-        self.cb_tile_size.addItem("")
-        self.cb_tile_size.addItem("")
-        self.cb_tile_size.addItem("")
-        self.cb_tile_size.addItem("")
-        self.cb_tile_size.addItem("")
-        self.cb_tile_size.addItem("")
-        self.cb_tile_size.addItem("")
-        self.cb_tile_size.addItem("")
-        self.cb_tile_size.setObjectName(u"cb_tile_size")
-
-        self.formLayout_3.setWidget(0, QFormLayout.FieldRole, self.cb_tile_size)
-
-        self.label_5 = QLabel(self.centralwidget)
-        self.label_5.setObjectName(u"label_5")
-
-        self.formLayout_3.setWidget(1, QFormLayout.LabelRole, self.label_5)
-
-        self.cb_model_name = QComboBox(self.centralwidget)
-        self.cb_model_name.addItem("")
-        self.cb_model_name.addItem("")
-        self.cb_model_name.addItem("")
-        self.cb_model_name.setObjectName(u"cb_model_name")
-
-        self.formLayout_3.setWidget(1, QFormLayout.FieldRole, self.cb_model_name)
+        formLayout_2->setWidget(1, QFormLayout::FieldRole, cb_scale_ratio);
 
 
-        self.horizontalLayout.addLayout(self.formLayout_3)
+        horizontalLayout->addLayout(formLayout_2);
 
-        self.formLayout = QFormLayout()
-        self.formLayout.setObjectName(u"formLayout")
-        self.formLayout.setLabelAlignment(Qt.AlignRight|Qt.AlignTrailing|Qt.AlignVCenter)
-        self.formLayout.setHorizontalSpacing(10)
-        self.formLayout.setVerticalSpacing(10)
-        self.label_3 = QLabel(self.centralwidget)
-        self.label_3.setObjectName(u"label_3")
+        formLayout_3 = new QFormLayout();
+        formLayout_3->setObjectName("formLayout_3");
+        formLayout_3->setLabelAlignment(Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter);
+        formLayout_3->setHorizontalSpacing(10);
+        formLayout_3->setVerticalSpacing(10);
+        formLayout_3->setContentsMargins(-1, -1, 5, -1);
+        label_2 = new QLabel(centralwidget);
+        label_2->setObjectName("label_2");
 
-        self.formLayout.setWidget(0, QFormLayout.LabelRole, self.label_3)
+        formLayout_3->setWidget(0, QFormLayout::LabelRole, label_2);
 
-        self.checkBox = QCheckBox(self.centralwidget)
-        self.checkBox.setObjectName(u"checkBox")
+        cb_tile_size = new QComboBox(centralwidget);
+        cb_tile_size->addItem(QString());
+        cb_tile_size->addItem(QString());
+        cb_tile_size->addItem(QString());
+        cb_tile_size->addItem(QString());
+        cb_tile_size->addItem(QString());
+        cb_tile_size->addItem(QString());
+        cb_tile_size->addItem(QString());
+        cb_tile_size->addItem(QString());
+        cb_tile_size->addItem(QString());
+        cb_tile_size->addItem(QString());
+        cb_tile_size->addItem(QString());
+        cb_tile_size->addItem(QString());
+        cb_tile_size->addItem(QString());
+        cb_tile_size->addItem(QString());
+        cb_tile_size->addItem(QString());
+        cb_tile_size->addItem(QString());
+        cb_tile_size->addItem(QString());
+        cb_tile_size->addItem(QString());
+        cb_tile_size->addItem(QString());
+        cb_tile_size->addItem(QString());
+        cb_tile_size->addItem(QString());
+        cb_tile_size->addItem(QString());
+        cb_tile_size->addItem(QString());
+        cb_tile_size->addItem(QString());
+        cb_tile_size->addItem(QString());
+        cb_tile_size->addItem(QString());
+        cb_tile_size->addItem(QString());
+        cb_tile_size->addItem(QString());
+        cb_tile_size->addItem(QString());
+        cb_tile_size->addItem(QString());
+        cb_tile_size->addItem(QString());
+        cb_tile_size->addItem(QString());
+        cb_tile_size->addItem(QString());
+        cb_tile_size->setObjectName("cb_tile_size");
 
-        self.formLayout.setWidget(0, QFormLayout.FieldRole, self.checkBox)
+        formLayout_3->setWidget(0, QFormLayout::FieldRole, cb_tile_size);
 
-        self.label_6 = QLabel(self.centralwidget)
-        self.label_6.setObjectName(u"label_6")
+        label_5 = new QLabel(centralwidget);
+        label_5->setObjectName("label_5");
 
-        self.formLayout.setWidget(1, QFormLayout.LabelRole, self.label_6)
+        formLayout_3->setWidget(1, QFormLayout::LabelRole, label_5);
 
-        self.cb_jpg_optimize = QComboBox(self.centralwidget)
-        self.cb_jpg_optimize.addItem("")
-        self.cb_jpg_optimize.addItem("")
-        self.cb_jpg_optimize.addItem("")
-        self.cb_jpg_optimize.addItem("")
-        self.cb_jpg_optimize.addItem("")
-        self.cb_jpg_optimize.addItem("")
-        self.cb_jpg_optimize.addItem("")
-        self.cb_jpg_optimize.addItem("")
-        self.cb_jpg_optimize.addItem("")
-        self.cb_jpg_optimize.addItem("")
-        self.cb_jpg_optimize.addItem("")
-        self.cb_jpg_optimize.addItem("")
-        self.cb_jpg_optimize.addItem("")
-        self.cb_jpg_optimize.addItem("")
-        self.cb_jpg_optimize.addItem("")
-        self.cb_jpg_optimize.addItem("")
-        self.cb_jpg_optimize.addItem("")
-        self.cb_jpg_optimize.addItem("")
-        self.cb_jpg_optimize.addItem("")
-        self.cb_jpg_optimize.addItem("")
-        self.cb_jpg_optimize.addItem("")
-        self.cb_jpg_optimize.addItem("")
-        self.cb_jpg_optimize.addItem("")
-        self.cb_jpg_optimize.addItem("")
-        self.cb_jpg_optimize.addItem("")
-        self.cb_jpg_optimize.addItem("")
-        self.cb_jpg_optimize.setObjectName(u"cb_jpg_optimize")
+        cb_model_name = new QComboBox(centralwidget);
+        cb_model_name->addItem(QString());
+        cb_model_name->addItem(QString());
+        cb_model_name->addItem(QString());
+        cb_model_name->setObjectName("cb_model_name");
 
-        self.formLayout.setWidget(1, QFormLayout.FieldRole, self.cb_jpg_optimize)
-
-
-        self.horizontalLayout.addLayout(self.formLayout)
-
-
-        self.verticalLayout_2.addLayout(self.horizontalLayout)
-
-        self.listWidget = QListWidget(self.centralwidget)
-        self.listWidget.setObjectName(u"listWidget")
-        self.listWidget.setDragEnabled(False)
-
-        self.verticalLayout_2.addWidget(self.listWidget)
-
-        self.horizontalLayout_3 = QHBoxLayout()
-        self.horizontalLayout_3.setObjectName(u"horizontalLayout_3")
-        self.horizontalLayout_3.setContentsMargins(10, 10, 10, 10)
-        self.pushButton_2 = QPushButton(self.centralwidget)
-        self.pushButton_2.setObjectName(u"pushButton_2")
-
-        self.horizontalLayout_3.addWidget(self.pushButton_2)
-
-        self.pushButton_3 = QPushButton(self.centralwidget)
-        self.pushButton_3.setObjectName(u"pushButton_3")
-
-        self.horizontalLayout_3.addWidget(self.pushButton_3)
-
-        self.horizontalSpacer = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
-
-        self.horizontalLayout_3.addItem(self.horizontalSpacer)
-
-        self.btn_start = QPushButton(self.centralwidget)
-        self.btn_start.setObjectName(u"btn_start")
-
-        self.horizontalLayout_3.addWidget(self.btn_start)
+        formLayout_3->setWidget(1, QFormLayout::FieldRole, cb_model_name);
 
 
-        self.verticalLayout_2.addLayout(self.horizontalLayout_3)
+        horizontalLayout->addLayout(formLayout_3);
 
-        self.verticalLayout_2.setStretch(1, 1)
+        formLayout = new QFormLayout();
+        formLayout->setObjectName("formLayout");
+        formLayout->setLabelAlignment(Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter);
+        formLayout->setHorizontalSpacing(10);
+        formLayout->setVerticalSpacing(10);
+        label_3 = new QLabel(centralwidget);
+        label_3->setObjectName("label_3");
 
-        self.verticalLayout.addLayout(self.verticalLayout_2)
+        formLayout->setWidget(0, QFormLayout::LabelRole, label_3);
 
-        MainWindow.setCentralWidget(self.centralwidget)
-        self.statusbar = QStatusBar(MainWindow)
-        self.statusbar.setObjectName(u"statusbar")
-        MainWindow.setStatusBar(self.statusbar)
+        checkBox = new QCheckBox(centralwidget);
+        checkBox->setObjectName("checkBox");
 
-        self.retranslateUi(MainWindow)
+        formLayout->setWidget(0, QFormLayout::FieldRole, checkBox);
 
-        QMetaObject.connectSlotsByName(MainWindow)
-    # setupUi
+        label_6 = new QLabel(centralwidget);
+        label_6->setObjectName("label_6");
 
-    def retranslateUi(self, MainWindow):
-        MainWindow.setWindowTitle(QCoreApplication.translate("MainWindow", u"Comics upscale", None))
-        self.action_always_top.setText(QCoreApplication.translate("MainWindow", u"\ud56d\uc0c1\uc704", None))
-        self.action_clipboard_toggle.setText(QCoreApplication.translate("MainWindow", u"\ud074\ub9bd\ubcf4\ub4dc\uc5d0\uc11c \ucd94\uac00", None))
-        self.action_exit.setText(QCoreApplication.translate("MainWindow", u"\uc885\ub8cc(&q)", None))
-        self.label.setText(QCoreApplication.translate("MainWindow", u"Format", None))
-        self.cb_format.setItemText(0, QCoreApplication.translate("MainWindow", u"jpg", None))
-        self.cb_format.setItemText(1, QCoreApplication.translate("MainWindow", u"png", None))
-        self.cb_format.setItemText(2, QCoreApplication.translate("MainWindow", u"webp", None))
+        formLayout->setWidget(1, QFormLayout::LabelRole, label_6);
 
-        self.label_4.setText(QCoreApplication.translate("MainWindow", u"Scale ratio", None))
-        self.cb_scale_ratio.setItemText(0, QCoreApplication.translate("MainWindow", u"2", None))
-        self.cb_scale_ratio.setItemText(1, QCoreApplication.translate("MainWindow", u"3", None))
-        self.cb_scale_ratio.setItemText(2, QCoreApplication.translate("MainWindow", u"4", None))
+        cb_jpg_optimize = new QComboBox(centralwidget);
+        cb_jpg_optimize->addItem(QString());
+        cb_jpg_optimize->addItem(QString());
+        cb_jpg_optimize->addItem(QString());
+        cb_jpg_optimize->addItem(QString());
+        cb_jpg_optimize->addItem(QString());
+        cb_jpg_optimize->addItem(QString());
+        cb_jpg_optimize->addItem(QString());
+        cb_jpg_optimize->addItem(QString());
+        cb_jpg_optimize->addItem(QString());
+        cb_jpg_optimize->addItem(QString());
+        cb_jpg_optimize->addItem(QString());
+        cb_jpg_optimize->addItem(QString());
+        cb_jpg_optimize->addItem(QString());
+        cb_jpg_optimize->addItem(QString());
+        cb_jpg_optimize->addItem(QString());
+        cb_jpg_optimize->addItem(QString());
+        cb_jpg_optimize->addItem(QString());
+        cb_jpg_optimize->addItem(QString());
+        cb_jpg_optimize->addItem(QString());
+        cb_jpg_optimize->addItem(QString());
+        cb_jpg_optimize->addItem(QString());
+        cb_jpg_optimize->addItem(QString());
+        cb_jpg_optimize->addItem(QString());
+        cb_jpg_optimize->addItem(QString());
+        cb_jpg_optimize->addItem(QString());
+        cb_jpg_optimize->addItem(QString());
+        cb_jpg_optimize->setObjectName("cb_jpg_optimize");
 
-        self.label_2.setText(QCoreApplication.translate("MainWindow", u"Tile size", None))
-        self.cb_tile_size.setItemText(0, QCoreApplication.translate("MainWindow", u"0 (Auto)", None))
-        self.cb_tile_size.setItemText(1, QCoreApplication.translate("MainWindow", u"1", None))
-        self.cb_tile_size.setItemText(2, QCoreApplication.translate("MainWindow", u"2", None))
-        self.cb_tile_size.setItemText(3, QCoreApplication.translate("MainWindow", u"3", None))
-        self.cb_tile_size.setItemText(4, QCoreApplication.translate("MainWindow", u"4", None))
-        self.cb_tile_size.setItemText(5, QCoreApplication.translate("MainWindow", u"5", None))
-        self.cb_tile_size.setItemText(6, QCoreApplication.translate("MainWindow", u"6", None))
-        self.cb_tile_size.setItemText(7, QCoreApplication.translate("MainWindow", u"7", None))
-        self.cb_tile_size.setItemText(8, QCoreApplication.translate("MainWindow", u"8", None))
-        self.cb_tile_size.setItemText(9, QCoreApplication.translate("MainWindow", u"9", None))
-        self.cb_tile_size.setItemText(10, QCoreApplication.translate("MainWindow", u"10", None))
-        self.cb_tile_size.setItemText(11, QCoreApplication.translate("MainWindow", u"11", None))
-        self.cb_tile_size.setItemText(12, QCoreApplication.translate("MainWindow", u"12", None))
-        self.cb_tile_size.setItemText(13, QCoreApplication.translate("MainWindow", u"13", None))
-        self.cb_tile_size.setItemText(14, QCoreApplication.translate("MainWindow", u"14", None))
-        self.cb_tile_size.setItemText(15, QCoreApplication.translate("MainWindow", u"15", None))
-        self.cb_tile_size.setItemText(16, QCoreApplication.translate("MainWindow", u"16", None))
-        self.cb_tile_size.setItemText(17, QCoreApplication.translate("MainWindow", u"17", None))
-        self.cb_tile_size.setItemText(18, QCoreApplication.translate("MainWindow", u"18", None))
-        self.cb_tile_size.setItemText(19, QCoreApplication.translate("MainWindow", u"19", None))
-        self.cb_tile_size.setItemText(20, QCoreApplication.translate("MainWindow", u"20", None))
-        self.cb_tile_size.setItemText(21, QCoreApplication.translate("MainWindow", u"21", None))
-        self.cb_tile_size.setItemText(22, QCoreApplication.translate("MainWindow", u"22", None))
-        self.cb_tile_size.setItemText(23, QCoreApplication.translate("MainWindow", u"23", None))
-        self.cb_tile_size.setItemText(24, QCoreApplication.translate("MainWindow", u"24", None))
-        self.cb_tile_size.setItemText(25, QCoreApplication.translate("MainWindow", u"25", None))
-        self.cb_tile_size.setItemText(26, QCoreApplication.translate("MainWindow", u"26", None))
-        self.cb_tile_size.setItemText(27, QCoreApplication.translate("MainWindow", u"27", None))
-        self.cb_tile_size.setItemText(28, QCoreApplication.translate("MainWindow", u"28", None))
-        self.cb_tile_size.setItemText(29, QCoreApplication.translate("MainWindow", u"29", None))
-        self.cb_tile_size.setItemText(30, QCoreApplication.translate("MainWindow", u"30", None))
-        self.cb_tile_size.setItemText(31, QCoreApplication.translate("MainWindow", u"31", None))
-        self.cb_tile_size.setItemText(32, QCoreApplication.translate("MainWindow", u"32", None))
+        formLayout->setWidget(1, QFormLayout::FieldRole, cb_jpg_optimize);
 
-        self.label_5.setText(QCoreApplication.translate("MainWindow", u"Model name", None))
-        self.cb_model_name.setItemText(0, QCoreApplication.translate("MainWindow", u"realesr-animevideov3", None))
-        self.cb_model_name.setItemText(1, QCoreApplication.translate("MainWindow", u"realesrgan-x4plus", None))
-        self.cb_model_name.setItemText(2, QCoreApplication.translate("MainWindow", u"realesrgan-x4plus-anime", None))
 
-        self.label_3.setText(QCoreApplication.translate("MainWindow", u"TTA Mode", None))
-        self.checkBox.setText(QCoreApplication.translate("MainWindow", u"TTA mode", None))
-        self.label_6.setText(QCoreApplication.translate("MainWindow", u"Jpg optimize", None))
-        self.cb_jpg_optimize.setItemText(0, QCoreApplication.translate("MainWindow", u"100 (OFF)", None))
-        self.cb_jpg_optimize.setItemText(1, QCoreApplication.translate("MainWindow", u"99", None))
-        self.cb_jpg_optimize.setItemText(2, QCoreApplication.translate("MainWindow", u"98", None))
-        self.cb_jpg_optimize.setItemText(3, QCoreApplication.translate("MainWindow", u"97", None))
-        self.cb_jpg_optimize.setItemText(4, QCoreApplication.translate("MainWindow", u"96", None))
-        self.cb_jpg_optimize.setItemText(5, QCoreApplication.translate("MainWindow", u"95", None))
-        self.cb_jpg_optimize.setItemText(6, QCoreApplication.translate("MainWindow", u"94", None))
-        self.cb_jpg_optimize.setItemText(7, QCoreApplication.translate("MainWindow", u"93", None))
-        self.cb_jpg_optimize.setItemText(8, QCoreApplication.translate("MainWindow", u"92", None))
-        self.cb_jpg_optimize.setItemText(9, QCoreApplication.translate("MainWindow", u"91", None))
-        self.cb_jpg_optimize.setItemText(10, QCoreApplication.translate("MainWindow", u"90", None))
-        self.cb_jpg_optimize.setItemText(11, QCoreApplication.translate("MainWindow", u"89", None))
-        self.cb_jpg_optimize.setItemText(12, QCoreApplication.translate("MainWindow", u"88", None))
-        self.cb_jpg_optimize.setItemText(13, QCoreApplication.translate("MainWindow", u"87", None))
-        self.cb_jpg_optimize.setItemText(14, QCoreApplication.translate("MainWindow", u"86", None))
-        self.cb_jpg_optimize.setItemText(15, QCoreApplication.translate("MainWindow", u"85", None))
-        self.cb_jpg_optimize.setItemText(16, QCoreApplication.translate("MainWindow", u"84", None))
-        self.cb_jpg_optimize.setItemText(17, QCoreApplication.translate("MainWindow", u"83", None))
-        self.cb_jpg_optimize.setItemText(18, QCoreApplication.translate("MainWindow", u"82", None))
-        self.cb_jpg_optimize.setItemText(19, QCoreApplication.translate("MainWindow", u"81", None))
-        self.cb_jpg_optimize.setItemText(20, QCoreApplication.translate("MainWindow", u"80", None))
-        self.cb_jpg_optimize.setItemText(21, QCoreApplication.translate("MainWindow", u"79", None))
-        self.cb_jpg_optimize.setItemText(22, QCoreApplication.translate("MainWindow", u"78", None))
-        self.cb_jpg_optimize.setItemText(23, QCoreApplication.translate("MainWindow", u"77", None))
-        self.cb_jpg_optimize.setItemText(24, QCoreApplication.translate("MainWindow", u"76", None))
-        self.cb_jpg_optimize.setItemText(25, QCoreApplication.translate("MainWindow", u"75", None))
+        horizontalLayout->addLayout(formLayout);
 
-        self.pushButton_2.setText(QCoreApplication.translate("MainWindow", u"Add folder", None))
-        self.pushButton_3.setText(QCoreApplication.translate("MainWindow", u"Add file", None))
-        self.btn_start.setText(QCoreApplication.translate("MainWindow", u"Start", None))
-    # retranslateUi
 
+        verticalLayout_2->addLayout(horizontalLayout);
+
+        listWidget = new QListWidget(centralwidget);
+        listWidget->setObjectName("listWidget");
+        listWidget->setDragEnabled(false);
+
+        verticalLayout_2->addWidget(listWidget);
+
+        horizontalLayout_3 = new QHBoxLayout();
+        horizontalLayout_3->setObjectName("horizontalLayout_3");
+        horizontalLayout_3->setContentsMargins(10, 10, 10, 10);
+        pushButton_2 = new QPushButton(centralwidget);
+        pushButton_2->setObjectName("pushButton_2");
+
+        horizontalLayout_3->addWidget(pushButton_2);
+
+        pushButton_3 = new QPushButton(centralwidget);
+        pushButton_3->setObjectName("pushButton_3");
+
+        horizontalLayout_3->addWidget(pushButton_3);
+
+        horizontalSpacer = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        horizontalLayout_3->addItem(horizontalSpacer);
+
+        btn_start = new QPushButton(centralwidget);
+        btn_start->setObjectName("btn_start");
+
+        horizontalLayout_3->addWidget(btn_start);
+
+
+        verticalLayout_2->addLayout(horizontalLayout_3);
+
+        verticalLayout_2->setStretch(1, 1);
+
+        verticalLayout->addLayout(verticalLayout_2);
+
+        MainWindow->setCentralWidget(centralwidget);
+        statusbar = new QStatusBar(MainWindow);
+        statusbar->setObjectName("statusbar");
+        MainWindow->setStatusBar(statusbar);
+
+        retranslateUi(MainWindow);
+
+        QMetaObject::connectSlotsByName(MainWindow);
+    } // setupUi
+
+    void retranslateUi(QMainWindow *MainWindow)
+    {
+        MainWindow->setWindowTitle(QCoreApplication::translate("MainWindow", "Comics upscale", nullptr));
+        action_always_top->setText(QCoreApplication::translate("MainWindow", "\355\225\255\354\203\201\354\234\204", nullptr));
+        action_clipboard_toggle->setText(QCoreApplication::translate("MainWindow", "\355\201\264\353\246\275\353\263\264\353\223\234\354\227\220\354\204\234 \354\266\224\352\260\200", nullptr));
+        action_exit->setText(QCoreApplication::translate("MainWindow", "\354\242\205\353\243\214(&q)", nullptr));
+        label->setText(QCoreApplication::translate("MainWindow", "Format", nullptr));
+        cb_format->setItemText(0, QCoreApplication::translate("MainWindow", "jpg", nullptr));
+        cb_format->setItemText(1, QCoreApplication::translate("MainWindow", "png", nullptr));
+        cb_format->setItemText(2, QCoreApplication::translate("MainWindow", "webp", nullptr));
+
+        label_4->setText(QCoreApplication::translate("MainWindow", "Scale ratio", nullptr));
+        cb_scale_ratio->setItemText(0, QCoreApplication::translate("MainWindow", "2", nullptr));
+        cb_scale_ratio->setItemText(1, QCoreApplication::translate("MainWindow", "3", nullptr));
+        cb_scale_ratio->setItemText(2, QCoreApplication::translate("MainWindow", "4", nullptr));
+
+        label_2->setText(QCoreApplication::translate("MainWindow", "Tile size", nullptr));
+        cb_tile_size->setItemText(0, QCoreApplication::translate("MainWindow", "0 (Auto)", nullptr));
+        cb_tile_size->setItemText(1, QCoreApplication::translate("MainWindow", "1", nullptr));
+        cb_tile_size->setItemText(2, QCoreApplication::translate("MainWindow", "2", nullptr));
+        cb_tile_size->setItemText(3, QCoreApplication::translate("MainWindow", "3", nullptr));
+        cb_tile_size->setItemText(4, QCoreApplication::translate("MainWindow", "4", nullptr));
+        cb_tile_size->setItemText(5, QCoreApplication::translate("MainWindow", "5", nullptr));
+        cb_tile_size->setItemText(6, QCoreApplication::translate("MainWindow", "6", nullptr));
+        cb_tile_size->setItemText(7, QCoreApplication::translate("MainWindow", "7", nullptr));
+        cb_tile_size->setItemText(8, QCoreApplication::translate("MainWindow", "8", nullptr));
+        cb_tile_size->setItemText(9, QCoreApplication::translate("MainWindow", "9", nullptr));
+        cb_tile_size->setItemText(10, QCoreApplication::translate("MainWindow", "10", nullptr));
+        cb_tile_size->setItemText(11, QCoreApplication::translate("MainWindow", "11", nullptr));
+        cb_tile_size->setItemText(12, QCoreApplication::translate("MainWindow", "12", nullptr));
+        cb_tile_size->setItemText(13, QCoreApplication::translate("MainWindow", "13", nullptr));
+        cb_tile_size->setItemText(14, QCoreApplication::translate("MainWindow", "14", nullptr));
+        cb_tile_size->setItemText(15, QCoreApplication::translate("MainWindow", "15", nullptr));
+        cb_tile_size->setItemText(16, QCoreApplication::translate("MainWindow", "16", nullptr));
+        cb_tile_size->setItemText(17, QCoreApplication::translate("MainWindow", "17", nullptr));
+        cb_tile_size->setItemText(18, QCoreApplication::translate("MainWindow", "18", nullptr));
+        cb_tile_size->setItemText(19, QCoreApplication::translate("MainWindow", "19", nullptr));
+        cb_tile_size->setItemText(20, QCoreApplication::translate("MainWindow", "20", nullptr));
+        cb_tile_size->setItemText(21, QCoreApplication::translate("MainWindow", "21", nullptr));
+        cb_tile_size->setItemText(22, QCoreApplication::translate("MainWindow", "22", nullptr));
+        cb_tile_size->setItemText(23, QCoreApplication::translate("MainWindow", "23", nullptr));
+        cb_tile_size->setItemText(24, QCoreApplication::translate("MainWindow", "24", nullptr));
+        cb_tile_size->setItemText(25, QCoreApplication::translate("MainWindow", "25", nullptr));
+        cb_tile_size->setItemText(26, QCoreApplication::translate("MainWindow", "26", nullptr));
+        cb_tile_size->setItemText(27, QCoreApplication::translate("MainWindow", "27", nullptr));
+        cb_tile_size->setItemText(28, QCoreApplication::translate("MainWindow", "28", nullptr));
+        cb_tile_size->setItemText(29, QCoreApplication::translate("MainWindow", "29", nullptr));
+        cb_tile_size->setItemText(30, QCoreApplication::translate("MainWindow", "30", nullptr));
+        cb_tile_size->setItemText(31, QCoreApplication::translate("MainWindow", "31", nullptr));
+        cb_tile_size->setItemText(32, QCoreApplication::translate("MainWindow", "32", nullptr));
+
+        label_5->setText(QCoreApplication::translate("MainWindow", "Model name", nullptr));
+        cb_model_name->setItemText(0, QCoreApplication::translate("MainWindow", "realesr-animevideov3", nullptr));
+        cb_model_name->setItemText(1, QCoreApplication::translate("MainWindow", "realesrgan-x4plus", nullptr));
+        cb_model_name->setItemText(2, QCoreApplication::translate("MainWindow", "realesrgan-x4plus-anime", nullptr));
+
+        label_3->setText(QCoreApplication::translate("MainWindow", "TTA Mode", nullptr));
+        checkBox->setText(QCoreApplication::translate("MainWindow", "TTA mode", nullptr));
+        label_6->setText(QCoreApplication::translate("MainWindow", "Jpg optimize", nullptr));
+        cb_jpg_optimize->setItemText(0, QCoreApplication::translate("MainWindow", "100 (OFF)", nullptr));
+        cb_jpg_optimize->setItemText(1, QCoreApplication::translate("MainWindow", "99", nullptr));
+        cb_jpg_optimize->setItemText(2, QCoreApplication::translate("MainWindow", "98", nullptr));
+        cb_jpg_optimize->setItemText(3, QCoreApplication::translate("MainWindow", "97", nullptr));
+        cb_jpg_optimize->setItemText(4, QCoreApplication::translate("MainWindow", "96", nullptr));
+        cb_jpg_optimize->setItemText(5, QCoreApplication::translate("MainWindow", "95", nullptr));
+        cb_jpg_optimize->setItemText(6, QCoreApplication::translate("MainWindow", "94", nullptr));
+        cb_jpg_optimize->setItemText(7, QCoreApplication::translate("MainWindow", "93", nullptr));
+        cb_jpg_optimize->setItemText(8, QCoreApplication::translate("MainWindow", "92", nullptr));
+        cb_jpg_optimize->setItemText(9, QCoreApplication::translate("MainWindow", "91", nullptr));
+        cb_jpg_optimize->setItemText(10, QCoreApplication::translate("MainWindow", "90", nullptr));
+        cb_jpg_optimize->setItemText(11, QCoreApplication::translate("MainWindow", "89", nullptr));
+        cb_jpg_optimize->setItemText(12, QCoreApplication::translate("MainWindow", "88", nullptr));
+        cb_jpg_optimize->setItemText(13, QCoreApplication::translate("MainWindow", "87", nullptr));
+        cb_jpg_optimize->setItemText(14, QCoreApplication::translate("MainWindow", "86", nullptr));
+        cb_jpg_optimize->setItemText(15, QCoreApplication::translate("MainWindow", "85", nullptr));
+        cb_jpg_optimize->setItemText(16, QCoreApplication::translate("MainWindow", "84", nullptr));
+        cb_jpg_optimize->setItemText(17, QCoreApplication::translate("MainWindow", "83", nullptr));
+        cb_jpg_optimize->setItemText(18, QCoreApplication::translate("MainWindow", "82", nullptr));
+        cb_jpg_optimize->setItemText(19, QCoreApplication::translate("MainWindow", "81", nullptr));
+        cb_jpg_optimize->setItemText(20, QCoreApplication::translate("MainWindow", "80", nullptr));
+        cb_jpg_optimize->setItemText(21, QCoreApplication::translate("MainWindow", "79", nullptr));
+        cb_jpg_optimize->setItemText(22, QCoreApplication::translate("MainWindow", "78", nullptr));
+        cb_jpg_optimize->setItemText(23, QCoreApplication::translate("MainWindow", "77", nullptr));
+        cb_jpg_optimize->setItemText(24, QCoreApplication::translate("MainWindow", "76", nullptr));
+        cb_jpg_optimize->setItemText(25, QCoreApplication::translate("MainWindow", "75", nullptr));
+
+        pushButton_2->setText(QCoreApplication::translate("MainWindow", "Add folder", nullptr));
+        pushButton_3->setText(QCoreApplication::translate("MainWindow", "Add file", nullptr));
+        btn_start->setText(QCoreApplication::translate("MainWindow", "Start", nullptr));
+    } // retranslateUi
+
+};
+
+namespace Ui {
+    class MainWindow: public Ui_MainWindow {};
+} // namespace Ui
+
+QT_END_NAMESPACE
+
+#endif // UI_MAINWINDOW_H
