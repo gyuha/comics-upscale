@@ -785,6 +785,15 @@
         "documentation": {}
     },
     {
+        "label": "Ui_For",
+        "kind": 6,
+        "importPath": "app.ui.ui_Item",
+        "description": "app.ui.ui_Item",
+        "peekOfCode": "class Ui_Form\n{\npublic:\n    QHBoxLayout *horizontalLayout_2;\n    QVBoxLayout *verticalLayout;\n    QHBoxLayout *horizontalLayout;\n    QLabel *label;\n    void setupUi(QWidget *Form)\n    {\n        if (Form->objectName().isEmpty())",
+        "detail": "app.ui.ui_Item",
+        "documentation": {}
+    },
+    {
         "label": "Ui_MainWindow",
         "kind": 6,
         "importPath": "app.ui.ui_MainWindow",
