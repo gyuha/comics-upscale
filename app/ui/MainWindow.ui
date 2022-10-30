@@ -77,7 +77,7 @@
            </widget>
           </item>
           <item row="0" column="1">
-           <widget class="QComboBox" name="cb_format">
+           <widget class="QComboBox" name="cmb_format">
             <item>
              <property name="text">
               <string>jpg</string>
@@ -98,12 +98,12 @@
           <item row="1" column="0">
            <widget class="QLabel" name="label_4">
             <property name="text">
-             <string>Scale ratio</string>
+             <string>Upscale ratio</string>
             </property>
            </widget>
           </item>
           <item row="1" column="1">
-           <widget class="QComboBox" name="cb_scale_ratio">
+           <widget class="QComboBox" name="cmb_upscale_ratio">
             <item>
              <property name="text">
               <string>2</string>
@@ -145,7 +145,7 @@
            </widget>
           </item>
           <item row="0" column="1">
-           <widget class="QComboBox" name="cb_tile_size">
+           <widget class="QComboBox" name="cmb_tile_size">
             <item>
              <property name="text">
               <string>0 (Auto)</string>
@@ -321,7 +321,7 @@
            </widget>
           </item>
           <item row="1" column="1">
-           <widget class="QComboBox" name="cb_model_name">
+           <widget class="QComboBox" name="cmb_model_name">
             <item>
              <property name="text">
               <string>realesr-animevideov3</string>
@@ -360,7 +360,7 @@
            </widget>
           </item>
           <item row="0" column="1">
-           <widget class="QCheckBox" name="checkBox">
+           <widget class="QCheckBox" name="chb_tta_mode">
             <property name="text">
              <string>TTA mode</string>
             </property>
@@ -374,7 +374,7 @@
            </widget>
           </item>
           <item row="1" column="1">
-           <widget class="QComboBox" name="cb_jpg_optimize">
+           <widget class="QComboBox" name="cmb_jpg_optimize">
             <item>
              <property name="text">
               <string>100 (OFF)</string>
