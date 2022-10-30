@@ -1,0 +1,7 @@
+setting:
+  format: jpg
+  jpg_optimize: 100 (OFF)
+  model_name: realesr-animevideov3
+  tile_size: 0 (Auto)
+  tta_mode: false
+  upscale_ratio: '2'

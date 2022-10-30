@@ -48,4 +48,4 @@ venv.bak/
 *.log
 *.db
 
-config.yaml
+# config.yaml
