@@ -38,6 +38,8 @@ class MainWindow(QMainWindow):
         self._re_allow_file = re.compile(
             "\.("
             + reduce(lambda x, y: x + "|" + y, self.config.data["allow_file"])
+            + "|"
+            + reduce(lambda x, y: x + "|" + y, self.config.data["allow_image"])
             + ")$"
         )
 

@@ -51,6 +51,14 @@
         "documentation": {}
     },
     {
+        "label": "Enum",
+        "importPath": "enum",
+        "description": "enum",
+        "isExtraImport": true,
+        "detail": "enum",
+        "documentation": {}
+    },
+    {
         "label": "cryptocode",
         "kind": 6,
         "isExtraImport": true,
@@ -1096,11 +1104,27 @@
         "documentation": {}
     },
     {
+        "label": "signal",
+        "importPath": "signal",
+        "description": "signal",
+        "isExtraImport": true,
+        "detail": "signal",
+        "documentation": {}
+    },
+    {
         "label": "ONE_OR_MORE",
         "importPath": "argparse",
         "description": "argparse",
         "isExtraImport": true,
         "detail": "argparse",
+        "documentation": {}
+    },
+    {
+        "label": "List",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
         "documentation": {}
     },
     {
@@ -1152,6 +1176,14 @@
         "description": "datetime",
         "isExtraImport": true,
         "detail": "datetime",
+        "documentation": {}
+    },
+    {
+        "label": "reduce",
+        "importPath": "functools",
+        "description": "functools",
+        "isExtraImport": true,
+        "detail": "functools",
         "documentation": {}
     },
     {
@@ -1225,6 +1257,22 @@
         "description": "util.Config",
         "isExtraImport": true,
         "detail": "util.Config",
+        "documentation": {}
+    },
+    {
+        "label": "Config",
+        "importPath": "util.Config",
+        "description": "util.Config",
+        "isExtraImport": true,
+        "detail": "util.Config",
+        "documentation": {}
+    },
+    {
+        "label": "UpscaleType",
+        "importPath": "util.Upscaler",
+        "description": "util.Upscaler",
+        "isExtraImport": true,
+        "detail": "util.Upscaler",
         "documentation": {}
     },
     {
@@ -1424,6 +1472,15 @@
         "documentation": {}
     },
     {
+        "label": "UpscaleType",
+        "kind": 6,
+        "importPath": "app.util.Upscaler",
+        "description": "app.util.Upscaler",
+        "peekOfCode": "class UpscaleType(Enum):\n    IMAGE = 1\n    COMPRESS_IMAGE = 2\nclass UpscalerSignal(QObject):\n    upscale_state = Signal(str, bool, int, int)  # run, current, total\nclass Upscaler(QObject):\n    signals = UpscalerSignal()\n    def __init__(self, parent=None):\n        self._parent = parent\n        self.p = None",
+        "detail": "app.util.Upscaler",
+        "documentation": {}
+    },
+    {
         "label": "UpscalerSignal",
         "kind": 6,
         "importPath": "app.util.Upscaler",
@@ -1437,7 +1494,7 @@
         "kind": 6,
         "importPath": "app.util.Upscaler",
         "description": "app.util.Upscaler",
-        "peekOfCode": "class Upscaler(QObject):\n    signals = UpscalerSignal()\n    def __init__(self, parent=None):\n        self._parent = parent\n        self.p = None\n        self.total = 0\n        self.path = \"\"\n        self.currentIndex = 0\n        self.file_list = []\n    def start(self, id: str, files):",
+        "peekOfCode": "class Upscaler(QObject):\n    signals = UpscalerSignal()\n    def __init__(self, parent=None):\n        self._parent = parent\n        self.p = None\n        self.total = 0\n        self.path = \"\"\n        self.currentIndex = 0\n        self.file_list = []\n    def set(self, id: str, type: UpscaleType, files: List[str]):",
         "detail": "app.util.Upscaler",
         "documentation": {}
     },
@@ -1518,7 +1575,16 @@
         "kind": 6,
         "importPath": "app.UpscaleItem",
         "description": "app.UpscaleItem",
-        "peekOfCode": "class ItemState(Enum):\n    READY = 1\n    DOING = 2\n    DONE = 3\n    ERROR = 4\nclass UpscaleItem(QWidget):\n    def __init__(self, parent: MainWindow, file_path: str):\n        super(UpscaleItem, self).__init__()\n        self._parent = parent\n        self.ui = Ui_UpscaleItem()",
+        "peekOfCode": "class ItemState(Enum):\n    READY = 1\n    DOING = 2\n    DONE = 3\n    ERROR = 4\nclass UpscaleItemSignal(QObject):\n    run = Signal()\nclass UpscaleItem(QWidget):\n    signals = UpscaleItemSignal()\n    def __init__(self, parent: MainWindow, file_path: str):",
+        "detail": "app.UpscaleItem",
+        "documentation": {}
+    },
+    {
+        "label": "UpscaleItemSignal",
+        "kind": 6,
+        "importPath": "app.UpscaleItem",
+        "description": "app.UpscaleItem",
+        "peekOfCode": "class UpscaleItemSignal(QObject):\n    run = Signal()\nclass UpscaleItem(QWidget):\n    signals = UpscaleItemSignal()\n    def __init__(self, parent: MainWindow, file_path: str):\n        super(UpscaleItem, self).__init__()\n        self._parent = parent\n        self.ui = Ui_UpscaleItem()\n        self.ui.setupUi(self)\n        self.id = file_path",
         "detail": "app.UpscaleItem",
         "documentation": {}
     },
@@ -1527,7 +1593,7 @@
         "kind": 6,
         "importPath": "app.UpscaleItem",
         "description": "app.UpscaleItem",
-        "peekOfCode": "class UpscaleItem(QWidget):\n    def __init__(self, parent: MainWindow, file_path: str):\n        super(UpscaleItem, self).__init__()\n        self._parent = parent\n        self.ui = Ui_UpscaleItem()\n        self.ui.setupUi(self)\n        self.file_path = file_path\n        self.base_name = os.path.basename(file_path)\n        self.dir_name = os.path.dirname(file_path)\n        self.is_done = False",
+        "peekOfCode": "class UpscaleItem(QWidget):\n    signals = UpscaleItemSignal()\n    def __init__(self, parent: MainWindow, file_path: str):\n        super(UpscaleItem, self).__init__()\n        self._parent = parent\n        self.ui = Ui_UpscaleItem()\n        self.ui.setupUi(self)\n        self.id = file_path\n        self.file_path = file_path\n        self.base_name = os.path.basename(file_path)",
         "detail": "app.UpscaleItem",
         "documentation": {}
     },
