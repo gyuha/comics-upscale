@@ -153,13 +153,7 @@ class MainWindow(QMainWindow):
                     if add:
                         item_count += 1
         if item_count == 0:
-            QToaster.showMessage(
-                self,
-                "test",
-                corner=QtCore.Qt.TopRightCorner,
-                timeout=1000,
-                closable=False,
-            )
+            self.ui.statusbar.showMessage('No items have been added.')
 
     def _check_exist_item(self, file_path) -> bool:
         if file_path in self.item_dict:
@@ -167,7 +161,6 @@ class MainWindow(QMainWindow):
         return False
 
     def _add_item(self, file_path: str) -> bool:
-        print("📢[MainWindow.py:165]: ", self._check_exist_item(file_path))
         if not self._check_file_type(file_path) or self._check_exist_item(file_path):
             return False
 
