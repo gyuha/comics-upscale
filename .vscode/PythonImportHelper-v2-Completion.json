@@ -51,32 +51,6 @@
         "documentation": {}
     },
     {
-        "label": "yaml",
-        "kind": 6,
-        "isExtraImport": true,
-        "importPath": "yaml",
-        "description": "yaml",
-        "detail": "yaml",
-        "documentation": {}
-    },
-    {
-        "label": "re",
-        "kind": 6,
-        "isExtraImport": true,
-        "importPath": "re",
-        "description": "re",
-        "detail": "re",
-        "documentation": {}
-    },
-    {
-        "label": "Singleton",
-        "importPath": "lib.Singleton",
-        "description": "lib.Singleton",
-        "isExtraImport": true,
-        "detail": "lib.Singleton",
-        "documentation": {}
-    },
-    {
         "label": "cryptocode",
         "kind": 6,
         "isExtraImport": true,
@@ -103,6 +77,22 @@
     },
     {
         "label": "QtWidgets",
+        "importPath": "PySide6",
+        "description": "PySide6",
+        "isExtraImport": true,
+        "detail": "PySide6",
+        "documentation": {}
+    },
+    {
+        "label": "QtWidgets",
+        "importPath": "PySide6",
+        "description": "PySide6",
+        "isExtraImport": true,
+        "detail": "PySide6",
+        "documentation": {}
+    },
+    {
+        "label": "QtCore",
         "importPath": "PySide6",
         "description": "PySide6",
         "isExtraImport": true,
@@ -358,6 +348,14 @@
         "documentation": {}
     },
     {
+        "label": "QDate",
+        "importPath": "PySide6.QtCore",
+        "description": "PySide6.QtCore",
+        "isExtraImport": true,
+        "detail": "PySide6.QtCore",
+        "documentation": {}
+    },
+    {
         "label": "Qt",
         "importPath": "PySide6.QtCore",
         "description": "PySide6.QtCore",
@@ -375,14 +373,6 @@
     },
     {
         "label": "QTimer",
-        "importPath": "PySide6.QtCore",
-        "description": "PySide6.QtCore",
-        "isExtraImport": true,
-        "detail": "PySide6.QtCore",
-        "documentation": {}
-    },
-    {
-        "label": "QDate",
         "importPath": "PySide6.QtCore",
         "description": "PySide6.QtCore",
         "isExtraImport": true,
@@ -435,134 +425,6 @@
         "description": "PySide6.QtCore",
         "isExtraImport": true,
         "detail": "PySide6.QtCore",
-        "documentation": {}
-    },
-    {
-        "label": "QBrush",
-        "importPath": "PySide6.QtGui",
-        "description": "PySide6.QtGui",
-        "isExtraImport": true,
-        "detail": "PySide6.QtGui",
-        "documentation": {}
-    },
-    {
-        "label": "QColor",
-        "importPath": "PySide6.QtGui",
-        "description": "PySide6.QtGui",
-        "isExtraImport": true,
-        "detail": "PySide6.QtGui",
-        "documentation": {}
-    },
-    {
-        "label": "QConicalGradient",
-        "importPath": "PySide6.QtGui",
-        "description": "PySide6.QtGui",
-        "isExtraImport": true,
-        "detail": "PySide6.QtGui",
-        "documentation": {}
-    },
-    {
-        "label": "QCursor",
-        "importPath": "PySide6.QtGui",
-        "description": "PySide6.QtGui",
-        "isExtraImport": true,
-        "detail": "PySide6.QtGui",
-        "documentation": {}
-    },
-    {
-        "label": "QFont",
-        "importPath": "PySide6.QtGui",
-        "description": "PySide6.QtGui",
-        "isExtraImport": true,
-        "detail": "PySide6.QtGui",
-        "documentation": {}
-    },
-    {
-        "label": "QFontDatabase",
-        "importPath": "PySide6.QtGui",
-        "description": "PySide6.QtGui",
-        "isExtraImport": true,
-        "detail": "PySide6.QtGui",
-        "documentation": {}
-    },
-    {
-        "label": "QGradient",
-        "importPath": "PySide6.QtGui",
-        "description": "PySide6.QtGui",
-        "isExtraImport": true,
-        "detail": "PySide6.QtGui",
-        "documentation": {}
-    },
-    {
-        "label": "QIcon",
-        "importPath": "PySide6.QtGui",
-        "description": "PySide6.QtGui",
-        "isExtraImport": true,
-        "detail": "PySide6.QtGui",
-        "documentation": {}
-    },
-    {
-        "label": "QImage",
-        "importPath": "PySide6.QtGui",
-        "description": "PySide6.QtGui",
-        "isExtraImport": true,
-        "detail": "PySide6.QtGui",
-        "documentation": {}
-    },
-    {
-        "label": "QKeySequence",
-        "importPath": "PySide6.QtGui",
-        "description": "PySide6.QtGui",
-        "isExtraImport": true,
-        "detail": "PySide6.QtGui",
-        "documentation": {}
-    },
-    {
-        "label": "QLinearGradient",
-        "importPath": "PySide6.QtGui",
-        "description": "PySide6.QtGui",
-        "isExtraImport": true,
-        "detail": "PySide6.QtGui",
-        "documentation": {}
-    },
-    {
-        "label": "QPainter",
-        "importPath": "PySide6.QtGui",
-        "description": "PySide6.QtGui",
-        "isExtraImport": true,
-        "detail": "PySide6.QtGui",
-        "documentation": {}
-    },
-    {
-        "label": "QPalette",
-        "importPath": "PySide6.QtGui",
-        "description": "PySide6.QtGui",
-        "isExtraImport": true,
-        "detail": "PySide6.QtGui",
-        "documentation": {}
-    },
-    {
-        "label": "QPixmap",
-        "importPath": "PySide6.QtGui",
-        "description": "PySide6.QtGui",
-        "isExtraImport": true,
-        "detail": "PySide6.QtGui",
-        "documentation": {}
-    },
-    {
-        "label": "QRadialGradient",
-        "importPath": "PySide6.QtGui",
-        "description": "PySide6.QtGui",
-        "isExtraImport": true,
-        "detail": "PySide6.QtGui",
-        "documentation": {}
-    },
-    {
-        "label": "QTransform",
-        "importPath": "PySide6.QtGui",
-        "description": "PySide6.QtGui",
-        "isExtraImport": true,
-        "detail": "PySide6.QtGui",
         "documentation": {}
     },
     {
@@ -702,7 +564,7 @@
         "documentation": {}
     },
     {
-        "label": "QDropEvent",
+        "label": "QBrush",
         "importPath": "PySide6.QtGui",
         "description": "PySide6.QtGui",
         "isExtraImport": true,
@@ -710,7 +572,119 @@
         "documentation": {}
     },
     {
-        "label": "QDragMoveEvent",
+        "label": "QColor",
+        "importPath": "PySide6.QtGui",
+        "description": "PySide6.QtGui",
+        "isExtraImport": true,
+        "detail": "PySide6.QtGui",
+        "documentation": {}
+    },
+    {
+        "label": "QConicalGradient",
+        "importPath": "PySide6.QtGui",
+        "description": "PySide6.QtGui",
+        "isExtraImport": true,
+        "detail": "PySide6.QtGui",
+        "documentation": {}
+    },
+    {
+        "label": "QCursor",
+        "importPath": "PySide6.QtGui",
+        "description": "PySide6.QtGui",
+        "isExtraImport": true,
+        "detail": "PySide6.QtGui",
+        "documentation": {}
+    },
+    {
+        "label": "QFont",
+        "importPath": "PySide6.QtGui",
+        "description": "PySide6.QtGui",
+        "isExtraImport": true,
+        "detail": "PySide6.QtGui",
+        "documentation": {}
+    },
+    {
+        "label": "QFontDatabase",
+        "importPath": "PySide6.QtGui",
+        "description": "PySide6.QtGui",
+        "isExtraImport": true,
+        "detail": "PySide6.QtGui",
+        "documentation": {}
+    },
+    {
+        "label": "QGradient",
+        "importPath": "PySide6.QtGui",
+        "description": "PySide6.QtGui",
+        "isExtraImport": true,
+        "detail": "PySide6.QtGui",
+        "documentation": {}
+    },
+    {
+        "label": "QIcon",
+        "importPath": "PySide6.QtGui",
+        "description": "PySide6.QtGui",
+        "isExtraImport": true,
+        "detail": "PySide6.QtGui",
+        "documentation": {}
+    },
+    {
+        "label": "QImage",
+        "importPath": "PySide6.QtGui",
+        "description": "PySide6.QtGui",
+        "isExtraImport": true,
+        "detail": "PySide6.QtGui",
+        "documentation": {}
+    },
+    {
+        "label": "QKeySequence",
+        "importPath": "PySide6.QtGui",
+        "description": "PySide6.QtGui",
+        "isExtraImport": true,
+        "detail": "PySide6.QtGui",
+        "documentation": {}
+    },
+    {
+        "label": "QLinearGradient",
+        "importPath": "PySide6.QtGui",
+        "description": "PySide6.QtGui",
+        "isExtraImport": true,
+        "detail": "PySide6.QtGui",
+        "documentation": {}
+    },
+    {
+        "label": "QPainter",
+        "importPath": "PySide6.QtGui",
+        "description": "PySide6.QtGui",
+        "isExtraImport": true,
+        "detail": "PySide6.QtGui",
+        "documentation": {}
+    },
+    {
+        "label": "QPalette",
+        "importPath": "PySide6.QtGui",
+        "description": "PySide6.QtGui",
+        "isExtraImport": true,
+        "detail": "PySide6.QtGui",
+        "documentation": {}
+    },
+    {
+        "label": "QPixmap",
+        "importPath": "PySide6.QtGui",
+        "description": "PySide6.QtGui",
+        "isExtraImport": true,
+        "detail": "PySide6.QtGui",
+        "documentation": {}
+    },
+    {
+        "label": "QRadialGradient",
+        "importPath": "PySide6.QtGui",
+        "description": "PySide6.QtGui",
+        "isExtraImport": true,
+        "detail": "PySide6.QtGui",
+        "documentation": {}
+    },
+    {
+        "label": "QTransform",
         "importPath": "PySide6.QtGui",
         "description": "PySide6.QtGui",
         "isExtraImport": true,
@@ -726,75 +700,19 @@
         "documentation": {}
     },
     {
-        "label": "QApplication",
-        "importPath": "PySide6.QtWidgets",
-        "description": "PySide6.QtWidgets",
+        "label": "QDragMoveEvent",
+        "importPath": "PySide6.QtGui",
+        "description": "PySide6.QtGui",
         "isExtraImport": true,
-        "detail": "PySide6.QtWidgets",
+        "detail": "PySide6.QtGui",
         "documentation": {}
     },
     {
-        "label": "QHBoxLayout",
-        "importPath": "PySide6.QtWidgets",
-        "description": "PySide6.QtWidgets",
+        "label": "QDropEvent",
+        "importPath": "PySide6.QtGui",
+        "description": "PySide6.QtGui",
         "isExtraImport": true,
-        "detail": "PySide6.QtWidgets",
-        "documentation": {}
-    },
-    {
-        "label": "QLabel",
-        "importPath": "PySide6.QtWidgets",
-        "description": "PySide6.QtWidgets",
-        "isExtraImport": true,
-        "detail": "PySide6.QtWidgets",
-        "documentation": {}
-    },
-    {
-        "label": "QProgressBar",
-        "importPath": "PySide6.QtWidgets",
-        "description": "PySide6.QtWidgets",
-        "isExtraImport": true,
-        "detail": "PySide6.QtWidgets",
-        "documentation": {}
-    },
-    {
-        "label": "QPushButton",
-        "importPath": "PySide6.QtWidgets",
-        "description": "PySide6.QtWidgets",
-        "isExtraImport": true,
-        "detail": "PySide6.QtWidgets",
-        "documentation": {}
-    },
-    {
-        "label": "QSizePolicy",
-        "importPath": "PySide6.QtWidgets",
-        "description": "PySide6.QtWidgets",
-        "isExtraImport": true,
-        "detail": "PySide6.QtWidgets",
-        "documentation": {}
-    },
-    {
-        "label": "QSpacerItem",
-        "importPath": "PySide6.QtWidgets",
-        "description": "PySide6.QtWidgets",
-        "isExtraImport": true,
-        "detail": "PySide6.QtWidgets",
-        "documentation": {}
-    },
-    {
-        "label": "QVBoxLayout",
-        "importPath": "PySide6.QtWidgets",
-        "description": "PySide6.QtWidgets",
-        "isExtraImport": true,
-        "detail": "PySide6.QtWidgets",
-        "documentation": {}
-    },
-    {
-        "label": "QWidget",
-        "importPath": "PySide6.QtWidgets",
-        "description": "PySide6.QtWidgets",
-        "isExtraImport": true,
-        "detail": "PySide6.QtWidgets",
+        "detail": "PySide6.QtGui",
         "documentation": {}
     },
     {
@@ -926,6 +844,78 @@
         "documentation": {}
     },
     {
+        "label": "QHBoxLayout",
+        "importPath": "PySide6.QtWidgets",
+        "description": "PySide6.QtWidgets",
+        "isExtraImport": true,
+        "detail": "PySide6.QtWidgets",
+        "documentation": {}
+    },
+    {
+        "label": "QLabel",
+        "importPath": "PySide6.QtWidgets",
+        "description": "PySide6.QtWidgets",
+        "isExtraImport": true,
+        "detail": "PySide6.QtWidgets",
+        "documentation": {}
+    },
+    {
+        "label": "QProgressBar",
+        "importPath": "PySide6.QtWidgets",
+        "description": "PySide6.QtWidgets",
+        "isExtraImport": true,
+        "detail": "PySide6.QtWidgets",
+        "documentation": {}
+    },
+    {
+        "label": "QPushButton",
+        "importPath": "PySide6.QtWidgets",
+        "description": "PySide6.QtWidgets",
+        "isExtraImport": true,
+        "detail": "PySide6.QtWidgets",
+        "documentation": {}
+    },
+    {
+        "label": "QSizePolicy",
+        "importPath": "PySide6.QtWidgets",
+        "description": "PySide6.QtWidgets",
+        "isExtraImport": true,
+        "detail": "PySide6.QtWidgets",
+        "documentation": {}
+    },
+    {
+        "label": "QSpacerItem",
+        "importPath": "PySide6.QtWidgets",
+        "description": "PySide6.QtWidgets",
+        "isExtraImport": true,
+        "detail": "PySide6.QtWidgets",
+        "documentation": {}
+    },
+    {
+        "label": "QVBoxLayout",
+        "importPath": "PySide6.QtWidgets",
+        "description": "PySide6.QtWidgets",
+        "isExtraImport": true,
+        "detail": "PySide6.QtWidgets",
+        "documentation": {}
+    },
+    {
+        "label": "QWidget",
+        "importPath": "PySide6.QtWidgets",
+        "description": "PySide6.QtWidgets",
+        "isExtraImport": true,
+        "detail": "PySide6.QtWidgets",
+        "documentation": {}
+    },
+    {
+        "label": "QApplication",
+        "importPath": "PySide6.QtWidgets",
+        "description": "PySide6.QtWidgets",
+        "isExtraImport": true,
+        "detail": "PySide6.QtWidgets",
+        "documentation": {}
+    },
+    {
         "label": "QListWidgetItem",
         "importPath": "PySide6.QtWidgets",
         "description": "PySide6.QtWidgets",
@@ -959,6 +949,48 @@
         "documentation": {}
     },
     {
+        "label": "yaml",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "yaml",
+        "description": "yaml",
+        "detail": "yaml",
+        "documentation": {}
+    },
+    {
+        "label": "re",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "re",
+        "description": "re",
+        "detail": "re",
+        "documentation": {}
+    },
+    {
+        "label": "Singleton",
+        "importPath": "lib.Singleton",
+        "description": "lib.Singleton",
+        "isExtraImport": true,
+        "detail": "lib.Singleton",
+        "documentation": {}
+    },
+    {
+        "label": "QToaster",
+        "importPath": "lib.QToaster",
+        "description": "lib.QToaster",
+        "isExtraImport": true,
+        "detail": "lib.QToaster",
+        "documentation": {}
+    },
+    {
+        "label": "QToaster",
+        "importPath": "lib.QToaster",
+        "description": "lib.QToaster",
+        "isExtraImport": true,
+        "detail": "lib.QToaster",
+        "documentation": {}
+    },
+    {
         "label": "time",
         "kind": 6,
         "isExtraImport": true,
@@ -973,14 +1005,6 @@
         "isExtraImport": true,
         "importPath": "MainWindow",
         "description": "MainWindow",
-        "detail": "MainWindow",
-        "documentation": {}
-    },
-    {
-        "label": "MainWindow",
-        "importPath": "MainWindow",
-        "description": "MainWindow",
-        "isExtraImport": true,
         "detail": "MainWindow",
         "documentation": {}
     },
@@ -1026,30 +1050,6 @@
         "documentation": {}
     },
     {
-        "label": "isdir",
-        "importPath": "genericpath",
-        "description": "genericpath",
-        "isExtraImport": true,
-        "detail": "genericpath",
-        "documentation": {}
-    },
-    {
-        "label": "ItemStateWorker",
-        "importPath": "ItemStateWorker",
-        "description": "ItemStateWorker",
-        "isExtraImport": true,
-        "detail": "ItemStateWorker",
-        "documentation": {}
-    },
-    {
-        "label": "SettingEnum",
-        "importPath": "constant.SettingEnum",
-        "description": "constant.SettingEnum",
-        "isExtraImport": true,
-        "detail": "constant.SettingEnum",
-        "documentation": {}
-    },
-    {
         "label": "pathlib",
         "kind": 6,
         "isExtraImport": true,
@@ -1067,11 +1067,27 @@
         "documentation": {}
     },
     {
-        "label": "Config",
-        "importPath": "lib.Config",
-        "description": "lib.Config",
+        "label": "isdir",
+        "importPath": "genericpath",
+        "description": "genericpath",
         "isExtraImport": true,
-        "detail": "lib.Config",
+        "detail": "genericpath",
+        "documentation": {}
+    },
+    {
+        "label": "SettingEnum",
+        "importPath": "constant.SettingEnum",
+        "description": "constant.SettingEnum",
+        "isExtraImport": true,
+        "detail": "constant.SettingEnum",
+        "documentation": {}
+    },
+    {
+        "label": "ItemStateWorker",
+        "importPath": "ItemStateWorker",
+        "description": "ItemStateWorker",
+        "isExtraImport": true,
+        "detail": "ItemStateWorker",
         "documentation": {}
     },
     {
@@ -1080,6 +1096,38 @@
         "description": "ui.ui_MainWindow",
         "isExtraImport": true,
         "detail": "ui.ui_MainWindow",
+        "documentation": {}
+    },
+    {
+        "label": "UpscaleItem",
+        "importPath": "UpscaleItem",
+        "description": "UpscaleItem",
+        "isExtraImport": true,
+        "detail": "UpscaleItem",
+        "documentation": {}
+    },
+    {
+        "label": "Config",
+        "importPath": "util.Config",
+        "description": "util.Config",
+        "isExtraImport": true,
+        "detail": "util.Config",
+        "documentation": {}
+    },
+    {
+        "label": "toast",
+        "importPath": "util.message",
+        "description": "util.message",
+        "isExtraImport": true,
+        "detail": "util.message",
+        "documentation": {}
+    },
+    {
+        "label": "Ui_UpscaleItem",
+        "importPath": "ui.ui_UpscaleItem",
+        "description": "ui.ui_UpscaleItem",
+        "isExtraImport": true,
+        "detail": "ui.ui_UpscaleItem",
         "documentation": {}
     },
     {
@@ -1164,15 +1212,6 @@
         "documentation": {}
     },
     {
-        "label": "Config",
-        "kind": 6,
-        "importPath": "app.lib.Config",
-        "description": "app.lib.Config",
-        "peekOfCode": "class Config(metaclass=Singleton):\n    @property\n    def data(self):\n        return self.__data\n    @data.setter\n    def data(self, value):\n        self.__data = value\n    @property\n    def setting(self):\n        return self.__data[\"setting\"]",
-        "detail": "app.lib.Config",
-        "documentation": {}
-    },
-    {
         "label": "Crypto",
         "kind": 6,
         "importPath": "app.lib.Crypto",
@@ -1227,21 +1266,48 @@
         "documentation": {}
     },
     {
-        "label": "Ui_Form",
-        "kind": 6,
-        "importPath": "app.ui.ui_Item",
-        "description": "app.ui.ui_Item",
-        "peekOfCode": "class Ui_Form(object):\n    def setupUi(self, Form):\n        if not Form.objectName():\n            Form.setObjectName(u\"Form\")\n        Form.resize(779, 78)\n        Form.setMaximumSize(QSize(16777215, 78))\n        self.horizontalLayout_2 = QHBoxLayout(Form)\n        self.horizontalLayout_2.setObjectName(u\"horizontalLayout_2\")\n        self.verticalLayout = QVBoxLayout()\n        self.verticalLayout.setObjectName(u\"verticalLayout\")",
-        "detail": "app.ui.ui_Item",
-        "documentation": {}
-    },
-    {
         "label": "Ui_MainWindow",
         "kind": 6,
         "importPath": "app.ui.ui_MainWindow",
         "description": "app.ui.ui_MainWindow",
-        "peekOfCode": "class Ui_MainWindow(object):\n    def setupUi(self, MainWindow):\n        if not MainWindow.objectName():\n            MainWindow.setObjectName(u\"MainWindow\")\n        MainWindow.resize(784, 636)\n        icon = QIcon()\n        icon.addFile(u\":/icon/icons/icon.png\", QSize(), QIcon.Normal, QIcon.Off)\n        MainWindow.setWindowIcon(icon)\n        self.action_always_top = QAction(MainWindow)\n        self.action_always_top.setObjectName(u\"action_always_top\")",
+        "peekOfCode": "class Ui_MainWindow(object):\n    def setupUi(self, MainWindow):\n        if not MainWindow.objectName():\n            MainWindow.setObjectName(u\"MainWindow\")\n        MainWindow.resize(680, 500)\n        MainWindow.setMinimumSize(QSize(640, 0))\n        icon = QIcon()\n        icon.addFile(u\":/icon/icons/icon.png\", QSize(), QIcon.Normal, QIcon.Off)\n        MainWindow.setWindowIcon(icon)\n        self.action_always_top = QAction(MainWindow)",
         "detail": "app.ui.ui_MainWindow",
+        "documentation": {}
+    },
+    {
+        "label": "Ui_UpscaleItem",
+        "kind": 6,
+        "importPath": "app.ui.ui_UpscaleItem",
+        "description": "app.ui.ui_UpscaleItem",
+        "peekOfCode": "class Ui_UpscaleItem(object):\n    def setupUi(self, UpscaleItem):\n        if not UpscaleItem.objectName():\n            UpscaleItem.setObjectName(u\"UpscaleItem\")\n        UpscaleItem.resize(635, 78)\n        UpscaleItem.setMaximumSize(QSize(16777215, 78))\n        self.horizontalLayout_2 = QHBoxLayout(UpscaleItem)\n        self.horizontalLayout_2.setObjectName(u\"horizontalLayout_2\")\n        self.verticalLayout = QVBoxLayout()\n        self.verticalLayout.setObjectName(u\"verticalLayout\")",
+        "detail": "app.ui.ui_UpscaleItem",
+        "documentation": {}
+    },
+    {
+        "label": "Config",
+        "kind": 6,
+        "importPath": "app.util.Config",
+        "description": "app.util.Config",
+        "peekOfCode": "class Config(metaclass=Singleton):\n    @property\n    def data(self):\n        return self.__data\n    @data.setter\n    def data(self, value):\n        self.__data = value\n    @property\n    def setting(self):\n        return self.__data[\"setting\"]",
+        "detail": "app.util.Config",
+        "documentation": {}
+    },
+    {
+        "label": "alert",
+        "kind": 2,
+        "importPath": "app.util.message",
+        "description": "app.util.message",
+        "peekOfCode": "def alert(text):\n    error_dialog = QtWidgets.QErrorMessage()\n    error_dialog.showMessage(text)\ndef toast(self, text):\n    QToaster.showMessage(self, text, corner=QtCore.Qt.TopRightCorner, timeout=1000, closable=False)",
+        "detail": "app.util.message",
+        "documentation": {}
+    },
+    {
+        "label": "toast",
+        "kind": 2,
+        "importPath": "app.util.message",
+        "description": "app.util.message",
+        "peekOfCode": "def toast(self, text):\n    QToaster.showMessage(self, text, corner=QtCore.Qt.TopRightCorner, timeout=1000, closable=False)",
+        "detail": "app.util.message",
         "documentation": {}
     },
     {
@@ -1312,7 +1378,7 @@
         "kind": 6,
         "importPath": "app.UpscaleItem",
         "description": "app.UpscaleItem",
-        "peekOfCode": "class UpscaleItem(QWidget):\n    def __init__(self, parent: MainWindow, id: str):\n        super(UpscaleItem, self).__init__()\n        self._parent = parent",
+        "peekOfCode": "class UpscaleItem(QWidget):\n    def __init__(self, parent: MainWindow, file_path: str):\n        super(UpscaleItem, self).__init__()\n        self._parent = parent\n        self.ui = Ui_UpscaleItem()\n        self.ui.setupUi(self)\n        self.file_path = file_path\n        print('📢[UpscaleItem.py:22]: ', str)\n        self._init_text()\n    def _init_text(self):",
         "detail": "app.UpscaleItem",
         "documentation": {}
     },

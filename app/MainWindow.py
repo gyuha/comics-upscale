@@ -1,22 +1,24 @@
+import os
+import re
 from ast import List
 from datetime import datetime
 from enum import Enum
 from functools import reduce
-from genericpath import isdir
-import os
-import re
-
-from PySide6.QtCore import Qt
-from PySide6 import QtCore, QtGui
-from PySide6.QtCore import QTime, QTimer, QDate
-from PySide6.QtGui import QDropEvent, QDragMoveEvent, QDragEnterEvent
-from PySide6.QtWidgets import QListWidgetItem, QMainWindow
-from ItemStateWorker import ItemStateWorker
-from constant.SettingEnum import SettingEnum
 from pathlib import Path
 
-from lib.Config import Config
+from genericpath import isdir
+from PySide6 import QtCore, QtGui
+from PySide6.QtCore import QDate, Qt, QTime, QTimer
+from PySide6.QtGui import QDragEnterEvent, QDragMoveEvent, QDropEvent
+from PySide6.QtWidgets import QListWidgetItem, QMainWindow
+
+from constant.SettingEnum import SettingEnum
+from ItemStateWorker import ItemStateWorker
+from lib.QToaster import QToaster
 from ui.ui_MainWindow import Ui_MainWindow
+from UpscaleItem import UpscaleItem
+from util.Config import Config
+from util.message import toast
 
 
 class MainWindow(QMainWindow):
@@ -32,10 +34,16 @@ class MainWindow(QMainWindow):
         self.itemState = ItemStateWorker(self)
         self.itemState.start()
 
+        self.item_dict: dict[str, QListWidgetItem] = {}
+
         self._re_allow_file = re.compile(
             "\.("
             + reduce(lambda x, y: x + "|" + y, self.config.data["allow_file"])
             + ")$"
+        )
+
+        self.ui.lst_item_list.setStyleSheet(
+            "QListWidget::item { border-bottom: 1px solid #eee; }"
         )
 
     def _init_connect(self):
@@ -123,11 +131,30 @@ class MainWindow(QMainWindow):
                 continue
 
             if os.path.isfile(item):
-                print("📢[MainWindow.py:92]: file => ", item)
-                print('📢[MainWindow.py:131]: ', self._check_file_type(item))
+                self._add_item(item)
 
             if os.path.isdir(item):
                 print("📢[MainWindow.py:92]:  => ", item)
+    
+    def _check_exist_item(self, file_path) -> bool:
+        if file_path in self.item_dict:
+            toast(self, "It is already registered file.")
+            return False;
+        return True
+    
+    def _add_item(self, file_path: str):
+        if not self._check_file_type(file_path):
+            return
+
+        widget = UpscaleItem(self, file_path)
+
+        title_item = QListWidgetItem(self.ui.lst_item_list)
+        self.item_dict[file_path] = title_item
+        title_item.setSizeHint(widget.sizeHint())
+        self.ui.lst_item_list.addItem(title_item)
+        self.ui.lst_item_list.setItemWidget(title_item, widget)
+
+
 
     def closeEvent(self, event):
         self.itemState.stop()

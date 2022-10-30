@@ -26,7 +26,8 @@ class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         if not MainWindow.objectName():
             MainWindow.setObjectName(u"MainWindow")
-        MainWindow.resize(784, 636)
+        MainWindow.resize(680, 500)
+        MainWindow.setMinimumSize(QSize(640, 0))
         icon = QIcon()
         icon.addFile(u":/icon/icons/icon.png", QSize(), QIcon.Normal, QIcon.Off)
         MainWindow.setWindowIcon(icon)
@@ -211,6 +212,7 @@ class Ui_MainWindow(object):
 
         self.lst_item_list = QListWidget(self.centralwidget)
         self.lst_item_list.setObjectName(u"lst_item_list")
+        self.lst_item_list.setHorizontalScrollBarPolicy(Qt.ScrollBarAlwaysOff)
         self.lst_item_list.setDragEnabled(False)
 
         self.verticalLayout_2.addWidget(self.lst_item_list)
