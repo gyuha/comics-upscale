@@ -20,12 +20,16 @@ from PySide6.QtWidgets import (QApplication, QCheckBox, QComboBox, QFormLayout,
     QHBoxLayout, QLabel, QListWidget, QListWidgetItem,
     QMainWindow, QPushButton, QSizePolicy, QSpacerItem,
     QStatusBar, QVBoxLayout, QWidget)
+import resources_rc
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         if not MainWindow.objectName():
             MainWindow.setObjectName(u"MainWindow")
         MainWindow.resize(784, 636)
+        icon = QIcon()
+        icon.addFile(u":/icon/icons/icon.png", QSize(), QIcon.Normal, QIcon.Off)
+        MainWindow.setWindowIcon(icon)
         self.action_always_top = QAction(MainWindow)
         self.action_always_top.setObjectName(u"action_always_top")
         self.action_always_top.setCheckable(True)
@@ -205,24 +209,24 @@ class Ui_MainWindow(object):
 
         self.verticalLayout_2.addLayout(self.horizontalLayout)
 
-        self.listWidget = QListWidget(self.centralwidget)
-        self.listWidget.setObjectName(u"listWidget")
-        self.listWidget.setDragEnabled(False)
+        self.lst_item_list = QListWidget(self.centralwidget)
+        self.lst_item_list.setObjectName(u"lst_item_list")
+        self.lst_item_list.setDragEnabled(False)
 
-        self.verticalLayout_2.addWidget(self.listWidget)
+        self.verticalLayout_2.addWidget(self.lst_item_list)
 
         self.horizontalLayout_3 = QHBoxLayout()
         self.horizontalLayout_3.setObjectName(u"horizontalLayout_3")
         self.horizontalLayout_3.setContentsMargins(10, 10, 10, 10)
-        self.pushButton_2 = QPushButton(self.centralwidget)
-        self.pushButton_2.setObjectName(u"pushButton_2")
+        self.btn_add_folder = QPushButton(self.centralwidget)
+        self.btn_add_folder.setObjectName(u"btn_add_folder")
 
-        self.horizontalLayout_3.addWidget(self.pushButton_2)
+        self.horizontalLayout_3.addWidget(self.btn_add_folder)
 
-        self.pushButton_3 = QPushButton(self.centralwidget)
-        self.pushButton_3.setObjectName(u"pushButton_3")
+        self.btn_add_file = QPushButton(self.centralwidget)
+        self.btn_add_file.setObjectName(u"btn_add_file")
 
-        self.horizontalLayout_3.addWidget(self.pushButton_3)
+        self.horizontalLayout_3.addWidget(self.btn_add_file)
 
         self.horizontalSpacer = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
 
@@ -335,8 +339,8 @@ class Ui_MainWindow(object):
         self.cmb_jpg_optimize.setItemText(24, QCoreApplication.translate("MainWindow", u"76", None))
         self.cmb_jpg_optimize.setItemText(25, QCoreApplication.translate("MainWindow", u"75", None))
 
-        self.pushButton_2.setText(QCoreApplication.translate("MainWindow", u"Add folder", None))
-        self.pushButton_3.setText(QCoreApplication.translate("MainWindow", u"Add file", None))
+        self.btn_add_folder.setText(QCoreApplication.translate("MainWindow", u"Add folder", None))
+        self.btn_add_file.setText(QCoreApplication.translate("MainWindow", u"Add file", None))
         self.btn_start.setText(QCoreApplication.translate("MainWindow", u"Start", None))
     # retranslateUi
 

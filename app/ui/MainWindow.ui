@@ -13,6 +13,10 @@
   <property name="windowTitle">
    <string>Comics upscale</string>
   </property>
+  <property name="windowIcon">
+   <iconset resource="resources.qrc">
+    <normaloff>:/icon/icons/icon.png</normaloff>:/icon/icons/icon.png</iconset>
+  </property>
   <widget class="QWidget" name="centralwidget">
    <property name="maximumSize">
     <size>
@@ -512,7 +516,7 @@
        </layout>
       </item>
       <item>
-       <widget class="QListWidget" name="listWidget">
+       <widget class="QListWidget" name="lst_item_list">
         <property name="dragEnabled">
          <bool>false</bool>
         </property>
@@ -533,14 +537,14 @@
          <number>10</number>
         </property>
         <item>
-         <widget class="QPushButton" name="pushButton_2">
+         <widget class="QPushButton" name="btn_add_folder">
           <property name="text">
            <string>Add folder</string>
           </property>
          </widget>
         </item>
         <item>
-         <widget class="QPushButton" name="pushButton_3">
+         <widget class="QPushButton" name="btn_add_file">
           <property name="text">
            <string>Add file</string>
           </property>
@@ -598,6 +602,8 @@
    </property>
   </action>
  </widget>
- <resources/>
+ <resources>
+  <include location="resources.qrc"/>
+ </resources>
  <connections/>
 </ui>
