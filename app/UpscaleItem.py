@@ -19,11 +19,12 @@ class UpscaleItem(QWidget):
         self.ui.setupUi(self)
 
         self.file_path = file_path
-        print('📢[UpscaleItem.py:22]: ', str)
+        self.base_name = os.path.basename(file_path)
+        self.dir_name = os.path.dirname(file_path)
 
         self._init_text()
 
     
     def _init_text(self):
-        self.ui.lbl_file_name.setText(self.file_path)
-        self.ui.lbl_path.setText(self.file_path)
+        self.ui.lbl_file_name.setText(self.base_name)
+        self.ui.lbl_path.setText(self.dir_name)

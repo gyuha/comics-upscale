@@ -234,6 +234,11 @@ class Ui_MainWindow(object):
 
         self.horizontalLayout_3.addItem(self.horizontalSpacer)
 
+        self.btn_list_clear = QPushButton(self.centralwidget)
+        self.btn_list_clear.setObjectName(u"btn_list_clear")
+
+        self.horizontalLayout_3.addWidget(self.btn_list_clear)
+
         self.btn_start = QPushButton(self.centralwidget)
         self.btn_start.setObjectName(u"btn_start")
 
@@ -343,6 +348,7 @@ class Ui_MainWindow(object):
 
         self.btn_add_folder.setText(QCoreApplication.translate("MainWindow", u"Add folder", None))
         self.btn_add_file.setText(QCoreApplication.translate("MainWindow", u"Add file", None))
+        self.btn_list_clear.setText(QCoreApplication.translate("MainWindow", u"List clear", None))
         self.btn_start.setText(QCoreApplication.translate("MainWindow", u"Start", None))
     # retranslateUi
 

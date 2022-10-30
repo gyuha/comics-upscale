@@ -11,14 +11,13 @@ from PySide6 import QtCore, QtGui
 from PySide6.QtCore import QDate, Qt, QTime, QTimer
 from PySide6.QtGui import QDragEnterEvent, QDragMoveEvent, QDropEvent
 from PySide6.QtWidgets import QListWidgetItem, QMainWindow
+from lib.QToaster import QToaster
 
 from constant.SettingEnum import SettingEnum
 from ItemStateWorker import ItemStateWorker
-from lib.QToaster import QToaster
 from ui.ui_MainWindow import Ui_MainWindow
 from UpscaleItem import UpscaleItem
 from util.Config import Config
-from util.message import toast
 
 
 class MainWindow(QMainWindow):
@@ -59,9 +58,10 @@ class MainWindow(QMainWindow):
         self.ui.lst_item_list.dragEnterEvent = self._on_list_drag_enter
         self.ui.lst_item_list.dragMoveEvent = self._on_list_drag_move
         self.ui.lst_item_list.dropEvent = self._on_list_drop
-        # self.destroy.connect(self._on_destory)
 
+        # buttons
         self.ui.btn_start.clicked.connect(self._on_click_start)
+        self.ui.btn_list_clear.clicked.connect(self._on_click_list_clear)
 
     def _save_config(self):
         self.config.setting[SettingEnum.FORMAT] = self.ui.cmb_format.currentText()
@@ -103,6 +103,15 @@ class MainWindow(QMainWindow):
     def _on_click_start(self):
         self._check_file_type("test")
 
+    def _on_click_list_clear(self):
+        # for i in range(self.ui.lst_item_list.count()):
+        #     item = self.ui.item_list.item(i)
+        #     widget = self.ui.lst_item_list.itemWidget(item)
+        #     if widget is not None:
+        #         self.db.set_visible_product(widget.id, False)
+        self.ui.lst_item_list.clear()
+        self.item_dict.clear()
+
     def _on_list_drag_enter(self, event: QDragEnterEvent):
         if event.mimeData().hasUrls():
             event.accept()
@@ -126,25 +135,41 @@ class MainWindow(QMainWindow):
         return t != None
 
     def _add_items(self, items):
+        item_count = 0
         for i, item in enumerate(items):
             if not os.path.exists(item):
                 continue
 
             if os.path.isfile(item):
-                self._add_item(item)
+                add = self._add_item(item)
+                if add:
+                    item_count += 1
 
             if os.path.isdir(item):
-                print("📢[MainWindow.py:92]:  => ", item)
-    
+                for f in os.listdir(item):
+                    if os.path.isdir(f):
+                        continue
+                    add = self._add_item(os.path.join(item, f))
+                    if add:
+                        item_count += 1
+        if item_count == 0:
+            QToaster.showMessage(
+                self,
+                "test",
+                corner=QtCore.Qt.TopRightCorner,
+                timeout=1000,
+                closable=False,
+            )
+
     def _check_exist_item(self, file_path) -> bool:
         if file_path in self.item_dict:
-            toast(self, "It is already registered file.")
-            return False;
-        return True
-    
-    def _add_item(self, file_path: str):
-        if not self._check_file_type(file_path):
-            return
+            return True
+        return False
+
+    def _add_item(self, file_path: str) -> bool:
+        print("📢[MainWindow.py:165]: ", self._check_exist_item(file_path))
+        if not self._check_file_type(file_path) or self._check_exist_item(file_path):
+            return False
 
         widget = UpscaleItem(self, file_path)
 
@@ -154,7 +179,7 @@ class MainWindow(QMainWindow):
         self.ui.lst_item_list.addItem(title_item)
         self.ui.lst_item_list.setItemWidget(title_item, widget)
 
-
+        return True
 
     def closeEvent(self, event):
         self.itemState.stop()

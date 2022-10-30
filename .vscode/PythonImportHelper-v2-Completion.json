@@ -1115,14 +1115,6 @@
         "documentation": {}
     },
     {
-        "label": "toast",
-        "importPath": "util.message",
-        "description": "util.message",
-        "isExtraImport": true,
-        "detail": "util.message",
-        "documentation": {}
-    },
-    {
         "label": "Ui_UpscaleItem",
         "importPath": "ui.ui_UpscaleItem",
         "description": "ui.ui_UpscaleItem",
@@ -1378,7 +1370,7 @@
         "kind": 6,
         "importPath": "app.UpscaleItem",
         "description": "app.UpscaleItem",
-        "peekOfCode": "class UpscaleItem(QWidget):\n    def __init__(self, parent: MainWindow, file_path: str):\n        super(UpscaleItem, self).__init__()\n        self._parent = parent\n        self.ui = Ui_UpscaleItem()\n        self.ui.setupUi(self)\n        self.file_path = file_path\n        print('📢[UpscaleItem.py:22]: ', str)\n        self._init_text()\n    def _init_text(self):",
+        "peekOfCode": "class UpscaleItem(QWidget):\n    def __init__(self, parent: MainWindow, file_path: str):\n        super(UpscaleItem, self).__init__()\n        self._parent = parent\n        self.ui = Ui_UpscaleItem()\n        self.ui.setupUi(self)\n        self.file_path = file_path\n        self.base_name = os.path.basename(file_path)\n        self.dir_name = os.path.dirname(file_path)\n        self._init_text()",
         "detail": "app.UpscaleItem",
         "documentation": {}
     },
