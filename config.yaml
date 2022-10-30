@@ -7,6 +7,10 @@ setting:
   upscale_ratio: '2'
 allow_file:
   - cbz
+  - CBZ
   - zip
+  - ZIP
   - jpg
+  - JPG
   - png
+  - PNG

@@ -52,20 +52,29 @@ class Ui_UpscaleItem(object):
 
         self.horizontalLayout.addItem(self.horizontalSpacer)
 
+        self.btn_run = QPushButton(UpscaleItem)
+        self.btn_run.setObjectName(u"btn_run")
+        icon = QIcon()
+        icon.addFile(u":/icon/icons/play.png", QSize(), QIcon.Normal, QIcon.Off)
+        self.btn_run.setIcon(icon)
+        self.btn_run.setFlat(True)
+
+        self.horizontalLayout.addWidget(self.btn_run)
+
         self.btn_open_folder = QPushButton(UpscaleItem)
         self.btn_open_folder.setObjectName(u"btn_open_folder")
-        icon = QIcon()
-        icon.addFile(u":/icon/icons/folder-open.png", QSize(), QIcon.Normal, QIcon.Off)
-        self.btn_open_folder.setIcon(icon)
+        icon1 = QIcon()
+        icon1.addFile(u":/icon/icons/folder-open.png", QSize(), QIcon.Normal, QIcon.Off)
+        self.btn_open_folder.setIcon(icon1)
         self.btn_open_folder.setFlat(True)
 
         self.horizontalLayout.addWidget(self.btn_open_folder)
 
         self.btn_delete = QPushButton(UpscaleItem)
         self.btn_delete.setObjectName(u"btn_delete")
-        icon1 = QIcon()
-        icon1.addFile(u":/icon/icons/trash-delete-bin.png", QSize(), QIcon.Normal, QIcon.Off)
-        self.btn_delete.setIcon(icon1)
+        icon2 = QIcon()
+        icon2.addFile(u":/icon/icons/trash-delete-bin.png", QSize(), QIcon.Normal, QIcon.Off)
+        self.btn_delete.setIcon(icon2)
         self.btn_delete.setFlat(True)
 
         self.horizontalLayout.addWidget(self.btn_delete)
@@ -117,6 +126,7 @@ class Ui_UpscaleItem(object):
     def retranslateUi(self, UpscaleItem):
         UpscaleItem.setWindowTitle(QCoreApplication.translate("UpscaleItem", u"Form", None))
         self.lbl_file_name.setText(QCoreApplication.translate("UpscaleItem", u"lbl_file_name", None))
+        self.btn_run.setText("")
         self.btn_open_folder.setText("")
         self.btn_delete.setText("")
         self.lbl_path.setText(QCoreApplication.translate("UpscaleItem", u"lbl_path", None))

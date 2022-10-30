@@ -153,7 +153,7 @@ class MainWindow(QMainWindow):
                     if add:
                         item_count += 1
         if item_count == 0:
-            self.ui.statusbar.showMessage('No items have been added.')
+            self.ui.statusbar.showMessage("No items have been added.")
 
     def _check_exist_item(self, file_path) -> bool:
         if file_path in self.item_dict:
