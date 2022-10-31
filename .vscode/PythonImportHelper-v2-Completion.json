@@ -75,6 +75,14 @@
         "documentation": {}
     },
     {
+        "label": "Enum",
+        "importPath": "enum",
+        "description": "enum",
+        "isExtraImport": true,
+        "detail": "enum",
+        "documentation": {}
+    },
+    {
         "label": "cryptocode",
         "kind": 6,
         "isExtraImport": true,
@@ -366,6 +374,54 @@
     },
     {
         "label": "Qt",
+        "importPath": "PySide6.QtCore",
+        "description": "PySide6.QtCore",
+        "isExtraImport": true,
+        "detail": "PySide6.QtCore",
+        "documentation": {}
+    },
+    {
+        "label": "QObject",
+        "importPath": "PySide6.QtCore",
+        "description": "PySide6.QtCore",
+        "isExtraImport": true,
+        "detail": "PySide6.QtCore",
+        "documentation": {}
+    },
+    {
+        "label": "QThread",
+        "importPath": "PySide6.QtCore",
+        "description": "PySide6.QtCore",
+        "isExtraImport": true,
+        "detail": "PySide6.QtCore",
+        "documentation": {}
+    },
+    {
+        "label": "Signal",
+        "importPath": "PySide6.QtCore",
+        "description": "PySide6.QtCore",
+        "isExtraImport": true,
+        "detail": "PySide6.QtCore",
+        "documentation": {}
+    },
+    {
+        "label": "Slot",
+        "importPath": "PySide6.QtCore",
+        "description": "PySide6.QtCore",
+        "isExtraImport": true,
+        "detail": "PySide6.QtCore",
+        "documentation": {}
+    },
+    {
+        "label": "QObject",
+        "importPath": "PySide6.QtCore",
+        "description": "PySide6.QtCore",
+        "isExtraImport": true,
+        "detail": "PySide6.QtCore",
+        "documentation": {}
+    },
+    {
+        "label": "Signal",
         "importPath": "PySide6.QtCore",
         "description": "PySide6.QtCore",
         "isExtraImport": true,
@@ -1224,27 +1280,19 @@
         "documentation": {}
     },
     {
-        "label": "QToaster",
-        "importPath": "lib.QToaster",
-        "description": "lib.QToaster",
-        "isExtraImport": true,
-        "detail": "lib.QToaster",
-        "documentation": {}
-    },
-    {
-        "label": "QToaster",
-        "importPath": "lib.QToaster",
-        "description": "lib.QToaster",
-        "isExtraImport": true,
-        "detail": "lib.QToaster",
-        "documentation": {}
-    },
-    {
         "label": "pathlib",
         "kind": 6,
         "isExtraImport": true,
         "importPath": "pathlib",
         "description": "pathlib",
+        "detail": "pathlib",
+        "documentation": {}
+    },
+    {
+        "label": "Path",
+        "importPath": "pathlib",
+        "description": "pathlib",
+        "isExtraImport": true,
         "detail": "pathlib",
         "documentation": {}
     },
@@ -1341,6 +1389,30 @@
         "documentation": {}
     },
     {
+        "label": "cpu_count",
+        "importPath": "multiprocessing",
+        "description": "multiprocessing",
+        "isExtraImport": true,
+        "detail": "multiprocessing",
+        "documentation": {}
+    },
+    {
+        "label": "cpu_count",
+        "importPath": "multiprocessing",
+        "description": "multiprocessing",
+        "isExtraImport": true,
+        "detail": "multiprocessing",
+        "documentation": {}
+    },
+    {
+        "label": "ThreadPool",
+        "importPath": "multiprocessing.pool",
+        "description": "multiprocessing.pool",
+        "isExtraImport": true,
+        "detail": "multiprocessing.pool",
+        "documentation": {}
+    },
+    {
         "label": "ThreadPool",
         "importPath": "multiprocessing.pool",
         "description": "multiprocessing.pool",
@@ -1386,6 +1458,47 @@
         "description": "util.Config",
         "isExtraImport": true,
         "detail": "util.Config",
+        "documentation": {}
+    },
+    {
+        "label": "Config",
+        "importPath": "util.Config",
+        "description": "util.Config",
+        "isExtraImport": true,
+        "detail": "util.Config",
+        "documentation": {}
+    },
+    {
+        "label": "SettingEnum",
+        "importPath": "app.constant.SettingEnum",
+        "description": "app.constant.SettingEnum",
+        "isExtraImport": true,
+        "detail": "app.constant.SettingEnum",
+        "documentation": {}
+    },
+    {
+        "label": "pyguetzli",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "pyguetzli",
+        "description": "pyguetzli",
+        "detail": "pyguetzli",
+        "documentation": {}
+    },
+    {
+        "label": "QToaster",
+        "importPath": "lib.QToaster",
+        "description": "lib.QToaster",
+        "isExtraImport": true,
+        "detail": "lib.QToaster",
+        "documentation": {}
+    },
+    {
+        "label": "QToaster",
+        "importPath": "lib.QToaster",
+        "description": "lib.QToaster",
+        "isExtraImport": true,
+        "detail": "lib.QToaster",
         "documentation": {}
     },
     {
@@ -1694,6 +1807,24 @@
         "description": "app.util.Config",
         "peekOfCode": "class Config(metaclass=Singleton):\n    @property\n    def data(self):\n        return self.__data\n    @data.setter\n    def data(self, value):\n        self.__data = value\n    @property\n    def setting(self):\n        return self.__data[\"setting\"]",
         "detail": "app.util.Config",
+        "documentation": {}
+    },
+    {
+        "label": "ImageOptimizeSignal",
+        "kind": 6,
+        "importPath": "app.util.ImageOptimize",
+        "description": "app.util.ImageOptimize",
+        "peekOfCode": "class ImageOptimizeSignal(QObject):\n    optimize_state = Signal(str, bool, int, int)\nclass ImageOptimize(QThread):\n    signals = ImageOptimizeSignal()\n    def __init__(self, parent):\n        QThread.__init__(self, parent)\n        self._parent = parent\n        self.config = Config()\n        self.value = int(self.config.setting[SettingEnum.JPG_OPTIMIZE].split(\" \")[0])\n        self.target_dir = Path(self.config.data[\"temp_dir\"]).absolute()",
+        "detail": "app.util.ImageOptimize",
+        "documentation": {}
+    },
+    {
+        "label": "ImageOptimize",
+        "kind": 6,
+        "importPath": "app.util.ImageOptimize",
+        "description": "app.util.ImageOptimize",
+        "peekOfCode": "class ImageOptimize(QThread):\n    signals = ImageOptimizeSignal()\n    def __init__(self, parent):\n        QThread.__init__(self, parent)\n        self._parent = parent\n        self.config = Config()\n        self.value = int(self.config.setting[SettingEnum.JPG_OPTIMIZE].split(\" \")[0])\n        self.target_dir = Path(self.config.data[\"temp_dir\"]).absolute()\n        self.re_image = re.compile(\"\\.(jpg|JPG)$\")\n    def run(self):",
+        "detail": "app.util.ImageOptimize",
         "documentation": {}
     },
     {
