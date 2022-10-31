@@ -55,14 +55,15 @@ class UpscaleItem(QWidget):
         self._init_connect()
         self.upscaler = Upscaler(self)
         self.config = Config()
+        self.temp_dir = self.config.data["temp_dir"]
 
         self.unzip = Unzip(self, self.file_path)
         self.unzip.signals.unzip_state.connect(self._on_unzip_state)
 
-        image_re = self.config.re_image_extension()
+        self.re_image = self.config.re_image_extension()
 
         self.upscale_type = UpscaleType.IMAGE
-        if image_re.search(file_path) != None:
+        if self.re_image.search(file_path) != None:
             self.upscale_type = UpscaleType.COMPRESS_IMAGE
         self.upscaler.signals.upscale_state.connect(self._on_progress)
 
@@ -120,4 +121,7 @@ class UpscaleItem(QWidget):
         print('📢[UpscaleItem.py:118]: ', current)
         if complete:
             # 이미지 업스케일 시작 하기
-            print('📢[UpscaleItem.py:120]')
+            files = os.listdir(self.temp_dir)
+            files = list(filter(self.re_image.search, files))
+            files = list(map(lambda x: os.path.join(self.temp_dir + x)), files)
+            self.upscaler.set(self.id, UpscaleType.COMPRESS_IMAGE, files)
