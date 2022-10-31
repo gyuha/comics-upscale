@@ -15,4 +15,4 @@ allow_image:
   - JPG
   - png
   - PNG
-temp_path: ./temp
+temp_dir: ./temp

@@ -1,4 +1,5 @@
 from enum import Enum
+from pathlib import Path
 import os
 import re
 import shutil
@@ -28,7 +29,7 @@ class Unzip(QThread):
         self.src_path = file_path
 
         self.config = Config()
-        self.target_path = self.config.data["temp_path"]
+        self.target_dir = Path(self.config.data["temp_dir"]).absolute()
         self.re_image = self.config.re_image_extension()
 
     def run(self):
@@ -37,16 +38,18 @@ class Unzip(QThread):
         self.signals.unzip_state.emit(self.id, False, 0, 1)
     
     def _unzip_files(self):
-        if os.path.exists(self.target_path):
-            shutil.rmtree(self.target_path)
-        os.mkdir(self.target_path)
+        print('📢[Unzip.py:41]', self.id)
+        if os.path.exists(self.target_dir):
+            shutil.rmtree(self.target_dir)
+
+        os.mkdir(self.target_dir)
 
         zip_file = zipfile.ZipFile(self.src_path)
 
         total = len(zip_file.namelist())
         for idx, file in enumerate(zip_file.namelist()):
             self.signals.unzip_state.emit(self.id, False, idx + 1, total)
-            zip_file.extract(file, self.target_path)
+            zip_file.extract(file, self.target_dir)
         self.signals.unzip_state.emit(self.id, True, idx + 1, total)
         
             

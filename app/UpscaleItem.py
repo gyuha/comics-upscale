@@ -28,7 +28,7 @@ class DoingState(Enum):
     ZIP = 3
 
 class UpscaleItemSignal(QObject):
-    run = Signal()
+    run = Signal(str)
 
 
 class UpscaleItem(QWidget):
@@ -89,14 +89,15 @@ class UpscaleItem(QWidget):
             self.state = ItemState.DOING
             self.ui.lbl_state.setText("Doing")
             self.upscaler.set(self.file_path, self.upscale_type, [self.file_path])
-            self.signals.run.emit()
+            self.signals.run.emit(self.id)
         else:
             self.state = ItemState.READY
             self._set_run_icon("play")
     
     @Slot()
-    def _on_run(self):
-        print('📢[UpscaleItem.py:98]: ', self.upscale_type)
+    def _on_run(self, id: str):
+        if self.id != id:
+            return
         if self.upscale_type == UpscaleType.IMAGE:
             self.upscaler.start()
         else:
@@ -118,10 +119,15 @@ class UpscaleItem(QWidget):
     
     @Slot(str, bool, int, int)
     def _on_unzip_state(self, id: str, complete: bool, current: int, total: int):
-        print('📢[UpscaleItem.py:118]: ', current)
+        if self.id != id:
+            return
+
+        self.ui.lbl_state.setText(f"Unzip files [{current} / {total}]")
+        if total > 0:
+            self.ui.pgb_progress.setValue(current / total * 100)
         if complete:
             # 이미지 업스케일 시작 하기
             files = os.listdir(self.temp_dir)
             files = list(filter(self.re_image.search, files))
-            files = list(map(lambda x: os.path.join(self.temp_dir + x)), files)
+            files = list(map(lambda x: os.path.join(self.temp_dir, x), files))
             self.upscaler.set(self.id, UpscaleType.COMPRESS_IMAGE, files)
