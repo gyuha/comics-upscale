@@ -1,3 +1,4 @@
+from functools import reduce
 import yaml
 import re
 
@@ -28,4 +29,31 @@ class Config(metaclass=Singleton):
     def save(self):
         with open("config.yaml", "w", encoding="utf-8") as file:
             yaml.dump(self.__data, file, default_flow_style=False, allow_unicode=True)
+    
+    def re_allow_extension(self):
+        return re.compile(
+            "\.("
+            + reduce(lambda x, y: x + "|" + y, self.data["allow_file"])
+            + "|"
+            + reduce(lambda x, y: x + "|" + y, self.data["allow_image"])
+            + ")$"
+        )
+
+    def re_image_extension(self):
+        return re.compile(
+            "\.("
+            + reduce(lambda x, y: x + "|" + y, self.data["allow_file"])
+            + "|"
+            + reduce(lambda x, y: x + "|" + y, self.data["allow_image"])
+            + ")$"
+        )
+    
+    def re_zip_extension(self):
+        return re.compile(
+            "\.("
+            + reduce(lambda x, y: x + "|" + y, self.data["allow_file"])
+            + "|"
+            + reduce(lambda x, y: x + "|" + y, self.data["allow_image"])
+            + ")$"
+        )
 

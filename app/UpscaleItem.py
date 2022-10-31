@@ -10,6 +10,7 @@ from PySide6.QtWidgets import QWidget
 from PySide6.QtGui import QIcon
 
 import MainWindow
+from util.Unzip import Unzip
 from util.Config import Config
 from util.Upscaler import UpscaleType, Upscaler
 from ui.ui_UpscaleItem import Ui_UpscaleItem
@@ -20,6 +21,11 @@ class ItemState(Enum):
     DOING = 2
     DONE = 3
     ERROR = 4
+
+class DoingState(Enum):
+    UNZIP = 1
+    UPSCALE = 2
+    ZIP = 3
 
 class UpscaleItemSignal(QObject):
     run = Signal()
@@ -50,14 +56,13 @@ class UpscaleItem(QWidget):
         self.upscaler = Upscaler(self)
         self.config = Config()
 
-        image_re = re.compile(
-            "\.("
-            + reduce(lambda x, y: x + "|" + y, self.config.data["allow_image"])
-            + ")$"
-        )
+        self.unzip = Unzip(self, self.file_path)
+        self.unzip.signals.unzip_state.connect(self._on_unzip_state)
+
+        image_re = self.config.re_image_extension()
 
         self.upscale_type = UpscaleType.IMAGE
-        if image_re.search(file_path) == None:
+        if image_re.search(file_path) != None:
             self.upscale_type = UpscaleType.COMPRESS_IMAGE
         self.upscaler.signals.upscale_state.connect(self._on_progress)
 
@@ -90,17 +95,29 @@ class UpscaleItem(QWidget):
     
     @Slot()
     def _on_run(self):
-        print('📢[UpscaleItem.py:92] START')
-        self.upscaler.start()
+        print('📢[UpscaleItem.py:98]: ', self.upscale_type)
+        if self.upscale_type == UpscaleType.IMAGE:
+            self.upscaler.start()
+        else:
+            self.unzip.start()
 
     @Slot(str, bool, int, int)
     def _on_progress(self, id: str, complete: bool, current: int, total: int):
         if self.id != id or total == 0:
             return
 
-        percent = current / total * 100
+        percent = 0
+        if total > 0:
+            percent = current / total * 100
 
-        self.ui.pgb_progress.setValue(current / total * 100)
+        self.ui.pgb_progress.setValue(percent)
         if complete:
             self.ui.btn_run.setDisabled(True)
             self.ui.lbl_state.setText("Complete")
+    
+    @Slot(str, bool, int, int)
+    def _on_unzip_state(self, id: str, complete: bool, current: int, total: int):
+        print('📢[UpscaleItem.py:118]: ', current)
+        if complete:
+            # 이미지 업스케일 시작 하기
+            print('📢[UpscaleItem.py:120]')

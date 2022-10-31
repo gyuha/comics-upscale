@@ -35,13 +35,7 @@ class MainWindow(QMainWindow):
 
         self.item_dict: dict[str, QListWidgetItem] = {}
 
-        self._re_allow_file = re.compile(
-            "\.("
-            + reduce(lambda x, y: x + "|" + y, self.config.data["allow_file"])
-            + "|"
-            + reduce(lambda x, y: x + "|" + y, self.config.data["allow_image"])
-            + ")$"
-        )
+        self._re_allow_file = self.config.re_allow_extension()
 
         self.ui.lst_item_list.setStyleSheet(
             "QListWidget::item { border-bottom: 1px solid #eee; }"

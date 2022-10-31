@@ -59,6 +59,14 @@
         "documentation": {}
     },
     {
+        "label": "Enum",
+        "importPath": "enum",
+        "description": "enum",
+        "isExtraImport": true,
+        "detail": "enum",
+        "documentation": {}
+    },
+    {
         "label": "cryptocode",
         "kind": 6,
         "isExtraImport": true,
@@ -350,6 +358,54 @@
     },
     {
         "label": "Qt",
+        "importPath": "PySide6.QtCore",
+        "description": "PySide6.QtCore",
+        "isExtraImport": true,
+        "detail": "PySide6.QtCore",
+        "documentation": {}
+    },
+    {
+        "label": "QObject",
+        "importPath": "PySide6.QtCore",
+        "description": "PySide6.QtCore",
+        "isExtraImport": true,
+        "detail": "PySide6.QtCore",
+        "documentation": {}
+    },
+    {
+        "label": "QThread",
+        "importPath": "PySide6.QtCore",
+        "description": "PySide6.QtCore",
+        "isExtraImport": true,
+        "detail": "PySide6.QtCore",
+        "documentation": {}
+    },
+    {
+        "label": "Signal",
+        "importPath": "PySide6.QtCore",
+        "description": "PySide6.QtCore",
+        "isExtraImport": true,
+        "detail": "PySide6.QtCore",
+        "documentation": {}
+    },
+    {
+        "label": "Slot",
+        "importPath": "PySide6.QtCore",
+        "description": "PySide6.QtCore",
+        "isExtraImport": true,
+        "detail": "PySide6.QtCore",
+        "documentation": {}
+    },
+    {
+        "label": "QObject",
+        "importPath": "PySide6.QtCore",
+        "description": "PySide6.QtCore",
+        "isExtraImport": true,
+        "detail": "PySide6.QtCore",
+        "documentation": {}
+    },
+    {
+        "label": "Signal",
         "importPath": "PySide6.QtCore",
         "description": "PySide6.QtCore",
         "isExtraImport": true,
@@ -1062,6 +1118,30 @@
         "documentation": {}
     },
     {
+        "label": "reduce",
+        "importPath": "functools",
+        "description": "functools",
+        "isExtraImport": true,
+        "detail": "functools",
+        "documentation": {}
+    },
+    {
+        "label": "reduce",
+        "importPath": "functools",
+        "description": "functools",
+        "isExtraImport": true,
+        "detail": "functools",
+        "documentation": {}
+    },
+    {
+        "label": "reduce",
+        "importPath": "functools",
+        "description": "functools",
+        "isExtraImport": true,
+        "detail": "functools",
+        "documentation": {}
+    },
+    {
         "label": "yaml",
         "kind": 6,
         "isExtraImport": true,
@@ -1104,6 +1184,90 @@
         "documentation": {}
     },
     {
+        "label": "shutil",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "shutil",
+        "description": "shutil",
+        "detail": "shutil",
+        "documentation": {}
+    },
+    {
+        "label": "threading",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "threading",
+        "description": "threading",
+        "detail": "threading",
+        "documentation": {}
+    },
+    {
+        "label": "time",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "time",
+        "description": "time",
+        "detail": "time",
+        "documentation": {}
+    },
+    {
+        "label": "zipfile",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "zipfile",
+        "description": "zipfile",
+        "detail": "zipfile",
+        "documentation": {}
+    },
+    {
+        "label": "cpu_count",
+        "importPath": "multiprocessing",
+        "description": "multiprocessing",
+        "isExtraImport": true,
+        "detail": "multiprocessing",
+        "documentation": {}
+    },
+    {
+        "label": "cpu_count",
+        "importPath": "multiprocessing",
+        "description": "multiprocessing",
+        "isExtraImport": true,
+        "detail": "multiprocessing",
+        "documentation": {}
+    },
+    {
+        "label": "ThreadPool",
+        "importPath": "multiprocessing.pool",
+        "description": "multiprocessing.pool",
+        "isExtraImport": true,
+        "detail": "multiprocessing.pool",
+        "documentation": {}
+    },
+    {
+        "label": "Config",
+        "importPath": "util.Config",
+        "description": "util.Config",
+        "isExtraImport": true,
+        "detail": "util.Config",
+        "documentation": {}
+    },
+    {
+        "label": "Config",
+        "importPath": "util.Config",
+        "description": "util.Config",
+        "isExtraImport": true,
+        "detail": "util.Config",
+        "documentation": {}
+    },
+    {
+        "label": "Config",
+        "importPath": "util.Config",
+        "description": "util.Config",
+        "isExtraImport": true,
+        "detail": "util.Config",
+        "documentation": {}
+    },
+    {
         "label": "signal",
         "importPath": "signal",
         "description": "signal",
@@ -1125,15 +1289,6 @@
         "description": "typing",
         "isExtraImport": true,
         "detail": "typing",
-        "documentation": {}
-    },
-    {
-        "label": "time",
-        "kind": 6,
-        "isExtraImport": true,
-        "importPath": "time",
-        "description": "time",
-        "detail": "time",
         "documentation": {}
     },
     {
@@ -1176,22 +1331,6 @@
         "description": "datetime",
         "isExtraImport": true,
         "detail": "datetime",
-        "documentation": {}
-    },
-    {
-        "label": "reduce",
-        "importPath": "functools",
-        "description": "functools",
-        "isExtraImport": true,
-        "detail": "functools",
-        "documentation": {}
-    },
-    {
-        "label": "reduce",
-        "importPath": "functools",
-        "description": "functools",
-        "isExtraImport": true,
-        "detail": "functools",
         "documentation": {}
     },
     {
@@ -1252,19 +1391,11 @@
         "documentation": {}
     },
     {
-        "label": "Config",
-        "importPath": "util.Config",
-        "description": "util.Config",
+        "label": "Unzip",
+        "importPath": "util.Unzip",
+        "description": "util.Unzip",
         "isExtraImport": true,
-        "detail": "util.Config",
-        "documentation": {}
-    },
-    {
-        "label": "Config",
-        "importPath": "util.Config",
-        "description": "util.Config",
-        "isExtraImport": true,
-        "detail": "util.Config",
+        "detail": "util.Unzip",
         "documentation": {}
     },
     {
@@ -1472,6 +1603,24 @@
         "documentation": {}
     },
     {
+        "label": "UnzipSignal",
+        "kind": 6,
+        "importPath": "app.util.Unzip",
+        "description": "app.util.Unzip",
+        "peekOfCode": "class UnzipSignal(QObject):\n    unzip_state = Signal(str, bool, int, int)\nclass Unzip(QThread):\n    signals = UnzipSignal()\n    def __init__(self, parent, file_path: str):\n        QThread.__init__(self, parent)\n        self._parent = parent\n        self.id = file_path\n        self.src_path = file_path\n        self.config = Config()",
+        "detail": "app.util.Unzip",
+        "documentation": {}
+    },
+    {
+        "label": "Unzip",
+        "kind": 6,
+        "importPath": "app.util.Unzip",
+        "description": "app.util.Unzip",
+        "peekOfCode": "class Unzip(QThread):\n    signals = UnzipSignal()\n    def __init__(self, parent, file_path: str):\n        QThread.__init__(self, parent)\n        self._parent = parent\n        self.id = file_path\n        self.src_path = file_path\n        self.config = Config()\n        self.target_path = self.config.data[\"temp_path\"]\n        self.re_image = self.config.re_image_extension()",
+        "detail": "app.util.Unzip",
+        "documentation": {}
+    },
+    {
         "label": "UpscaleType",
         "kind": 6,
         "importPath": "app.util.Upscaler",
@@ -1575,7 +1724,16 @@
         "kind": 6,
         "importPath": "app.UpscaleItem",
         "description": "app.UpscaleItem",
-        "peekOfCode": "class ItemState(Enum):\n    READY = 1\n    DOING = 2\n    DONE = 3\n    ERROR = 4\nclass UpscaleItemSignal(QObject):\n    run = Signal()\nclass UpscaleItem(QWidget):\n    signals = UpscaleItemSignal()\n    def __init__(self, parent: MainWindow, file_path: str):",
+        "peekOfCode": "class ItemState(Enum):\n    READY = 1\n    DOING = 2\n    DONE = 3\n    ERROR = 4\nclass DoingState(Enum):\n    UNZIP = 1\n    UPSCALE = 2\n    ZIP = 3\nclass UpscaleItemSignal(QObject):",
+        "detail": "app.UpscaleItem",
+        "documentation": {}
+    },
+    {
+        "label": "DoingState",
+        "kind": 6,
+        "importPath": "app.UpscaleItem",
+        "description": "app.UpscaleItem",
+        "peekOfCode": "class DoingState(Enum):\n    UNZIP = 1\n    UPSCALE = 2\n    ZIP = 3\nclass UpscaleItemSignal(QObject):\n    run = Signal()\nclass UpscaleItem(QWidget):\n    signals = UpscaleItemSignal()\n    def __init__(self, parent: MainWindow, file_path: str):\n        super(UpscaleItem, self).__init__()",
         "detail": "app.UpscaleItem",
         "documentation": {}
     },

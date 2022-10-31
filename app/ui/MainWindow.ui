@@ -131,22 +131,151 @@
             </item>
            </widget>
           </item>
+          <item row="2" column="0">
+           <widget class="QLabel" name="label_6">
+            <property name="text">
+             <string>Jpg optimize</string>
+            </property>
+           </widget>
+          </item>
+          <item row="2" column="1">
+           <widget class="QComboBox" name="cmb_jpg_optimize">
+            <item>
+             <property name="text">
+              <string>100 (OFF)</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>99</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>98</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>97</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>96</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>95</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>94</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>93</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>92</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>91</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>90</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>89</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>88</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>87</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>86</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>85</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>84</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>83</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>82</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>81</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>80</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>79</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>78</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>77</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>76</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>75</string>
+             </property>
+            </item>
+           </widget>
+          </item>
          </layout>
         </item>
         <item>
-         <layout class="QFormLayout" name="formLayout_3">
-          <property name="labelAlignment">
-           <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-          </property>
-          <property name="horizontalSpacing">
-           <number>10</number>
-          </property>
-          <property name="verticalSpacing">
-           <number>10</number>
-          </property>
-          <property name="rightMargin">
-           <number>5</number>
-          </property>
+         <layout class="QFormLayout" name="formLayout_5">
           <item row="0" column="0">
            <widget class="QLabel" name="label_2">
             <property name="text">
@@ -323,13 +452,6 @@
             </item>
            </widget>
           </item>
-          <item row="1" column="0">
-           <widget class="QLabel" name="label_5">
-            <property name="text">
-             <string>Model name</string>
-            </property>
-           </widget>
-          </item>
           <item row="1" column="1">
            <widget class="QComboBox" name="cmb_model_name">
             <item>
@@ -349,6 +471,13 @@
             </item>
            </widget>
           </item>
+          <item row="1" column="0">
+           <widget class="QLabel" name="label_5">
+            <property name="text">
+             <string>Model name</string>
+            </property>
+           </widget>
+          </item>
          </layout>
         </item>
         <item>
@@ -362,10 +491,17 @@
           <property name="verticalSpacing">
            <number>10</number>
           </property>
-          <item row="0" column="0">
-           <widget class="QLabel" name="label_3">
+          <item row="1" column="0">
+           <widget class="QLabel" name="label_7">
             <property name="text">
-             <string>TTA Mode</string>
+             <string>Replace origin</string>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="1">
+           <widget class="QCheckBox" name="chb_replace_origin">
+            <property name="text">
+             <string>Replace origin</string>
             </property>
            </widget>
           </item>
@@ -376,145 +512,11 @@
             </property>
            </widget>
           </item>
-          <item row="1" column="0">
-           <widget class="QLabel" name="label_6">
+          <item row="0" column="0">
+           <widget class="QLabel" name="label_3">
             <property name="text">
-             <string>Jpg optimize</string>
+             <string>TTA Mode</string>
             </property>
-           </widget>
-          </item>
-          <item row="1" column="1">
-           <widget class="QComboBox" name="cmb_jpg_optimize">
-            <item>
-             <property name="text">
-              <string>100 (OFF)</string>
-             </property>
-            </item>
-            <item>
-             <property name="text">
-              <string>99</string>
-             </property>
-            </item>
-            <item>
-             <property name="text">
-              <string>98</string>
-             </property>
-            </item>
-            <item>
-             <property name="text">
-              <string>97</string>
-             </property>
-            </item>
-            <item>
-             <property name="text">
-              <string>96</string>
-             </property>
-            </item>
-            <item>
-             <property name="text">
-              <string>95</string>
-             </property>
-            </item>
-            <item>
-             <property name="text">
-              <string>94</string>
-             </property>
-            </item>
-            <item>
-             <property name="text">
-              <string>93</string>
-             </property>
-            </item>
-            <item>
-             <property name="text">
-              <string>92</string>
-             </property>
-            </item>
-            <item>
-             <property name="text">
-              <string>91</string>
-             </property>
-            </item>
-            <item>
-             <property name="text">
-              <string>90</string>
-             </property>
-            </item>
-            <item>
-             <property name="text">
-              <string>89</string>
-             </property>
-            </item>
-            <item>
-             <property name="text">
-              <string>88</string>
-             </property>
-            </item>
-            <item>
-             <property name="text">
-              <string>87</string>
-             </property>
-            </item>
-            <item>
-             <property name="text">
-              <string>86</string>
-             </property>
-            </item>
-            <item>
-             <property name="text">
-              <string>85</string>
-             </property>
-            </item>
-            <item>
-             <property name="text">
-              <string>84</string>
-             </property>
-            </item>
-            <item>
-             <property name="text">
-              <string>83</string>
-             </property>
-            </item>
-            <item>
-             <property name="text">
-              <string>82</string>
-             </property>
-            </item>
-            <item>
-             <property name="text">
-              <string>81</string>
-             </property>
-            </item>
-            <item>
-             <property name="text">
-              <string>80</string>
-             </property>
-            </item>
-            <item>
-             <property name="text">
-              <string>79</string>
-             </property>
-            </item>
-            <item>
-             <property name="text">
-              <string>78</string>
-             </property>
-            </item>
-            <item>
-             <property name="text">
-              <string>77</string>
-             </property>
-            </item>
-            <item>
-             <property name="text">
-              <string>76</string>
-             </property>
-            </item>
-            <item>
-             <property name="text">
-              <string>75</string>
-             </property>
-            </item>
            </widget>
           </item>
          </layout>
