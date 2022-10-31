@@ -9,6 +9,8 @@ import PySide6.QtCore
 from PySide6.QtCore import QObject, QProcess, QThread, Signal, Slot
 from PySide6.QtWidgets import (QApplication, QMainWindow, QProgressBar,
                                QPushButton, QVBoxLayout, QWidget)
+from constant.SettingEnum import SettingEnum
+from util.Config import Config
 
 class UpscaleType(Enum):
     IMAGE = 1
@@ -27,6 +29,22 @@ class Upscaler(QObject):
         self.path = ""
         self.currentIndex = 0
         self.file_list = []
+        self.config = Config()
+        self._set_upscale_option()
+    
+    def _set_upscale_option(self):
+        self._options = [ 
+            "-f",
+            self.config.setting[SettingEnum.FORMAT],
+            "-t",
+            int(self.config.setting[SettingEnum.TILE_SIZE].split(" ")[0]),
+            "-n",
+            self.config.setting[SettingEnum.MODEL_NAME],
+            "-s",
+            int(self.config.setting[SettingEnum.UPSCALE_RATIO]),
+        ]
+        if self.config.setting[SettingEnum.TTA_MODE]:
+            self._options.append("-x")
     
     def set(self, id: str, type: UpscaleType, files: List[str]):
         self.id = id
@@ -50,7 +68,7 @@ class Upscaler(QObject):
         # self.p.readyReadStandardError.connect(self.on_state_error)
         current_file = self.file_list[self.currentIndex]
         self.p.start("./bin/realesrgan-ncnn-vulkan",
-                     ["-i", current_file, "-o", current_file, "-f", "jpg", "-s", "2"])
+                     ["-i", current_file, "-o", current_file] + self._options)
 
     def on_process_next(self):
         if self.currentIndex >= self.total:

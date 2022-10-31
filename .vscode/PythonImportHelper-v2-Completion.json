@@ -1438,11 +1438,27 @@
         "documentation": {}
     },
     {
+        "label": "SettingEnum",
+        "importPath": "constant.SettingEnum",
+        "description": "constant.SettingEnum",
+        "isExtraImport": true,
+        "detail": "constant.SettingEnum",
+        "documentation": {}
+    },
+    {
         "label": "Image",
         "importPath": "PIL",
         "description": "PIL",
         "isExtraImport": true,
         "detail": "PIL",
+        "documentation": {}
+    },
+    {
+        "label": "Config",
+        "importPath": "util.Config",
+        "description": "util.Config",
+        "isExtraImport": true,
+        "detail": "util.Config",
         "documentation": {}
     },
     {
@@ -1886,7 +1902,7 @@
         "kind": 6,
         "importPath": "app.util.Upscaler",
         "description": "app.util.Upscaler",
-        "peekOfCode": "class Upscaler(QObject):\n    signals = UpscalerSignal()\n    def __init__(self, parent=None):\n        self._parent = parent\n        self.p = None\n        self.total = 0\n        self.path = \"\"\n        self.currentIndex = 0\n        self.file_list = []\n    def set(self, id: str, type: UpscaleType, files: List[str]):",
+        "peekOfCode": "class Upscaler(QObject):\n    signals = UpscalerSignal()\n    def __init__(self, parent=None):\n        self._parent = parent\n        self.p = None\n        self.total = 0\n        self.path = \"\"\n        self.currentIndex = 0\n        self.file_list = []\n        self.config = Config()",
         "detail": "app.util.Upscaler",
         "documentation": {}
     },
