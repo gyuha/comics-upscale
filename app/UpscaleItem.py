@@ -10,6 +10,7 @@ from PySide6.QtWidgets import QWidget
 from PySide6.QtGui import QIcon
 
 import MainWindow
+from util.Zip import Zip
 from util.Unzip import Unzip
 from util.Config import Config
 from util.Upscaler import UpscaleType, Upscaler
@@ -59,6 +60,9 @@ class UpscaleItem(QWidget):
 
         self.unzip = Unzip(self, self.file_path)
         self.unzip.signals.unzip_state.connect(self._on_unzip_state)
+
+        self.zip = Zip(self, self.file_path)
+        self.zip.signals.zip_state.connect(self._on_zip_state)
 
         self.re_image = self.config.re_image_extension()
 
@@ -112,22 +116,42 @@ class UpscaleItem(QWidget):
         if total > 0:
             percent = current / total * 100
 
+        self.ui.lbl_state.setText(f"Upscaling [{current}/{total}]")
         self.ui.pgb_progress.setValue(percent)
         if complete:
             self.ui.btn_run.setDisabled(True)
             self.ui.lbl_state.setText("Complete")
+            self.zip.start()
     
     @Slot(str, bool, int, int)
     def _on_unzip_state(self, id: str, complete: bool, current: int, total: int):
         if self.id != id:
             return
 
-        self.ui.lbl_state.setText(f"Unzip files [{current} / {total}]")
+        self.ui.lbl_state.setText(f"Unzip files [{current}/{total}]")
         if total > 0:
             self.ui.pgb_progress.setValue(current / total * 100)
+
         if complete:
             # 이미지 업스케일 시작 하기
             files = os.listdir(self.temp_dir)
             files = list(filter(self.re_image.search, files))
             files = list(map(lambda x: os.path.join(self.temp_dir, x), files))
             self.upscaler.set(self.id, UpscaleType.COMPRESS_IMAGE, files)
+            self.upscaler.start()
+    
+
+    @Slot(str, bool, int, int)
+    def _on_zip_state(self, id: str, complete: bool, current: int, total: int):
+        if self.id != id:
+            return
+
+        self.ui.lbl_state.setText(f"Zip files [{current}/{total}]")
+        if total > 0:
+            self.ui.pgb_progress.setValue(current / total * 100)
+
+        if complete:
+            self.state = ItemState.DONE
+            self.ui.btn_run.setDisabled(True)
+            self.ui.lbl_file_name.setText("Completed")
+    

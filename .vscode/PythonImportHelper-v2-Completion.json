@@ -67,6 +67,14 @@
         "documentation": {}
     },
     {
+        "label": "Enum",
+        "importPath": "enum",
+        "description": "enum",
+        "isExtraImport": true,
+        "detail": "enum",
+        "documentation": {}
+    },
+    {
         "label": "cryptocode",
         "kind": 6,
         "isExtraImport": true,
@@ -446,6 +454,54 @@
     },
     {
         "label": "Slot",
+        "importPath": "PySide6.QtCore",
+        "description": "PySide6.QtCore",
+        "isExtraImport": true,
+        "detail": "PySide6.QtCore",
+        "documentation": {}
+    },
+    {
+        "label": "QObject",
+        "importPath": "PySide6.QtCore",
+        "description": "PySide6.QtCore",
+        "isExtraImport": true,
+        "detail": "PySide6.QtCore",
+        "documentation": {}
+    },
+    {
+        "label": "QThread",
+        "importPath": "PySide6.QtCore",
+        "description": "PySide6.QtCore",
+        "isExtraImport": true,
+        "detail": "PySide6.QtCore",
+        "documentation": {}
+    },
+    {
+        "label": "Signal",
+        "importPath": "PySide6.QtCore",
+        "description": "PySide6.QtCore",
+        "isExtraImport": true,
+        "detail": "PySide6.QtCore",
+        "documentation": {}
+    },
+    {
+        "label": "Slot",
+        "importPath": "PySide6.QtCore",
+        "description": "PySide6.QtCore",
+        "isExtraImport": true,
+        "detail": "PySide6.QtCore",
+        "documentation": {}
+    },
+    {
+        "label": "QObject",
+        "importPath": "PySide6.QtCore",
+        "description": "PySide6.QtCore",
+        "isExtraImport": true,
+        "detail": "PySide6.QtCore",
+        "documentation": {}
+    },
+    {
+        "label": "Signal",
         "importPath": "PySide6.QtCore",
         "description": "PySide6.QtCore",
         "isExtraImport": true,
@@ -1209,6 +1265,14 @@
         "documentation": {}
     },
     {
+        "label": "Path",
+        "importPath": "pathlib",
+        "description": "pathlib",
+        "isExtraImport": true,
+        "detail": "pathlib",
+        "documentation": {}
+    },
+    {
         "label": "shutil",
         "kind": 6,
         "isExtraImport": true,
@@ -1261,11 +1325,43 @@
         "documentation": {}
     },
     {
+        "label": "cpu_count",
+        "importPath": "multiprocessing",
+        "description": "multiprocessing",
+        "isExtraImport": true,
+        "detail": "multiprocessing",
+        "documentation": {}
+    },
+    {
+        "label": "cpu_count",
+        "importPath": "multiprocessing",
+        "description": "multiprocessing",
+        "isExtraImport": true,
+        "detail": "multiprocessing",
+        "documentation": {}
+    },
+    {
         "label": "ThreadPool",
         "importPath": "multiprocessing.pool",
         "description": "multiprocessing.pool",
         "isExtraImport": true,
         "detail": "multiprocessing.pool",
+        "documentation": {}
+    },
+    {
+        "label": "ThreadPool",
+        "importPath": "multiprocessing.pool",
+        "description": "multiprocessing.pool",
+        "isExtraImport": true,
+        "detail": "multiprocessing.pool",
+        "documentation": {}
+    },
+    {
+        "label": "Config",
+        "importPath": "util.Config",
+        "description": "util.Config",
+        "isExtraImport": true,
+        "detail": "util.Config",
         "documentation": {}
     },
     {
@@ -1396,6 +1492,14 @@
         "description": "UpscaleItem",
         "isExtraImport": true,
         "detail": "UpscaleItem",
+        "documentation": {}
+    },
+    {
+        "label": "Zip",
+        "importPath": "util.Zip",
+        "description": "util.Zip",
+        "isExtraImport": true,
+        "detail": "util.Zip",
         "documentation": {}
     },
     {
@@ -1662,6 +1766,24 @@
         "description": "app.util.Upscaler",
         "peekOfCode": "class ProgressWindow(QMainWindow):\n    def __init__(self):\n        super().__init__()\n        self.p = None  # Default empty value.\n        self.btn = QPushButton(\"Execute\")\n        self.btn.pressed.connect(self.start_process)\n        self.pbar = QProgressBar(self)\n        self.upscaler = Upscaler(self)\n        self.upscaler.signals.upscale_state.connect(self.on_progress)\n        l = QVBoxLayout()",
         "detail": "app.util.Upscaler",
+        "documentation": {}
+    },
+    {
+        "label": "ZipSignal",
+        "kind": 6,
+        "importPath": "app.util.Zip",
+        "description": "app.util.Zip",
+        "peekOfCode": "class ZipSignal(QObject):\n    zip_state = Signal(str, bool, int, int)\nclass Zip(QThread):\n    signals = ZipSignal()\n    def __init__(self, parent, file_path: str):\n        QThread.__init__(self, parent)\n        self._parent = parent\n        self.id = file_path\n        self.config = Config()\n        self.src_path = Path(self.config.data[\"temp_dir\"]).absolute()",
+        "detail": "app.util.Zip",
+        "documentation": {}
+    },
+    {
+        "label": "Zip",
+        "kind": 6,
+        "importPath": "app.util.Zip",
+        "description": "app.util.Zip",
+        "peekOfCode": "class Zip(QThread):\n    signals = ZipSignal()\n    def __init__(self, parent, file_path: str):\n        QThread.__init__(self, parent)\n        self._parent = parent\n        self.id = file_path\n        self.config = Config()\n        self.src_path = Path(self.config.data[\"temp_dir\"]).absolute()\n        self.target_dir = file_path\n    def run(self):",
+        "detail": "app.util.Zip",
         "documentation": {}
     },
     {

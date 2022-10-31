@@ -38,11 +38,10 @@ class Unzip(QThread):
         self.signals.unzip_state.emit(self.id, False, 0, 1)
     
     def _unzip_files(self):
-        print('📢[Unzip.py:41]', self.id)
         if os.path.exists(self.target_dir):
             shutil.rmtree(self.target_dir)
-
-        os.mkdir(self.target_dir)
+        if not os.path.exists(self.target_dir):
+            os.mkdir(self.target_dir)
 
         zip_file = zipfile.ZipFile(self.src_path)
 
