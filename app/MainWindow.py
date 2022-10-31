@@ -164,6 +164,7 @@ class MainWindow(QMainWindow):
 
     def _check_exist_item(self, file_path) -> bool:
         if file_path in self.item_dict:
+            print('📢 이미 있는 파일..')
             return True
         return False
 
