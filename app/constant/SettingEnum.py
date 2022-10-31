@@ -8,3 +8,4 @@ class SettingEnum(str, Enum):
     TTA_MODE = "tta_mode"
     FORMAT = "format"
     JPG_OPTIMIZE = "jpg_optimize"
+    REPLACE_ORIGIN = "replace_origin"

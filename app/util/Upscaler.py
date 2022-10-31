@@ -1,4 +1,5 @@
 from enum import Enum
+from functools import partial
 import os
 from signal import signal
 import sys
@@ -22,8 +23,9 @@ class UpscalerSignal(QObject):
 class Upscaler(QObject):
     signals = UpscalerSignal()
 
-    def __init__(self, parent=None):
+    def __init__(self, parent, id: str):
         self._parent = parent
+        self.id = id
         self.p = None
         self.total = 0
         self.path = ""
@@ -37,17 +39,16 @@ class Upscaler(QObject):
             "-f",
             self.config.setting[SettingEnum.FORMAT],
             "-t",
-            int(self.config.setting[SettingEnum.TILE_SIZE].split(" ")[0]),
+            self.config.setting[SettingEnum.TILE_SIZE].split(" ")[0],
             "-n",
             self.config.setting[SettingEnum.MODEL_NAME],
             "-s",
-            int(self.config.setting[SettingEnum.UPSCALE_RATIO]),
+            str(self.config.setting[SettingEnum.UPSCALE_RATIO]),
         ]
         if self.config.setting[SettingEnum.TTA_MODE]:
             self._options.append("-x")
     
-    def set(self, id: str, type: UpscaleType, files: List[str]):
-        self.id = id
+    def set(self, type: UpscaleType, files: List[str]):
         self.total = len(files)
         if self.total == 0:
             return
@@ -64,11 +65,17 @@ class Upscaler(QObject):
     def _progress(self):
         self.p = QProcess()
         self.p.finished.connect(self.on_process_next)
-        # self.p.readyReadStandardOutput.connect(self.handle_stdout)
+        self.p.readyReadStandardOutput.connect(partial(self.onReadyReadStandardOutput))
         # self.p.readyReadStandardError.connect(self.on_state_error)
         current_file = self.file_list[self.currentIndex]
-        self.p.start("./bin/realesrgan-ncnn-vulkan",
-                     ["-i", current_file, "-o", current_file] + self._options)
+        print('📢[Upscaler.py:71]: ', ["-i", current_file, "-o", current_file] + self._options)
+        options = ["-i", current_file, "-o", current_file] + self._options
+        self.p.start("./bin/realesrgan-ncnn-vulkan", options)
+    
+    def onReadyReadStandardOutput(self):
+        raw_bytes = self.p.readAllStandardOutput()
+        text = self._decoder_stdout.toUnicode(raw_bytes)
+        print('📢[Upscaler.py:78]: ', text)
 
     def on_process_next(self):
         if self.currentIndex >= self.total:
@@ -80,6 +87,8 @@ class Upscaler(QObject):
         self._progress()
 
         self.currentIndex += 1
+    
+
 
 
 class ProgressWindow(QMainWindow):
@@ -107,8 +116,6 @@ class ProgressWindow(QMainWindow):
 
     @Slot(bool, int, int)
     def on_progress(self, complete: bool, current: int, total: int):
-        print('📢[Upscaler.py:81] {0} : {1}, {2}'.format(
-            complete, current, total))
         progress = 0
         if current != 0:
             progress = (current / total) * 100

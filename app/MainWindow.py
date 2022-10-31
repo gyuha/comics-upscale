@@ -45,6 +45,7 @@ class MainWindow(QMainWindow):
         self.ui.cmb_format.activated.connect(self._save_config)
         self.ui.cmb_tile_size.activated.connect(self._save_config)
         self.ui.chb_tta_mode.stateChanged.connect(self._save_config)
+        self.ui.chb_replace_origin.stateChanged.connect(self._save_config)
         self.ui.cmb_upscale_ratio.activated.connect(self._save_config)
         self.ui.cmb_model_name.activated.connect(self._save_config)
         self.ui.cmb_jpg_optimize.activated.connect(self._save_config)
@@ -67,6 +68,11 @@ class MainWindow(QMainWindow):
             if self.ui.chb_tta_mode.checkState() == Qt.CheckState.Checked
             else False
         )
+        self.config.setting[SettingEnum.REPLACE_ORIGIN] = (
+            True
+            if self.ui.chb_replace_origin.checkState() == Qt.CheckState.Checked
+            else False
+        )
         self.config.setting[
             SettingEnum.UPSCALE_RATIO
         ] = self.ui.cmb_upscale_ratio.currentText()
@@ -84,6 +90,11 @@ class MainWindow(QMainWindow):
         self.ui.chb_tta_mode.setCheckState(
             Qt.CheckState.Checked
             if self.config.setting[SettingEnum.TTA_MODE] == True
+            else Qt.CheckState.Unchecked
+        )
+        self.ui.chb_replace_origin.setCheckState(
+            Qt.CheckState.Checked
+            if self.config.setting[SettingEnum.REPLACE_ORIGIN] == True
             else Qt.CheckState.Unchecked
         )
         self.ui.cmb_upscale_ratio.setCurrentText(

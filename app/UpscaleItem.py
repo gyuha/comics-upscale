@@ -3,6 +3,7 @@ import os
 import pathlib
 import re
 from enum import Enum
+import uuid
 
 from PySide6 import QtCore, QtGui
 from PySide6.QtCore import QObject, QSize, Qt, QThread, Signal, Slot
@@ -44,7 +45,7 @@ class UpscaleItem(QWidget):
         self.ui = Ui_UpscaleItem()
         self.ui.setupUi(self)
 
-        self.id = file_path
+        self.id = str(uuid.uuid4())
         self.file_path = file_path
         self.base_name = os.path.basename(file_path)
         self.dir_name = os.path.dirname(file_path)
@@ -56,17 +57,17 @@ class UpscaleItem(QWidget):
 
         self._init_text()
         self._init_connect()
-        self.upscaler = Upscaler(self)
+        self.upscaler = Upscaler(self, self.id)
         self.config = Config()
         self.temp_dir = self.config.data["temp_dir"]
 
-        self.unzip = Unzip(self, self.file_path)
+        self.unzip = Unzip(self, self.id, self.file_path)
         self.unzip.signals.unzip_state.connect(self._on_unzip_state)
 
-        self.zip = Zip(self, self.file_path)
+        self.zip = Zip(self, self.id, self.file_path)
         self.zip.signals.zip_state.connect(self._on_zip_state)
 
-        self.optimize = ImageOptimize(self, self.file_path)
+        self.optimize = ImageOptimize(self, self.id)
         self.optimize.signals.optimize_state.connect(self._on_optimize_state)
 
         self.re_image = self.config.re_image_extension()
@@ -97,14 +98,18 @@ class UpscaleItem(QWidget):
             self._set_run_icon("stop")
             self.state = ItemState.DOING
             self.ui.lbl_state.setText("Doing")
-            self.upscaler.set(self.file_path, self.upscale_type, [self.file_path])
+            self.upscaler.set(self.upscale_type, [self.file_path])
+            print('📢[UpscaleItem.py:102]: ', self.id)
+            print('📢[UpscaleItem.py:102]: ', type(self.id))
             self.signals.run.emit(self.id)
         else:
             self.state = ItemState.READY
             self._set_run_icon("play")
     
-    @Slot()
+    @Slot(str)
     def _on_run(self, id: str):
+        print('📢[UpscaleItem.py:109]: ', id)
+        print('📢[UpscaleItem.py:110]: ', self.id)
         if self.id != id:
             return
         if self.upscale_type == UpscaleType.IMAGE:
@@ -123,10 +128,11 @@ class UpscaleItem(QWidget):
 
         if complete:
             # 이미지 업스케일 시작 하기
+            self.ui.lbl_state.setText("Unzip Complete")
             files = os.listdir(self.temp_dir)
             files = list(filter(self.re_image.search, files))
             files = list(map(lambda x: os.path.join(self.temp_dir, x), files))
-            self.upscaler.set(self.id, UpscaleType.COMPRESS_IMAGE, files)
+            self.upscaler.set(UpscaleType.COMPRESS_IMAGE, files)
             self.upscaler.start()
     
 
@@ -143,7 +149,7 @@ class UpscaleItem(QWidget):
         self.ui.pgb_progress.setValue(percent)
         if complete:
             self.ui.btn_run.setDisabled(True)
-            self.ui.lbl_state.setText("Complete")
+            self.ui.lbl_state.setText("Upscaling Complete")
             self.optimize.start()
     
 
@@ -157,7 +163,7 @@ class UpscaleItem(QWidget):
             self.ui.pgb_progress.setValue(current / total * 100)
 
         if complete:
-            self.ui.lbl_state.setText("Completed")
+            self.ui.lbl_state.setText("Optimize Completed")
             self.zip.start()
 
     @Slot(str, bool, int, int)

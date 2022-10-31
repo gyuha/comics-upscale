@@ -26,7 +26,7 @@ class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         if not MainWindow.objectName():
             MainWindow.setObjectName(u"MainWindow")
-        MainWindow.resize(680, 500)
+        MainWindow.resize(781, 475)
         MainWindow.setMinimumSize(QSize(640, 0))
         icon = QIcon()
         icon.addFile(u":/icon/icons/icon.png", QSize(), QIcon.Normal, QIcon.Off)
@@ -58,7 +58,7 @@ class Ui_MainWindow(object):
         self.formLayout_2.setLabelAlignment(Qt.AlignRight|Qt.AlignTrailing|Qt.AlignVCenter)
         self.formLayout_2.setHorizontalSpacing(10)
         self.formLayout_2.setVerticalSpacing(10)
-        self.formLayout_2.setContentsMargins(-1, -1, 5, -1)
+        self.formLayout_2.setContentsMargins(10, -1, 5, -1)
         self.label = QLabel(self.centralwidget)
         self.label.setObjectName(u"label")
 
@@ -126,6 +126,7 @@ class Ui_MainWindow(object):
 
         self.formLayout_5 = QFormLayout()
         self.formLayout_5.setObjectName(u"formLayout_5")
+        self.formLayout_5.setContentsMargins(10, -1, -1, -1)
         self.label_2 = QLabel(self.centralwidget)
         self.label_2.setObjectName(u"label_2")
 
@@ -190,6 +191,17 @@ class Ui_MainWindow(object):
         self.formLayout.setLabelAlignment(Qt.AlignRight|Qt.AlignTrailing|Qt.AlignVCenter)
         self.formLayout.setHorizontalSpacing(10)
         self.formLayout.setVerticalSpacing(10)
+        self.formLayout.setContentsMargins(10, -1, -1, -1)
+        self.label_3 = QLabel(self.centralwidget)
+        self.label_3.setObjectName(u"label_3")
+
+        self.formLayout.setWidget(0, QFormLayout.LabelRole, self.label_3)
+
+        self.chb_tta_mode = QCheckBox(self.centralwidget)
+        self.chb_tta_mode.setObjectName(u"chb_tta_mode")
+
+        self.formLayout.setWidget(0, QFormLayout.FieldRole, self.chb_tta_mode)
+
         self.label_7 = QLabel(self.centralwidget)
         self.label_7.setObjectName(u"label_7")
 
@@ -199,16 +211,6 @@ class Ui_MainWindow(object):
         self.chb_replace_origin.setObjectName(u"chb_replace_origin")
 
         self.formLayout.setWidget(1, QFormLayout.FieldRole, self.chb_replace_origin)
-
-        self.chb_tta_mode = QCheckBox(self.centralwidget)
-        self.chb_tta_mode.setObjectName(u"chb_tta_mode")
-
-        self.formLayout.setWidget(0, QFormLayout.FieldRole, self.chb_tta_mode)
-
-        self.label_3 = QLabel(self.centralwidget)
-        self.label_3.setObjectName(u"label_3")
-
-        self.formLayout.setWidget(0, QFormLayout.LabelRole, self.label_3)
 
 
         self.horizontalLayout.addLayout(self.formLayout)
@@ -350,10 +352,10 @@ class Ui_MainWindow(object):
         self.cmb_model_name.setItemText(2, QCoreApplication.translate("MainWindow", u"realesrgan-x4plus-anime", None))
 
         self.label_5.setText(QCoreApplication.translate("MainWindow", u"Model name", None))
+        self.label_3.setText(QCoreApplication.translate("MainWindow", u"TTA Mode", None))
+        self.chb_tta_mode.setText(QCoreApplication.translate("MainWindow", u"TTA mode", None))
         self.label_7.setText(QCoreApplication.translate("MainWindow", u"Replace origin", None))
         self.chb_replace_origin.setText(QCoreApplication.translate("MainWindow", u"Replace origin", None))
-        self.chb_tta_mode.setText(QCoreApplication.translate("MainWindow", u"TTA mode", None))
-        self.label_3.setText(QCoreApplication.translate("MainWindow", u"TTA Mode", None))
         self.btn_add_folder.setText(QCoreApplication.translate("MainWindow", u"Add folder", None))
         self.btn_add_file.setText(QCoreApplication.translate("MainWindow", u"Add file", None))
         self.btn_list_clear.setText(QCoreApplication.translate("MainWindow", u"List clear", None))

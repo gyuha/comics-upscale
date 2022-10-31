@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>680</width>
-    <height>500</height>
+    <width>781</width>
+    <height>475</height>
    </rect>
   </property>
   <property name="minimumSize">
@@ -74,6 +74,9 @@
            <number>10</number>
           </property>
           <property name="verticalSpacing">
+           <number>10</number>
+          </property>
+          <property name="leftMargin">
            <number>10</number>
           </property>
           <property name="rightMargin">
@@ -276,6 +279,9 @@
         </item>
         <item>
          <layout class="QFormLayout" name="formLayout_5">
+          <property name="leftMargin">
+           <number>10</number>
+          </property>
           <item row="0" column="0">
            <widget class="QLabel" name="label_2">
             <property name="text">
@@ -491,6 +497,23 @@
           <property name="verticalSpacing">
            <number>10</number>
           </property>
+          <property name="leftMargin">
+           <number>10</number>
+          </property>
+          <item row="0" column="0">
+           <widget class="QLabel" name="label_3">
+            <property name="text">
+             <string>TTA Mode</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="1">
+           <widget class="QCheckBox" name="chb_tta_mode">
+            <property name="text">
+             <string>TTA mode</string>
+            </property>
+           </widget>
+          </item>
           <item row="1" column="0">
            <widget class="QLabel" name="label_7">
             <property name="text">
@@ -502,20 +525,6 @@
            <widget class="QCheckBox" name="chb_replace_origin">
             <property name="text">
              <string>Replace origin</string>
-            </property>
-           </widget>
-          </item>
-          <item row="0" column="1">
-           <widget class="QCheckBox" name="chb_tta_mode">
-            <property name="text">
-             <string>TTA mode</string>
-            </property>
-           </widget>
-          </item>
-          <item row="0" column="0">
-           <widget class="QLabel" name="label_3">
-            <property name="text">
-             <string>TTA Mode</string>
             </property>
            </widget>
           </item>

@@ -10,8 +10,9 @@ allow_image:
 - PNG
 setting:
   format: jpg
-  jpg_optimize: 100 (OFF)
+  jpg_optimize: '97'
   model_name: realesr-animevideov3
+  replace_origin: true
   tile_size: 0 (Auto)
   tta_mode: false
   upscale_ratio: '2'

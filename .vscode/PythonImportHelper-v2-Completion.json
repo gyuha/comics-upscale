@@ -1222,6 +1222,14 @@
         "documentation": {}
     },
     {
+        "label": "partial",
+        "importPath": "functools",
+        "description": "functools",
+        "isExtraImport": true,
+        "detail": "functools",
+        "documentation": {}
+    },
+    {
         "label": "reduce",
         "importPath": "functools",
         "description": "functools",
@@ -1616,6 +1624,15 @@
         "documentation": {}
     },
     {
+        "label": "uuid",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "uuid",
+        "description": "uuid",
+        "detail": "uuid",
+        "documentation": {}
+    },
+    {
         "label": "ImageOptimize",
         "importPath": "util.ImageOptimize",
         "description": "util.ImageOptimize",
@@ -1740,7 +1757,7 @@
         "kind": 6,
         "importPath": "app.constant.SettingEnum",
         "description": "app.constant.SettingEnum",
-        "peekOfCode": "class SettingEnum(str, Enum):\n    UPSCALE_RATIO = \"upscale_ratio\"\n    TILE_SIZE = \"tile_size\"\n    MODEL_NAME = \"model_name\"\n    TTA_MODE = \"tta_mode\"\n    FORMAT = \"format\"\n    JPG_OPTIMIZE = \"jpg_optimize\"",
+        "peekOfCode": "class SettingEnum(str, Enum):\n    UPSCALE_RATIO = \"upscale_ratio\"\n    TILE_SIZE = \"tile_size\"\n    MODEL_NAME = \"model_name\"\n    TTA_MODE = \"tta_mode\"\n    FORMAT = \"format\"\n    JPG_OPTIMIZE = \"jpg_optimize\"\n    REPLACE_ORIGIN = \"replace_origin\"",
         "detail": "app.constant.SettingEnum",
         "documentation": {}
     },
@@ -1803,7 +1820,7 @@
         "kind": 6,
         "importPath": "app.ui.ui_MainWindow",
         "description": "app.ui.ui_MainWindow",
-        "peekOfCode": "class Ui_MainWindow(object):\n    def setupUi(self, MainWindow):\n        if not MainWindow.objectName():\n            MainWindow.setObjectName(u\"MainWindow\")\n        MainWindow.resize(680, 500)\n        MainWindow.setMinimumSize(QSize(640, 0))\n        icon = QIcon()\n        icon.addFile(u\":/icon/icons/icon.png\", QSize(), QIcon.Normal, QIcon.Off)\n        MainWindow.setWindowIcon(icon)\n        self.action_always_top = QAction(MainWindow)",
+        "peekOfCode": "class Ui_MainWindow(object):\n    def setupUi(self, MainWindow):\n        if not MainWindow.objectName():\n            MainWindow.setObjectName(u\"MainWindow\")\n        MainWindow.resize(781, 475)\n        MainWindow.setMinimumSize(QSize(640, 0))\n        icon = QIcon()\n        icon.addFile(u\":/icon/icons/icon.png\", QSize(), QIcon.Normal, QIcon.Off)\n        MainWindow.setWindowIcon(icon)\n        self.action_always_top = QAction(MainWindow)",
         "detail": "app.ui.ui_MainWindow",
         "documentation": {}
     },
@@ -1830,7 +1847,7 @@
         "kind": 6,
         "importPath": "app.util.ImageOptimize",
         "description": "app.util.ImageOptimize",
-        "peekOfCode": "class ImageOptimizeSignal(QObject):\n    optimize_state = Signal(str, bool, int, int)\nclass ImageOptimize(QThread):\n    signals = ImageOptimizeSignal()\n    def __init__(self, parent, file_path: str):\n        QThread.__init__(self, parent)\n        self._parent = parent\n        self.id = file_path\n        self.config = Config()\n        self.quality = int(self.config.setting[SettingEnum.JPG_OPTIMIZE].split(\" \")[0])",
+        "peekOfCode": "class ImageOptimizeSignal(QObject):\n    optimize_state = Signal(str, bool, int, int)\nclass ImageOptimize(QThread):\n    signals = ImageOptimizeSignal()\n    def __init__(self, parent, id: str):\n        QThread.__init__(self, parent)\n        self._parent = parent\n        self.id = id\n        self.config = Config()\n        self.quality = int(self.config.setting[SettingEnum.JPG_OPTIMIZE].split(\" \")[0])",
         "detail": "app.util.ImageOptimize",
         "documentation": {}
     },
@@ -1839,7 +1856,7 @@
         "kind": 6,
         "importPath": "app.util.ImageOptimize",
         "description": "app.util.ImageOptimize",
-        "peekOfCode": "class ImageOptimize(QThread):\n    signals = ImageOptimizeSignal()\n    def __init__(self, parent, file_path: str):\n        QThread.__init__(self, parent)\n        self._parent = parent\n        self.id = file_path\n        self.config = Config()\n        self.quality = int(self.config.setting[SettingEnum.JPG_OPTIMIZE].split(\" \")[0])\n        self.target_dir = Path(self.config.data[\"temp_dir\"]).absolute()\n        self.re_image = re.compile(\"\\.(jpg|JPG)$\")",
+        "peekOfCode": "class ImageOptimize(QThread):\n    signals = ImageOptimizeSignal()\n    def __init__(self, parent, id: str):\n        QThread.__init__(self, parent)\n        self._parent = parent\n        self.id = id\n        self.config = Config()\n        self.quality = int(self.config.setting[SettingEnum.JPG_OPTIMIZE].split(\" \")[0])\n        self.target_dir = Path(self.config.data[\"temp_dir\"]).absolute()\n        self.re_image = re.compile(\"\\.(jpg|JPG)$\")",
         "detail": "app.util.ImageOptimize",
         "documentation": {}
     },
@@ -1866,7 +1883,7 @@
         "kind": 6,
         "importPath": "app.util.Unzip",
         "description": "app.util.Unzip",
-        "peekOfCode": "class UnzipSignal(QObject):\n    unzip_state = Signal(str, bool, int, int)\nclass Unzip(QThread):\n    signals = UnzipSignal()\n    def __init__(self, parent, file_path: str):\n        QThread.__init__(self, parent)\n        self._parent = parent\n        self.id = file_path\n        self.src_path = file_path\n        self.config = Config()",
+        "peekOfCode": "class UnzipSignal(QObject):\n    unzip_state = Signal(str, bool, int, int)\nclass Unzip(QThread):\n    signals = UnzipSignal()\n    def __init__(self, parent, id: str, file_path: str):\n        QThread.__init__(self, parent)\n        self.id = id\n        self._parent = parent\n        self.src_path = file_path\n        self.config = Config()",
         "detail": "app.util.Unzip",
         "documentation": {}
     },
@@ -1875,7 +1892,7 @@
         "kind": 6,
         "importPath": "app.util.Unzip",
         "description": "app.util.Unzip",
-        "peekOfCode": "class Unzip(QThread):\n    signals = UnzipSignal()\n    def __init__(self, parent, file_path: str):\n        QThread.__init__(self, parent)\n        self._parent = parent\n        self.id = file_path\n        self.src_path = file_path\n        self.config = Config()\n        self.target_dir = Path(self.config.data[\"temp_dir\"]).absolute()\n        self.re_image = self.config.re_image_extension()",
+        "peekOfCode": "class Unzip(QThread):\n    signals = UnzipSignal()\n    def __init__(self, parent, id: str, file_path: str):\n        QThread.__init__(self, parent)\n        self.id = id\n        self._parent = parent\n        self.src_path = file_path\n        self.config = Config()\n        self.target_dir = Path(self.config.data[\"temp_dir\"]).absolute()\n        self.re_image = self.config.re_image_extension()",
         "detail": "app.util.Unzip",
         "documentation": {}
     },
@@ -1884,7 +1901,7 @@
         "kind": 6,
         "importPath": "app.util.Upscaler",
         "description": "app.util.Upscaler",
-        "peekOfCode": "class UpscaleType(Enum):\n    IMAGE = 1\n    COMPRESS_IMAGE = 2\nclass UpscalerSignal(QObject):\n    upscale_state = Signal(str, bool, int, int)  # run, current, total\nclass Upscaler(QObject):\n    signals = UpscalerSignal()\n    def __init__(self, parent=None):\n        self._parent = parent\n        self.p = None",
+        "peekOfCode": "class UpscaleType(Enum):\n    IMAGE = 1\n    COMPRESS_IMAGE = 2\nclass UpscalerSignal(QObject):\n    upscale_state = Signal(str, bool, int, int)  # run, current, total\nclass Upscaler(QObject):\n    signals = UpscalerSignal()\n    def __init__(self, parent, id: str):\n        self._parent = parent\n        self.id = id",
         "detail": "app.util.Upscaler",
         "documentation": {}
     },
@@ -1893,7 +1910,7 @@
         "kind": 6,
         "importPath": "app.util.Upscaler",
         "description": "app.util.Upscaler",
-        "peekOfCode": "class UpscalerSignal(QObject):\n    upscale_state = Signal(str, bool, int, int)  # run, current, total\nclass Upscaler(QObject):\n    signals = UpscalerSignal()\n    def __init__(self, parent=None):\n        self._parent = parent\n        self.p = None\n        self.total = 0\n        self.path = \"\"\n        self.currentIndex = 0",
+        "peekOfCode": "class UpscalerSignal(QObject):\n    upscale_state = Signal(str, bool, int, int)  # run, current, total\nclass Upscaler(QObject):\n    signals = UpscalerSignal()\n    def __init__(self, parent, id: str):\n        self._parent = parent\n        self.id = id\n        self.p = None\n        self.total = 0\n        self.path = \"\"",
         "detail": "app.util.Upscaler",
         "documentation": {}
     },
@@ -1902,7 +1919,7 @@
         "kind": 6,
         "importPath": "app.util.Upscaler",
         "description": "app.util.Upscaler",
-        "peekOfCode": "class Upscaler(QObject):\n    signals = UpscalerSignal()\n    def __init__(self, parent=None):\n        self._parent = parent\n        self.p = None\n        self.total = 0\n        self.path = \"\"\n        self.currentIndex = 0\n        self.file_list = []\n        self.config = Config()",
+        "peekOfCode": "class Upscaler(QObject):\n    signals = UpscalerSignal()\n    def __init__(self, parent, id: str):\n        self._parent = parent\n        self.id = id\n        self.p = None\n        self.total = 0\n        self.path = \"\"\n        self.currentIndex = 0\n        self.file_list = []",
         "detail": "app.util.Upscaler",
         "documentation": {}
     },
@@ -1920,7 +1937,7 @@
         "kind": 6,
         "importPath": "app.util.Zip",
         "description": "app.util.Zip",
-        "peekOfCode": "class ZipSignal(QObject):\n    zip_state = Signal(str, bool, int, int)\nclass Zip(QThread):\n    signals = ZipSignal()\n    def __init__(self, parent, file_path: str):\n        QThread.__init__(self, parent)\n        self._parent = parent\n        self.id = file_path\n        self.config = Config()\n        self.src_path = Path(self.config.data[\"temp_dir\"]).absolute()",
+        "peekOfCode": "class ZipSignal(QObject):\n    zip_state = Signal(str, bool, int, int)\nclass Zip(QThread):\n    signals = ZipSignal()\n    def __init__(self, parent, id: str, file_path: str):\n        QThread.__init__(self, parent)\n        self._parent = parent\n        self.id = id\n        self.config = Config()\n        self.src_path = Path(self.config.data[\"temp_dir\"]).absolute()",
         "detail": "app.util.Zip",
         "documentation": {}
     },
@@ -1929,7 +1946,7 @@
         "kind": 6,
         "importPath": "app.util.Zip",
         "description": "app.util.Zip",
-        "peekOfCode": "class Zip(QThread):\n    signals = ZipSignal()\n    def __init__(self, parent, file_path: str):\n        QThread.__init__(self, parent)\n        self._parent = parent\n        self.id = file_path\n        self.config = Config()\n        self.src_path = Path(self.config.data[\"temp_dir\"]).absolute()\n        self.target_dir = file_path\n    def run(self):",
+        "peekOfCode": "class Zip(QThread):\n    signals = ZipSignal()\n    def __init__(self, parent, id: str, file_path: str):\n        QThread.__init__(self, parent)\n        self._parent = parent\n        self.id = id\n        self.config = Config()\n        self.src_path = Path(self.config.data[\"temp_dir\"]).absolute()\n        self.target_dir = file_path\n    def run(self):",
         "detail": "app.util.Zip",
         "documentation": {}
     },
@@ -2019,7 +2036,7 @@
         "kind": 6,
         "importPath": "app.UpscaleItem",
         "description": "app.UpscaleItem",
-        "peekOfCode": "class UpscaleItemSignal(QObject):\n    run = Signal(str)\nclass UpscaleItem(QWidget):\n    signals = UpscaleItemSignal()\n    def __init__(self, parent: MainWindow, file_path: str):\n        super(UpscaleItem, self).__init__()\n        self._parent = parent\n        self.ui = Ui_UpscaleItem()\n        self.ui.setupUi(self)\n        self.id = file_path",
+        "peekOfCode": "class UpscaleItemSignal(QObject):\n    run = Signal(str)\nclass UpscaleItem(QWidget):\n    signals = UpscaleItemSignal()\n    def __init__(self, parent: MainWindow, file_path: str):\n        super(UpscaleItem, self).__init__()\n        self._parent = parent\n        self.ui = Ui_UpscaleItem()\n        self.ui.setupUi(self)\n        self.id = str(uuid.uuid4())",
         "detail": "app.UpscaleItem",
         "documentation": {}
     },
@@ -2028,7 +2045,7 @@
         "kind": 6,
         "importPath": "app.UpscaleItem",
         "description": "app.UpscaleItem",
-        "peekOfCode": "class UpscaleItem(QWidget):\n    signals = UpscaleItemSignal()\n    def __init__(self, parent: MainWindow, file_path: str):\n        super(UpscaleItem, self).__init__()\n        self._parent = parent\n        self.ui = Ui_UpscaleItem()\n        self.ui.setupUi(self)\n        self.id = file_path\n        self.file_path = file_path\n        self.base_name = os.path.basename(file_path)",
+        "peekOfCode": "class UpscaleItem(QWidget):\n    signals = UpscaleItemSignal()\n    def __init__(self, parent: MainWindow, file_path: str):\n        super(UpscaleItem, self).__init__()\n        self._parent = parent\n        self.ui = Ui_UpscaleItem()\n        self.ui.setupUi(self)\n        self.id = str(uuid.uuid4())\n        self.file_path = file_path\n        self.base_name = os.path.basename(file_path)",
         "detail": "app.UpscaleItem",
         "documentation": {}
     },

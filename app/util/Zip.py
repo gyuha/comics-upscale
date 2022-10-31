@@ -21,11 +21,11 @@ class ZipSignal(QObject):
 class Zip(QThread):
     signals = ZipSignal()
 
-    def __init__(self, parent, file_path: str):
+    def __init__(self, parent, id: str, file_path: str):
         QThread.__init__(self, parent)
         self._parent = parent
 
-        self.id = file_path
+        self.id = id
 
         self.config = Config()
         self.src_path = Path(self.config.data["temp_dir"]).absolute()
@@ -36,9 +36,9 @@ class Zip(QThread):
         self.zip_thread = threading.Thread(target=self._zip_files)
         self.zip_thread.start()
         self.signals.zip_state.emit(self.id, False, 0, 1)
-    
+
     def _zip_files(self):
-        zipf = zipfile.ZipFile(self.target_dir, 'w', zipfile.ZIP_DEFLATED)
+        zipf = zipfile.ZipFile(self.target_dir, "w", zipfile.ZIP_DEFLATED)
         source = os.listdir(self.src_path)
         total = len(source)
         for idx, f in enumerate(source):
@@ -46,4 +46,3 @@ class Zip(QThread):
             zipf.write(os.path.join(self.src_path, f), os.path.basename(f))
         zipf.close()
         self.signals.zip_state.emit(self.id, True, total, total)
-

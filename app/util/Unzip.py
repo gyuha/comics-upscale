@@ -21,11 +21,11 @@ class UnzipSignal(QObject):
 class Unzip(QThread):
     signals = UnzipSignal()
 
-    def __init__(self, parent, file_path: str):
+    def __init__(self, parent, id: str, file_path: str):
         QThread.__init__(self, parent)
+        self.id = id
         self._parent = parent
 
-        self.id = file_path
         self.src_path = file_path
 
         self.config = Config()

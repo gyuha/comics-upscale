@@ -25,11 +25,11 @@ class ImageOptimizeSignal(QObject):
 class ImageOptimize(QThread):
     signals = ImageOptimizeSignal()
 
-    def __init__(self, parent, file_path: str):
+    def __init__(self, parent, id: str):
         QThread.__init__(self, parent)
         self._parent = parent
 
-        self.id = file_path
+        self.id = id
 
         self.config = Config()
         self.quality = int(self.config.setting[SettingEnum.JPG_OPTIMIZE].split(" ")[0])
@@ -43,11 +43,11 @@ class ImageOptimize(QThread):
         unzip_thread = threading.Thread(target=self._optimize_precess)
         unzip_thread.start()
         self.signals.optimize_state.emit(self.id, False, 0, 1)
-    
+
     def _image_optimize(self, path):
         source = PILImage.open(path)
         source.save(path, quality=self.quality, optimize=True)
-    
+
     def _optimize_precess(self):
 
         source = os.listdir(self.target_dir)
@@ -59,6 +59,3 @@ class ImageOptimize(QThread):
             self._image_optimize(os.path.join(self.target_dir, file))
 
         self.signals.optimize_state.emit(self.id, True, idx + 1, total)
-        
-            
-
