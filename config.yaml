@@ -1,3 +1,13 @@
+allow_file:
+- cbz
+- CBZ
+- zip
+- ZIP
+allow_image:
+- jpg
+- JPG
+- png
+- PNG
 setting:
   format: jpg
   jpg_optimize: 100 (OFF)
@@ -5,14 +15,4 @@ setting:
   tile_size: 0 (Auto)
   tta_mode: false
   upscale_ratio: '2'
-allow_file:
-  - cbz
-  - CBZ
-  - zip
-  - ZIP
-allow_image:
-  - jpg
-  - JPG
-  - png
-  - PNG
 temp_dir: ./temp

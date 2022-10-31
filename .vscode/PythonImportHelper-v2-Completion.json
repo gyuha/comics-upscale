@@ -421,22 +421,6 @@
         "documentation": {}
     },
     {
-        "label": "Signal",
-        "importPath": "PySide6.QtCore",
-        "description": "PySide6.QtCore",
-        "isExtraImport": true,
-        "detail": "PySide6.QtCore",
-        "documentation": {}
-    },
-    {
-        "label": "QObject",
-        "importPath": "PySide6.QtCore",
-        "description": "PySide6.QtCore",
-        "isExtraImport": true,
-        "detail": "PySide6.QtCore",
-        "documentation": {}
-    },
-    {
         "label": "QThread",
         "importPath": "PySide6.QtCore",
         "description": "PySide6.QtCore",
@@ -1280,47 +1264,6 @@
         "documentation": {}
     },
     {
-        "label": "pathlib",
-        "kind": 6,
-        "isExtraImport": true,
-        "importPath": "pathlib",
-        "description": "pathlib",
-        "detail": "pathlib",
-        "documentation": {}
-    },
-    {
-        "label": "Path",
-        "importPath": "pathlib",
-        "description": "pathlib",
-        "isExtraImport": true,
-        "detail": "pathlib",
-        "documentation": {}
-    },
-    {
-        "label": "Path",
-        "importPath": "pathlib",
-        "description": "pathlib",
-        "isExtraImport": true,
-        "detail": "pathlib",
-        "documentation": {}
-    },
-    {
-        "label": "Path",
-        "importPath": "pathlib",
-        "description": "pathlib",
-        "isExtraImport": true,
-        "detail": "pathlib",
-        "documentation": {}
-    },
-    {
-        "label": "Path",
-        "importPath": "pathlib",
-        "description": "pathlib",
-        "isExtraImport": true,
-        "detail": "pathlib",
-        "documentation": {}
-    },
-    {
         "label": "shutil",
         "kind": 6,
         "isExtraImport": true,
@@ -1397,14 +1340,6 @@
         "documentation": {}
     },
     {
-        "label": "cpu_count",
-        "importPath": "multiprocessing",
-        "description": "multiprocessing",
-        "isExtraImport": true,
-        "detail": "multiprocessing",
-        "documentation": {}
-    },
-    {
         "label": "ThreadPool",
         "importPath": "multiprocessing.pool",
         "description": "multiprocessing.pool",
@@ -1429,51 +1364,52 @@
         "documentation": {}
     },
     {
-        "label": "Config",
-        "importPath": "util.Config",
-        "description": "util.Config",
+        "label": "pathlib",
+        "kind": 6,
         "isExtraImport": true,
-        "detail": "util.Config",
+        "importPath": "pathlib",
+        "description": "pathlib",
+        "detail": "pathlib",
         "documentation": {}
     },
     {
-        "label": "Config",
-        "importPath": "util.Config",
-        "description": "util.Config",
+        "label": "Path",
+        "importPath": "pathlib",
+        "description": "pathlib",
         "isExtraImport": true,
-        "detail": "util.Config",
+        "detail": "pathlib",
         "documentation": {}
     },
     {
-        "label": "Config",
-        "importPath": "util.Config",
-        "description": "util.Config",
+        "label": "Path",
+        "importPath": "pathlib",
+        "description": "pathlib",
         "isExtraImport": true,
-        "detail": "util.Config",
+        "detail": "pathlib",
         "documentation": {}
     },
     {
-        "label": "Config",
-        "importPath": "util.Config",
-        "description": "util.Config",
+        "label": "Path",
+        "importPath": "pathlib",
+        "description": "pathlib",
         "isExtraImport": true,
-        "detail": "util.Config",
+        "detail": "pathlib",
         "documentation": {}
     },
     {
-        "label": "Config",
-        "importPath": "util.Config",
-        "description": "util.Config",
+        "label": "Path",
+        "importPath": "pathlib",
+        "description": "pathlib",
         "isExtraImport": true,
-        "detail": "util.Config",
+        "detail": "pathlib",
         "documentation": {}
     },
     {
-        "label": "SettingEnum",
-        "importPath": "app.constant.SettingEnum",
-        "description": "app.constant.SettingEnum",
+        "label": "optimize",
+        "importPath": "pickletools",
+        "description": "pickletools",
         "isExtraImport": true,
-        "detail": "app.constant.SettingEnum",
+        "detail": "pickletools",
         "documentation": {}
     },
     {
@@ -1483,6 +1419,70 @@
         "importPath": "pyguetzli",
         "description": "pyguetzli",
         "detail": "pyguetzli",
+        "documentation": {}
+    },
+    {
+        "label": "SettingEnum",
+        "importPath": "constant.SettingEnum",
+        "description": "constant.SettingEnum",
+        "isExtraImport": true,
+        "detail": "constant.SettingEnum",
+        "documentation": {}
+    },
+    {
+        "label": "SettingEnum",
+        "importPath": "constant.SettingEnum",
+        "description": "constant.SettingEnum",
+        "isExtraImport": true,
+        "detail": "constant.SettingEnum",
+        "documentation": {}
+    },
+    {
+        "label": "Image",
+        "importPath": "PIL",
+        "description": "PIL",
+        "isExtraImport": true,
+        "detail": "PIL",
+        "documentation": {}
+    },
+    {
+        "label": "Config",
+        "importPath": "util.Config",
+        "description": "util.Config",
+        "isExtraImport": true,
+        "detail": "util.Config",
+        "documentation": {}
+    },
+    {
+        "label": "Config",
+        "importPath": "util.Config",
+        "description": "util.Config",
+        "isExtraImport": true,
+        "detail": "util.Config",
+        "documentation": {}
+    },
+    {
+        "label": "Config",
+        "importPath": "util.Config",
+        "description": "util.Config",
+        "isExtraImport": true,
+        "detail": "util.Config",
+        "documentation": {}
+    },
+    {
+        "label": "Config",
+        "importPath": "util.Config",
+        "description": "util.Config",
+        "isExtraImport": true,
+        "detail": "util.Config",
+        "documentation": {}
+    },
+    {
+        "label": "Config",
+        "importPath": "util.Config",
+        "description": "util.Config",
+        "isExtraImport": true,
+        "detail": "util.Config",
         "documentation": {}
     },
     {
@@ -1576,14 +1576,6 @@
         "documentation": {}
     },
     {
-        "label": "SettingEnum",
-        "importPath": "constant.SettingEnum",
-        "description": "constant.SettingEnum",
-        "isExtraImport": true,
-        "detail": "constant.SettingEnum",
-        "documentation": {}
-    },
-    {
         "label": "ItemStateWorker",
         "importPath": "ItemStateWorker",
         "description": "ItemStateWorker",
@@ -1605,6 +1597,14 @@
         "description": "UpscaleItem",
         "isExtraImport": true,
         "detail": "UpscaleItem",
+        "documentation": {}
+    },
+    {
+        "label": "ImageOptimize",
+        "importPath": "util.ImageOptimize",
+        "description": "util.ImageOptimize",
+        "isExtraImport": true,
+        "detail": "util.ImageOptimize",
         "documentation": {}
     },
     {
@@ -1814,7 +1814,7 @@
         "kind": 6,
         "importPath": "app.util.ImageOptimize",
         "description": "app.util.ImageOptimize",
-        "peekOfCode": "class ImageOptimizeSignal(QObject):\n    optimize_state = Signal(str, bool, int, int)\nclass ImageOptimize(QThread):\n    signals = ImageOptimizeSignal()\n    def __init__(self, parent):\n        QThread.__init__(self, parent)\n        self._parent = parent\n        self.config = Config()\n        self.value = int(self.config.setting[SettingEnum.JPG_OPTIMIZE].split(\" \")[0])\n        self.target_dir = Path(self.config.data[\"temp_dir\"]).absolute()",
+        "peekOfCode": "class ImageOptimizeSignal(QObject):\n    optimize_state = Signal(str, bool, int, int)\nclass ImageOptimize(QThread):\n    signals = ImageOptimizeSignal()\n    def __init__(self, parent, file_path: str):\n        QThread.__init__(self, parent)\n        self._parent = parent\n        self.id = file_path\n        self.config = Config()\n        self.quality = int(self.config.setting[SettingEnum.JPG_OPTIMIZE].split(\" \")[0])",
         "detail": "app.util.ImageOptimize",
         "documentation": {}
     },
@@ -1823,7 +1823,7 @@
         "kind": 6,
         "importPath": "app.util.ImageOptimize",
         "description": "app.util.ImageOptimize",
-        "peekOfCode": "class ImageOptimize(QThread):\n    signals = ImageOptimizeSignal()\n    def __init__(self, parent):\n        QThread.__init__(self, parent)\n        self._parent = parent\n        self.config = Config()\n        self.value = int(self.config.setting[SettingEnum.JPG_OPTIMIZE].split(\" \")[0])\n        self.target_dir = Path(self.config.data[\"temp_dir\"]).absolute()\n        self.re_image = re.compile(\"\\.(jpg|JPG)$\")\n    def run(self):",
+        "peekOfCode": "class ImageOptimize(QThread):\n    signals = ImageOptimizeSignal()\n    def __init__(self, parent, file_path: str):\n        QThread.__init__(self, parent)\n        self._parent = parent\n        self.id = file_path\n        self.config = Config()\n        self.quality = int(self.config.setting[SettingEnum.JPG_OPTIMIZE].split(\" \")[0])\n        self.target_dir = Path(self.config.data[\"temp_dir\"]).absolute()\n        self.re_image = re.compile(\"\\.(jpg|JPG)$\")",
         "detail": "app.util.ImageOptimize",
         "documentation": {}
     },
@@ -1985,7 +1985,7 @@
         "kind": 6,
         "importPath": "app.UpscaleItem",
         "description": "app.UpscaleItem",
-        "peekOfCode": "class ItemState(Enum):\n    READY = 1\n    DOING = 2\n    DONE = 3\n    ERROR = 4\nclass DoingState(Enum):\n    UNZIP = 1\n    UPSCALE = 2\n    ZIP = 3\nclass UpscaleItemSignal(QObject):",
+        "peekOfCode": "class ItemState(Enum):\n    READY = 1\n    DOING = 2\n    DONE = 3\n    ERROR = 4\nclass DoingState(Enum):\n    UNZIP = 1\n    UPSCALE = 2\n    OPTIMIZE = 3\n    ZIP = 3",
         "detail": "app.UpscaleItem",
         "documentation": {}
     },
@@ -1994,7 +1994,7 @@
         "kind": 6,
         "importPath": "app.UpscaleItem",
         "description": "app.UpscaleItem",
-        "peekOfCode": "class DoingState(Enum):\n    UNZIP = 1\n    UPSCALE = 2\n    ZIP = 3\nclass UpscaleItemSignal(QObject):\n    run = Signal(str)\nclass UpscaleItem(QWidget):\n    signals = UpscaleItemSignal()\n    def __init__(self, parent: MainWindow, file_path: str):\n        super(UpscaleItem, self).__init__()",
+        "peekOfCode": "class DoingState(Enum):\n    UNZIP = 1\n    UPSCALE = 2\n    OPTIMIZE = 3\n    ZIP = 3\nclass UpscaleItemSignal(QObject):\n    run = Signal(str)\nclass UpscaleItem(QWidget):\n    signals = UpscaleItemSignal()\n    def __init__(self, parent: MainWindow, file_path: str):",
         "detail": "app.UpscaleItem",
         "documentation": {}
     },

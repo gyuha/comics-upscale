@@ -10,6 +10,7 @@ from PySide6.QtWidgets import QWidget
 from PySide6.QtGui import QIcon
 
 import MainWindow
+from util.ImageOptimize import ImageOptimize
 from util.Zip import Zip
 from util.Unzip import Unzip
 from util.Config import Config
@@ -26,6 +27,7 @@ class ItemState(Enum):
 class DoingState(Enum):
     UNZIP = 1
     UPSCALE = 2
+    OPTIMIZE = 3
     ZIP = 3
 
 class UpscaleItemSignal(QObject):
@@ -64,12 +66,15 @@ class UpscaleItem(QWidget):
         self.zip = Zip(self, self.file_path)
         self.zip.signals.zip_state.connect(self._on_zip_state)
 
+        self.optimize = ImageOptimize(self, self.file_path)
+        self.optimize.signals.optimize_state.connect(self._on_optimize_state)
+
         self.re_image = self.config.re_image_extension()
 
         self.upscale_type = UpscaleType.IMAGE
         if self.re_image.search(file_path) != None:
             self.upscale_type = UpscaleType.COMPRESS_IMAGE
-        self.upscaler.signals.upscale_state.connect(self._on_progress)
+        self.upscaler.signals.upscale_state.connect(self._on_upscale_state)
 
         self.signals.run.connect(self._on_run)
 
@@ -108,22 +113,6 @@ class UpscaleItem(QWidget):
             self.unzip.start()
 
     @Slot(str, bool, int, int)
-    def _on_progress(self, id: str, complete: bool, current: int, total: int):
-        if self.id != id or total == 0:
-            return
-
-        percent = 0
-        if total > 0:
-            percent = current / total * 100
-
-        self.ui.lbl_state.setText(f"Upscaling [{current}/{total}]")
-        self.ui.pgb_progress.setValue(percent)
-        if complete:
-            self.ui.btn_run.setDisabled(True)
-            self.ui.lbl_state.setText("Complete")
-            self.zip.start()
-    
-    @Slot(str, bool, int, int)
     def _on_unzip_state(self, id: str, complete: bool, current: int, total: int):
         if self.id != id:
             return
@@ -142,6 +131,36 @@ class UpscaleItem(QWidget):
     
 
     @Slot(str, bool, int, int)
+    def _on_upscale_state(self, id: str, complete: bool, current: int, total: int):
+        if self.id != id or total == 0:
+            return
+
+        percent = 0
+        if total > 0:
+            percent = current / total * 100
+
+        self.ui.lbl_state.setText(f"Upscaling [{current}/{total}]")
+        self.ui.pgb_progress.setValue(percent)
+        if complete:
+            self.ui.btn_run.setDisabled(True)
+            self.ui.lbl_state.setText("Complete")
+            self.optimize.start()
+    
+
+    @Slot(str, bool, int, int)
+    def _on_optimize_state(self, id: str, complete: bool, current: int, total: int):
+        if self.id != id:
+            return
+
+        self.ui.lbl_state.setText(f"JPG Optimize [{current}/{total}]")
+        if total > 0:
+            self.ui.pgb_progress.setValue(current / total * 100)
+
+        if complete:
+            self.ui.lbl_state.setText("Completed")
+            self.zip.start()
+
+    @Slot(str, bool, int, int)
     def _on_zip_state(self, id: str, complete: bool, current: int, total: int):
         if self.id != id:
             return
@@ -153,5 +172,6 @@ class UpscaleItem(QWidget):
         if complete:
             self.state = ItemState.DONE
             self.ui.btn_run.setDisabled(True)
-            self.ui.lbl_file_name.setText("Completed")
+            self.ui.lbl_state.setText("Completed")
+            self.ui.lbl_state.setStyleSheet("color: blue")
     
