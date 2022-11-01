@@ -68,14 +68,12 @@ class Upscaler(QObject):
         self.p.readyReadStandardOutput.connect(partial(self.onReadyReadStandardOutput))
         # self.p.readyReadStandardError.connect(self.on_state_error)
         current_file = self.file_list[self.currentIndex]
-        print('📢[Upscaler.py:71]: ', ["-i", current_file, "-o", current_file] + self._options)
         options = ["-i", current_file, "-o", current_file] + self._options
         self.p.start("./bin/realesrgan-ncnn-vulkan", options)
     
     def onReadyReadStandardOutput(self):
         raw_bytes = self.p.readAllStandardOutput()
         text = self._decoder_stdout.toUnicode(raw_bytes)
-        print('📢[Upscaler.py:78]: ', text)
 
     def on_process_next(self):
         if self.currentIndex >= self.total:
