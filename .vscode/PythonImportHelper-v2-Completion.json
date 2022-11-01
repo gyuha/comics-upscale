@@ -75,6 +75,14 @@
         "documentation": {}
     },
     {
+        "label": "Enum",
+        "importPath": "enum",
+        "description": "enum",
+        "isExtraImport": true,
+        "detail": "enum",
+        "documentation": {}
+    },
+    {
         "label": "cryptocode",
         "kind": 6,
         "isExtraImport": true,
@@ -1583,6 +1591,14 @@
         "documentation": {}
     },
     {
+        "label": "toast",
+        "importPath": "util.message",
+        "description": "util.message",
+        "isExtraImport": true,
+        "detail": "util.message",
+        "documentation": {}
+    },
+    {
         "label": "uuid",
         "kind": 6,
         "isExtraImport": true,
@@ -1919,6 +1935,15 @@
         "documentation": {}
     },
     {
+        "label": "MainState",
+        "kind": 6,
+        "importPath": "app.MainWindow",
+        "description": "app.MainWindow",
+        "peekOfCode": "class MainState(Enum):\n    START = 0\n    STOP = 1\nclass MainWindowSignal(QObject):\n    item_remove = Signal(str, str)  # id, file_path\n    item_state_change = Signal(str, str, ItemState)  # id, file_path, Item state\nclass MainWindow(QMainWindow):\n    signals = MainWindowSignal()\n    def __init__(self, parent=None):\n        super(MainWindow, self).__init__(parent)",
+        "detail": "app.MainWindow",
+        "documentation": {}
+    },
+    {
         "label": "MainWindowSignal",
         "kind": 6,
         "importPath": "app.MainWindow",
@@ -2004,7 +2029,7 @@
         "kind": 6,
         "importPath": "app.UpscaleItem",
         "description": "app.UpscaleItem",
-        "peekOfCode": "class UpscaleItemSignal(QObject):\n    run = Signal(str)\nclass UpscaleItem(QWidget):\n    signals = UpscaleItemSignal()\n    def __init__(self, parent: MainWindow, file_path: str):\n        super(UpscaleItem, self).__init__()\n        self._parent = parent\n        self.ui = Ui_UpscaleItem()\n        self.ui.setupUi(self)\n        self.id = str(uuid.uuid4())",
+        "peekOfCode": "class UpscaleItemSignal(QObject):\n    run = Signal(str)\nclass UpscaleItem(QWidget):\n    signals = UpscaleItemSignal()\n    def __init__(self, parent: MainWindow, file_path: str):\n        super(UpscaleItem, self).__init__()\n        self._parent: MainWindow = parent\n        self.ui = Ui_UpscaleItem()\n        self.ui.setupUi(self)\n        self.id = str(uuid.uuid4())",
         "detail": "app.UpscaleItem",
         "documentation": {}
     },
@@ -2013,7 +2038,7 @@
         "kind": 6,
         "importPath": "app.UpscaleItem",
         "description": "app.UpscaleItem",
-        "peekOfCode": "class UpscaleItem(QWidget):\n    signals = UpscaleItemSignal()\n    def __init__(self, parent: MainWindow, file_path: str):\n        super(UpscaleItem, self).__init__()\n        self._parent = parent\n        self.ui = Ui_UpscaleItem()\n        self.ui.setupUi(self)\n        self.id = str(uuid.uuid4())\n        self.file_path = file_path\n        self.base_name = os.path.basename(file_path)",
+        "peekOfCode": "class UpscaleItem(QWidget):\n    signals = UpscaleItemSignal()\n    def __init__(self, parent: MainWindow, file_path: str):\n        super(UpscaleItem, self).__init__()\n        self._parent: MainWindow = parent\n        self.ui = Ui_UpscaleItem()\n        self.ui.setupUi(self)\n        self.id = str(uuid.uuid4())\n        self.file_path = file_path\n        self.base_name = os.path.basename(file_path)",
         "detail": "app.UpscaleItem",
         "documentation": {}
     },
@@ -2031,7 +2056,7 @@
         "kind": 2,
         "importPath": "generate_all_ui2py",
         "description": "generate_all_ui2py",
-        "peekOfCode": "def generate_resource():\n    source = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'app', 'ui', 'resources.qrc')\n    target = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'app', 'resources_rc.py')\n    cmd = f'pyside6-rcc {source} > {target}'\n    print('📢[generate_all_ui2py.py:24]: ', cmd)\n    os.popen(cmd)\nif __name__ == '__main__':\n    generate_all_ui2py(os.path.join(os.path.dirname(os.path.abspath(__file__)), 'app', 'ui'))\n    # generate_resource()",
+        "peekOfCode": "def generate_resource():\n    source = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'app', 'ui', 'resources.qrc')\n    target = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'app', 'resources_rc.py')\n    cmd = f'pyside6-rcc {source} > {target}'\n    print('📢[generate_all_ui2py.py:24]: ', cmd)\n    os.popen(cmd)\nif __name__ == '__main__':\n    generate_all_ui2py(os.path.join(os.path.dirname(os.path.abspath(__file__)), 'app', 'ui'))\n    generate_resource()",
         "detail": "generate_all_ui2py",
         "documentation": {}
     }

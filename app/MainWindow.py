@@ -1,3 +1,4 @@
+from enum import Enum
 import os
 from tkinter import Widget
 
@@ -14,6 +15,11 @@ from ui.ui_MainWindow import Ui_MainWindow
 from UpscaleItem import ItemState, UpscaleItem
 from util.Config import Config
 from util.message import toast
+
+
+class MainState(Enum):
+    START = 0
+    STOP = 1
 
 
 class MainWindowSignal(QObject):
@@ -43,6 +49,8 @@ class MainWindow(QMainWindow):
         self.ui.lst_item_list.setStyleSheet(
             "QListWidget::item { border-bottom: 1px solid #eee; }"
         )
+
+        self.state = MainState.STOP
 
     def _init_connect(self):
         #### signal
@@ -122,15 +130,20 @@ class MainWindow(QMainWindow):
         )
 
     def _on_click_start(self):
-        # self._check_file_type("test")
-        toast(self, "test")
+        if self.state == MainState.START:
+            toast(self, "Already started")
+            return
+        toast(self, "Start")
+        self.state = MainState.START
+        res = self.start_next()
+        if res == False:
+            toast(self, "nothing..")
 
     def _on_click_list_clear(self):
-        # for i in range(self.ui.lst_item_list.count()):
-        #     item = self.ui.item_list.item(i)
-        #     widget = self.ui.lst_item_list.itemWidget(item)
-        #     if widget is not None:
-        #         self.db.set_visible_product(widget.id, False)
+        if self.state == MainState.START:
+            toast(self, "Wait end...")
+            return
+
         self.ui.lst_item_list.clear()
         self.item_dict.clear()
 
@@ -188,7 +201,7 @@ class MainWindow(QMainWindow):
 
     def item_count(self):
         return self.ui.lst_item_list.count()
-    
+
     def get_item(self, file_path: str):
         return self.item_dict[file_path]
 
@@ -215,8 +228,14 @@ class MainWindow(QMainWindow):
     @Slot(str, str, ItemState)
     def _on_item_state_change(self, id: str, file_path: str, state: ItemState):
         if state == ItemState.DONE:
-            pass
-    
+            """
+            완료 되면
+            """
+            if self.state == MainState.START:
+                if self.start_next() == False:
+                    self.set_all_start_btn_enable(True)
+                    self.state = MainState.STOP
+
     def _find_next_item(self):
         for i in range(self.ui.lst_item_list.count()):
             item = self.ui.lst_item_list.item(i)
@@ -234,9 +253,9 @@ class MainWindow(QMainWindow):
                     self._remove_item(widget.file_path)
 
     def _get_widget(self, file_path: str) -> Widget:
-        for i in range(self.ui.item_list.count()):
-            item = self.ui.item_list.item(i)
-            widget = self.ui.item_list.itemWidget(item)
+        for i in range(self.ui.lst_item_list.count()):
+            item = self.ui.lst_item_list.item(i)
+            widget = self.ui.lst_item_list.itemWidget(item)
             if widget is not None and widget.file_path == file_path:
                 return widget
         return None
@@ -247,3 +266,33 @@ class MainWindow(QMainWindow):
             return
         self.ui.lst_item_list.takeItem(self.ui.lst_item_list.row(item))
         del self.item_dict[file_name]
+
+    def check_doing_item(self) -> bool:
+        for i in range(self.ui.lst_item_list.count()):
+            item = self.ui.lst_item_list.item(i)
+            widget: UpscaleItem = self.ui.lst_item_list.itemWidget(item)
+            if widget:
+                if widget.state == ItemState.DOING:
+                    return True
+        return False
+
+    def set_all_start_btn_enable(self, value):
+        for i in range(self.ui.lst_item_list.count()):
+            item = self.ui.lst_item_list.item(i)
+            widget: UpscaleItem = self.ui.lst_item_list.itemWidget(item)
+            if widget:
+                widget.btn_start_enable(value)
+
+    def start_next(self) -> bool:
+        if self.state == MainState.STOP:
+            return False
+        if self.check_doing_item():
+            return False
+        for i in range(self.ui.lst_item_list.count()):
+            item = self.ui.lst_item_list.item(i)
+            upscaleItem: UpscaleItem = self.ui.lst_item_list.itemWidget(item)
+            if upscaleItem:
+                if upscaleItem.state == ItemState.READY:
+                    upscaleItem.on_click_run()
+                    return True
+        return False

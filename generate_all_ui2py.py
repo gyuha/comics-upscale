@@ -26,4 +26,4 @@ def generate_resource():
 
 if __name__ == '__main__':
     generate_all_ui2py(os.path.join(os.path.dirname(os.path.abspath(__file__)), 'app', 'ui'))
-    # generate_resource()
+    generate_resource()

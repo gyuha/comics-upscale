@@ -11,6 +11,7 @@ import MainWindow
 from ui.ui_UpscaleItem import Ui_UpscaleItem
 from util.Config import Config
 from util.ImageOptimize import ImageOptimize
+from util.message import toast
 from util.Unzip import Unzip
 from util.Upscaler import Upscaler, UpscaleType
 from util.Zip import Zip
@@ -39,7 +40,7 @@ class UpscaleItem(QWidget):
 
     def __init__(self, parent: MainWindow, file_path: str):
         super(UpscaleItem, self).__init__()
-        self._parent = parent
+        self._parent: MainWindow = parent
 
         self.ui = Ui_UpscaleItem()
         self.ui.setupUi(self)
@@ -80,9 +81,8 @@ class UpscaleItem(QWidget):
 
     def _init_connect(self):
         self.ui.btn_run.clicked.connect(self.on_click_run)
-        self.ui.btn_delete.clicked.connect(
-            lambda: self._parent.signals.item_remove.emit(self.id, self.file_path)
-        )
+        self.ui.btn_delete.clicked.connect(self._on_click_remove)
+        self.ui.btn_open_folder.clicked.connect(self._on_click_open_folder)
 
     def _init_text(self):
         self.ui.lbl_file_name.setText(self.base_name)
@@ -97,9 +97,12 @@ class UpscaleItem(QWidget):
 
     def on_click_run(self):
         if self.state == ItemState.READY:
+            if self._parent.check_doing_item():
+                toast(self, "An item is already running.")
+                return
             self._set_run_icon("stop")
             self.state = ItemState.DOING
-            self.ui.lbl_state.setText("Doing")
+            self.ui.lbl_state.setText("An item is already running.")
             self.upscaler.set(self.upscale_type, [self.file_path])
             self.signals.run.emit(self.id)
             self._parent.signals.item_state_change.emit(
@@ -186,3 +189,19 @@ class UpscaleItem(QWidget):
         self.ui.lbl_state.setText("Completed")
         self.ui.lbl_state.setStyleSheet("color: blue")
         self._parent.signals.item_state_change.emit(self.id, self.file_path, self.state)
+
+    def _on_click_open_folder(self):
+        if os.path.exists(self.dir_name):
+            os.startfile(self.dir_name)
+    
+    def _on_click_remove(self):
+        if self._parent.state == MainWindow.MainState.START:
+            self.state = ItemState.DONE
+            self._parent.start_next()
+        else:
+            self.state = ItemState.READY
+        self._parent.signals.item_remove.emit(self.id, self.file_path)
+
+
+    def btn_start_enable(self, value: bool):
+        self.ui.btn_run.setEnabled(value)
