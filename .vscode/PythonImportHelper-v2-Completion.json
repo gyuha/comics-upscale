@@ -1624,6 +1624,14 @@
         "documentation": {}
     },
     {
+        "label": "toast",
+        "importPath": "util.message",
+        "description": "util.message",
+        "isExtraImport": true,
+        "detail": "util.message",
+        "documentation": {}
+    },
+    {
         "label": "uuid",
         "kind": 6,
         "isExtraImport": true,

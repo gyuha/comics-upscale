@@ -18,6 +18,7 @@ from ItemStateWorker import ItemStateWorker
 from ui.ui_MainWindow import Ui_MainWindow
 from UpscaleItem import UpscaleItem
 from util.Config import Config
+from util.message import toast
 
 
 class MainWindow(QMainWindow):
@@ -108,7 +109,8 @@ class MainWindow(QMainWindow):
         )
 
     def _on_click_start(self):
-        self._check_file_type("test")
+        # self._check_file_type("test")
+        toast(self, "test")
 
     def _on_click_list_clear(self):
         # for i in range(self.ui.lst_item_list.count()):
