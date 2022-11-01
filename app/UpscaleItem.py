@@ -1,22 +1,19 @@
-from functools import reduce
 import os
-import pathlib
-import re
-from enum import Enum
+import signal
 import uuid
+from enum import Enum
 
-from PySide6 import QtCore, QtGui
 from PySide6.QtCore import QObject, QSize, Qt, QThread, Signal, Slot
-from PySide6.QtWidgets import QWidget
 from PySide6.QtGui import QIcon
+from PySide6.QtWidgets import QWidget
 
 import MainWindow
-from util.ImageOptimize import ImageOptimize
-from util.Zip import Zip
-from util.Unzip import Unzip
-from util.Config import Config
-from util.Upscaler import UpscaleType, Upscaler
 from ui.ui_UpscaleItem import Ui_UpscaleItem
+from util.Config import Config
+from util.ImageOptimize import ImageOptimize
+from util.Unzip import Unzip
+from util.Upscaler import Upscaler, UpscaleType
+from util.Zip import Zip
 
 
 class ItemState(Enum):
@@ -33,7 +30,6 @@ class DoingState(Enum):
 
 class UpscaleItemSignal(QObject):
     run = Signal(str)
-
 
 class UpscaleItem(QWidget):
     signals = UpscaleItemSignal()
@@ -81,6 +77,7 @@ class UpscaleItem(QWidget):
 
     def _init_connect(self):
         self.ui.btn_run.clicked.connect(self._on_click_run)
+        self.ui.btn_delete.clicked.connect(lambda: self._parent.signals.item_remove.emit(self.id, self.file_path))
 
     def _init_text(self):
         self.ui.lbl_file_name.setText(self.base_name)

@@ -75,14 +75,6 @@
         "documentation": {}
     },
     {
-        "label": "Enum",
-        "importPath": "enum",
-        "description": "enum",
-        "isExtraImport": true,
-        "detail": "enum",
-        "documentation": {}
-    },
-    {
         "label": "cryptocode",
         "kind": 6,
         "isExtraImport": true,
@@ -157,22 +149,6 @@
     },
     {
         "label": "QtCore",
-        "importPath": "PySide6",
-        "description": "PySide6",
-        "isExtraImport": true,
-        "detail": "PySide6",
-        "documentation": {}
-    },
-    {
-        "label": "QtCore",
-        "importPath": "PySide6",
-        "description": "PySide6",
-        "isExtraImport": true,
-        "detail": "PySide6",
-        "documentation": {}
-    },
-    {
-        "label": "QtGui",
         "importPath": "PySide6",
         "description": "PySide6",
         "isExtraImport": true,
@@ -565,7 +541,7 @@
         "documentation": {}
     },
     {
-        "label": "QDate",
+        "label": "QObject",
         "importPath": "PySide6.QtCore",
         "description": "PySide6.QtCore",
         "isExtraImport": true,
@@ -581,7 +557,7 @@
         "documentation": {}
     },
     {
-        "label": "QTime",
+        "label": "Signal",
         "importPath": "PySide6.QtCore",
         "description": "PySide6.QtCore",
         "isExtraImport": true,
@@ -589,7 +565,7 @@
         "documentation": {}
     },
     {
-        "label": "QTimer",
+        "label": "Slot",
         "importPath": "PySide6.QtCore",
         "description": "PySide6.QtCore",
         "isExtraImport": true,
@@ -1246,22 +1222,6 @@
         "documentation": {}
     },
     {
-        "label": "reduce",
-        "importPath": "functools",
-        "description": "functools",
-        "isExtraImport": true,
-        "detail": "functools",
-        "documentation": {}
-    },
-    {
-        "label": "reduce",
-        "importPath": "functools",
-        "description": "functools",
-        "isExtraImport": true,
-        "detail": "functools",
-        "documentation": {}
-    },
-    {
         "label": "yaml",
         "kind": 6,
         "isExtraImport": true,
@@ -1385,23 +1345,6 @@
         "description": "multiprocessing.pool",
         "isExtraImport": true,
         "detail": "multiprocessing.pool",
-        "documentation": {}
-    },
-    {
-        "label": "pathlib",
-        "kind": 6,
-        "isExtraImport": true,
-        "importPath": "pathlib",
-        "description": "pathlib",
-        "detail": "pathlib",
-        "documentation": {}
-    },
-    {
-        "label": "Path",
-        "importPath": "pathlib",
-        "description": "pathlib",
-        "isExtraImport": true,
-        "detail": "pathlib",
         "documentation": {}
     },
     {
@@ -1534,6 +1477,15 @@
     },
     {
         "label": "signal",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "signal",
+        "description": "signal",
+        "detail": "signal",
+        "documentation": {}
+    },
+    {
+        "label": "signal",
         "importPath": "signal",
         "description": "signal",
         "isExtraImport": true,
@@ -1583,30 +1535,6 @@
         "documentation": {}
     },
     {
-        "label": "List",
-        "importPath": "ast",
-        "description": "ast",
-        "isExtraImport": true,
-        "detail": "ast",
-        "documentation": {}
-    },
-    {
-        "label": "datetime",
-        "importPath": "datetime",
-        "description": "datetime",
-        "isExtraImport": true,
-        "detail": "datetime",
-        "documentation": {}
-    },
-    {
-        "label": "isdir",
-        "importPath": "genericpath",
-        "description": "genericpath",
-        "isExtraImport": true,
-        "detail": "genericpath",
-        "documentation": {}
-    },
-    {
         "label": "ItemStateWorker",
         "importPath": "ItemStateWorker",
         "description": "ItemStateWorker",
@@ -1620,6 +1548,14 @@
         "description": "ui.ui_MainWindow",
         "isExtraImport": true,
         "detail": "ui.ui_MainWindow",
+        "documentation": {}
+    },
+    {
+        "label": "ItemState",
+        "importPath": "UpscaleItem",
+        "description": "UpscaleItem",
+        "isExtraImport": true,
+        "detail": "UpscaleItem",
         "documentation": {}
     },
     {
@@ -1648,19 +1584,19 @@
         "documentation": {}
     },
     {
+        "label": "Ui_UpscaleItem",
+        "importPath": "ui.ui_UpscaleItem",
+        "description": "ui.ui_UpscaleItem",
+        "isExtraImport": true,
+        "detail": "ui.ui_UpscaleItem",
+        "documentation": {}
+    },
+    {
         "label": "ImageOptimize",
         "importPath": "util.ImageOptimize",
         "description": "util.ImageOptimize",
         "isExtraImport": true,
         "detail": "util.ImageOptimize",
-        "documentation": {}
-    },
-    {
-        "label": "Zip",
-        "importPath": "util.Zip",
-        "description": "util.Zip",
-        "isExtraImport": true,
-        "detail": "util.Zip",
         "documentation": {}
     },
     {
@@ -1672,14 +1608,6 @@
         "documentation": {}
     },
     {
-        "label": "UpscaleType",
-        "importPath": "util.Upscaler",
-        "description": "util.Upscaler",
-        "isExtraImport": true,
-        "detail": "util.Upscaler",
-        "documentation": {}
-    },
-    {
         "label": "Upscaler",
         "importPath": "util.Upscaler",
         "description": "util.Upscaler",
@@ -1688,11 +1616,19 @@
         "documentation": {}
     },
     {
-        "label": "Ui_UpscaleItem",
-        "importPath": "ui.ui_UpscaleItem",
-        "description": "ui.ui_UpscaleItem",
+        "label": "UpscaleType",
+        "importPath": "util.Upscaler",
+        "description": "util.Upscaler",
         "isExtraImport": true,
-        "detail": "ui.ui_UpscaleItem",
+        "detail": "util.Upscaler",
+        "documentation": {}
+    },
+    {
+        "label": "Zip",
+        "importPath": "util.Zip",
+        "description": "util.Zip",
+        "isExtraImport": true,
+        "detail": "util.Zip",
         "documentation": {}
     },
     {
@@ -1975,11 +1911,20 @@
         "documentation": {}
     },
     {
+        "label": "MainWindowSignal",
+        "kind": 6,
+        "importPath": "app.MainWindow",
+        "description": "app.MainWindow",
+        "peekOfCode": "class MainWindowSignal(QObject):\n    item_remove = Signal(str, str)  # id, file_path\n    item_state_change = Signal(str, str, ItemState) # id, file_path, Item state\nclass MainWindow(QMainWindow):\n    signals = MainWindowSignal()\n    def __init__(self, parent=None):\n        super(MainWindow, self).__init__(parent)\n        self.ui = Ui_MainWindow()\n        self.ui.setupUi(self)\n        self.config = Config()",
+        "detail": "app.MainWindow",
+        "documentation": {}
+    },
+    {
         "label": "MainWindow",
         "kind": 6,
         "importPath": "app.MainWindow",
         "description": "app.MainWindow",
-        "peekOfCode": "class MainWindow(QMainWindow):\n    def __init__(self, parent=None):\n        super(MainWindow, self).__init__(parent)\n        self.ui = Ui_MainWindow()\n        self.ui.setupUi(self)\n        self.config = Config()\n        self._load_config()\n        self._init_connect()\n        self.itemState = ItemStateWorker(self)\n        self.itemState.start()",
+        "peekOfCode": "class MainWindow(QMainWindow):\n    signals = MainWindowSignal()\n    def __init__(self, parent=None):\n        super(MainWindow, self).__init__(parent)\n        self.ui = Ui_MainWindow()\n        self.ui.setupUi(self)\n        self.config = Config()\n        self._load_config()\n        self._init_connect()\n        self.itemState = ItemStateWorker(self)",
         "detail": "app.MainWindow",
         "documentation": {}
     },

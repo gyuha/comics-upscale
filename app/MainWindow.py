@@ -1,27 +1,27 @@
 import os
-import re
-from ast import List
-from datetime import datetime
-from enum import Enum
-from functools import reduce
-from pathlib import Path
 
-from genericpath import isdir
 from PySide6 import QtCore, QtGui, QtWidgets
-from PySide6.QtCore import QDate, Qt, QTime, QTimer
+from PySide6.QtCore import QObject, Qt, Signal, Slot
 from PySide6.QtGui import QDragEnterEvent, QDragMoveEvent, QDropEvent
 from PySide6.QtWidgets import QListWidgetItem, QMainWindow
-from lib.QToaster import QToaster
 
+import MainWindow
 from constant.SettingEnum import SettingEnum
 from ItemStateWorker import ItemStateWorker
+from lib.QToaster import QToaster
 from ui.ui_MainWindow import Ui_MainWindow
-from UpscaleItem import UpscaleItem
+from UpscaleItem import ItemState, UpscaleItem
 from util.Config import Config
 from util.message import toast
 
 
+class MainWindowSignal(QObject):
+    item_remove = Signal(str, str)  # id, file_path
+    item_state_change = Signal(str, str, ItemState) # id, file_path, Item state
+
 class MainWindow(QMainWindow):
+    signals = MainWindowSignal()
+
     def __init__(self, parent=None):
         super(MainWindow, self).__init__(parent)
         self.ui = Ui_MainWindow()
@@ -43,6 +43,10 @@ class MainWindow(QMainWindow):
         )
 
     def _init_connect(self):
+        ####
+        self.signals.item_remove.connect(self._on_item_remove)
+
+        ####
         self.ui.cmb_format.activated.connect(self._save_config)
         self.ui.cmb_tile_size.activated.connect(self._save_config)
         self.ui.chb_tta_mode.stateChanged.connect(self._save_config)
@@ -56,7 +60,9 @@ class MainWindow(QMainWindow):
         self.ui.lst_item_list.dragEnterEvent = self._on_list_drag_enter
         self.ui.lst_item_list.dragMoveEvent = self._on_list_drag_move
         self.ui.lst_item_list.dropEvent = self._on_list_drop
-        self.ui.lst_item_list.setDragDropMode(QtWidgets.QAbstractItemView.DragDropMode.InternalMove)
+        self.ui.lst_item_list.setDragDropMode(
+            QtWidgets.QAbstractItemView.DragDropMode.InternalMove
+        )
 
         # buttons
         self.ui.btn_start.clicked.connect(self._on_click_start)
@@ -123,18 +129,18 @@ class MainWindow(QMainWindow):
         self.item_dict.clear()
 
     def _on_list_drag_enter(self, event: QDragEnterEvent):
-        event.accept()
-        # if event.mimeData().hasUrls():
-        #     event.accept()
-        # else:
-        #     event.ignore()
+        # event.accept()
+        if event.mimeData().hasUrls():
+            event.accept()
+        else:
+            event.ignore()
 
     def _on_list_drag_move(self, event: QDragMoveEvent):
-        event.accept()
-        # if event.mimeData().hasUrls():
-        #     event.accept()
-        # else:
-        #     event.ignore()
+        # event.accept()
+        if event.mimeData().hasUrls():
+            event.accept()
+        else:
+            event.ignore()
 
     def _on_list_drop(self, event: QDropEvent):
         lines = []
@@ -174,6 +180,9 @@ class MainWindow(QMainWindow):
             return True
         return False
 
+    def item_count(self):
+        return self.ui.lst_item_list.count()
+
     def _add_item(self, file_path: str) -> bool:
         if not self._check_file_type(file_path) or self._check_exist_item(file_path):
             return False
@@ -185,8 +194,15 @@ class MainWindow(QMainWindow):
         title_item.setSizeHint(widget.sizeHint())
         self.ui.lst_item_list.addItem(title_item)
         self.ui.lst_item_list.setItemWidget(title_item, widget)
-
+        print("📢[MainWindow.py:191]", self.item_count())
         return True
 
     def closeEvent(self, event):
         self.itemState.stop()
+    
+    @Slot(str, str)
+    def _on_item_remove(self, id: str, file_path: str):
+        item = self.item_dict[file_path]
+        self.ui.lst_item_list.takeItem(self.ui.lst_item_list.row(item))
+        del self.item_dict[file_path]
+
