@@ -17,6 +17,13 @@ def generate_all_ui2py(path: str):
         print('📢', cmd)
         os.popen(cmd)
 
+def generate_resource():
+    source = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'app', 'ui', 'resources.qrc')
+    target = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'app', 'resources_rc.py')
+    cmd = f'pyside6-rcc {source} > {target}'
+    print('📢[generate_all_ui2py.py:24]: ', cmd)
+    os.popen(cmd)
 
 if __name__ == '__main__':
     generate_all_ui2py(os.path.join(os.path.dirname(os.path.abspath(__file__)), 'app', 'ui'))
+    # generate_resource()

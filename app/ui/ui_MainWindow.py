@@ -16,10 +16,10 @@ from PySide6.QtGui import (QAction, QBrush, QColor, QConicalGradient,
     QIcon, QImage, QKeySequence, QLinearGradient,
     QPainter, QPalette, QPixmap, QRadialGradient,
     QTransform)
-from PySide6.QtWidgets import (QApplication, QCheckBox, QComboBox, QFormLayout,
-    QHBoxLayout, QLabel, QListWidget, QListWidgetItem,
-    QMainWindow, QPushButton, QSizePolicy, QSpacerItem,
-    QStatusBar, QVBoxLayout, QWidget)
+from PySide6.QtWidgets import (QAbstractItemView, QApplication, QCheckBox, QComboBox,
+    QFormLayout, QHBoxLayout, QLabel, QListWidget,
+    QListWidgetItem, QMainWindow, QPushButton, QSizePolicy,
+    QSpacerItem, QStatusBar, QVBoxLayout, QWidget)
 import resources_rc
 
 class Ui_MainWindow(object):
@@ -221,7 +221,9 @@ class Ui_MainWindow(object):
         self.lst_item_list = QListWidget(self.centralwidget)
         self.lst_item_list.setObjectName(u"lst_item_list")
         self.lst_item_list.setHorizontalScrollBarPolicy(Qt.ScrollBarAlwaysOff)
-        self.lst_item_list.setDragEnabled(False)
+        self.lst_item_list.setDragEnabled(True)
+        self.lst_item_list.setDragDropMode(QAbstractItemView.InternalMove)
+        self.lst_item_list.setDefaultDropAction(Qt.MoveAction)
 
         self.verticalLayout_2.addWidget(self.lst_item_list)
 

@@ -148,6 +148,14 @@
         "documentation": {}
     },
     {
+        "label": "QtWidgets",
+        "importPath": "PySide6",
+        "description": "PySide6",
+        "isExtraImport": true,
+        "detail": "PySide6",
+        "documentation": {}
+    },
+    {
         "label": "QtCore",
         "importPath": "PySide6",
         "description": "PySide6",
@@ -933,6 +941,14 @@
         "documentation": {}
     },
     {
+        "label": "QAbstractItemView",
+        "importPath": "PySide6.QtWidgets",
+        "description": "PySide6.QtWidgets",
+        "isExtraImport": true,
+        "detail": "PySide6.QtWidgets",
+        "documentation": {}
+    },
+    {
         "label": "QApplication",
         "importPath": "PySide6.QtWidgets",
         "description": "PySide6.QtWidgets",
@@ -1418,15 +1434,6 @@
         "description": "pickletools",
         "isExtraImport": true,
         "detail": "pickletools",
-        "documentation": {}
-    },
-    {
-        "label": "pyguetzli",
-        "kind": 6,
-        "isExtraImport": true,
-        "importPath": "pyguetzli",
-        "description": "pyguetzli",
-        "detail": "pyguetzli",
         "documentation": {}
     },
     {
@@ -2063,6 +2070,15 @@
         "importPath": "generate_all_ui2py",
         "description": "generate_all_ui2py",
         "peekOfCode": "def generate_all_ui2py(path: str):\n    files = os.listdir(path)\n    ui_list = []\n    pattern = re.compile(r'.*\\.ui$')\n    for it in files:\n        if pattern.match(it):\n            ui_list.append(it)\n    for it in ui_list:\n        file_path = os.path.join(path, it)\n        file_name_without_ext = os.path.basename(file_path)[:-3]",
+        "detail": "generate_all_ui2py",
+        "documentation": {}
+    },
+    {
+        "label": "generate_resource",
+        "kind": 2,
+        "importPath": "generate_all_ui2py",
+        "description": "generate_all_ui2py",
+        "peekOfCode": "def generate_resource():\n    source = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'app', 'ui', 'resources.qrc')\n    target = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'app', 'resources_rc.py')\n    cmd = f'pyside6-rcc {source} > {target}'\n    print('📢[generate_all_ui2py.py:24]: ', cmd)\n    os.popen(cmd)\nif __name__ == '__main__':\n    generate_all_ui2py(os.path.join(os.path.dirname(os.path.abspath(__file__)), 'app', 'ui'))\n    # generate_resource()",
         "detail": "generate_all_ui2py",
         "documentation": {}
     }

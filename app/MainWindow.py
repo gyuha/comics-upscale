@@ -7,7 +7,7 @@ from functools import reduce
 from pathlib import Path
 
 from genericpath import isdir
-from PySide6 import QtCore, QtGui
+from PySide6 import QtCore, QtGui, QtWidgets
 from PySide6.QtCore import QDate, Qt, QTime, QTimer
 from PySide6.QtGui import QDragEnterEvent, QDragMoveEvent, QDropEvent
 from PySide6.QtWidgets import QListWidgetItem, QMainWindow
@@ -56,6 +56,7 @@ class MainWindow(QMainWindow):
         self.ui.lst_item_list.dragEnterEvent = self._on_list_drag_enter
         self.ui.lst_item_list.dragMoveEvent = self._on_list_drag_move
         self.ui.lst_item_list.dropEvent = self._on_list_drop
+        self.ui.lst_item_list.setDragDropMode(QtWidgets.QAbstractItemView.DragDropMode.InternalMove)
 
         # buttons
         self.ui.btn_start.clicked.connect(self._on_click_start)
@@ -122,16 +123,18 @@ class MainWindow(QMainWindow):
         self.item_dict.clear()
 
     def _on_list_drag_enter(self, event: QDragEnterEvent):
-        if event.mimeData().hasUrls():
-            event.accept()
-        else:
-            event.ignore()
+        event.accept()
+        # if event.mimeData().hasUrls():
+        #     event.accept()
+        # else:
+        #     event.ignore()
 
     def _on_list_drag_move(self, event: QDragMoveEvent):
-        if event.mimeData().hasUrls():
-            event.accept()
-        else:
-            event.ignore()
+        event.accept()
+        # if event.mimeData().hasUrls():
+        #     event.accept()
+        # else:
+        #     event.ignore()
 
     def _on_list_drop(self, event: QDropEvent):
         lines = []

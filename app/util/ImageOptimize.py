@@ -10,7 +10,6 @@ from multiprocessing.pool import ThreadPool
 from pathlib import Path
 from pickletools import optimize
 
-import pyguetzli
 from constant.SettingEnum import SettingEnum
 from PIL import Image as PILImage
 from PySide6.QtCore import QObject, QThread, Signal, Slot
