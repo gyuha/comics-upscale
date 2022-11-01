@@ -214,7 +214,16 @@ class MainWindow(QMainWindow):
 
     @Slot(str, str, ItemState)
     def _on_item_state_change(self, id: str, file_path: str, state: ItemState):
-        pass
+        if state == ItemState.DONE:
+            pass
+    
+    def _find_next_item(self):
+        for i in range(self.ui.lst_item_list.count()):
+            item = self.ui.lst_item_list.item(i)
+            widget = self.ui.lst_item_list.itemWidget(item)
+            if widget is not None:
+                if widget.state == ItemState.READY:
+                    return widget
 
     def _on_done_clear(self):
         for i in reversed(range(self.ui.lst_item_list.count())):
