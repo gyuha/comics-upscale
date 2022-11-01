@@ -72,7 +72,7 @@ class UpscaleItem(QWidget):
         self.re_image = self.config.re_image_extension()
 
         self.upscale_type = UpscaleType.IMAGE
-        if self.re_image.search(file_path) != None:
+        if self.config.re_zip_extension().search(file_path):
             self.upscale_type = UpscaleType.COMPRESS_IMAGE
         self.upscaler.signals.upscale_state.connect(self._on_upscale_state)
 
@@ -149,7 +149,7 @@ class UpscaleItem(QWidget):
         self.ui.pgb_progress.setValue(percent)
         if complete:
             if self.upscale_type == UpscaleType.IMAGE:
-                self._on_complete
+                self._on_complete()
             else:
                 self.ui.btn_run.setDisabled(True)
                 self.ui.lbl_state.setText("Upscaling Complete")
