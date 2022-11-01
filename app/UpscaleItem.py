@@ -22,14 +22,17 @@ class ItemState(Enum):
     DONE = 3
     ERROR = 4
 
+
 class DoingState(Enum):
     UNZIP = 1
     UPSCALE = 2
     OPTIMIZE = 3
     ZIP = 3
 
+
 class UpscaleItemSignal(QObject):
     run = Signal(str)
+
 
 class UpscaleItem(QWidget):
     signals = UpscaleItemSignal()
@@ -76,8 +79,10 @@ class UpscaleItem(QWidget):
         self.signals.run.connect(self._on_run)
 
     def _init_connect(self):
-        self.ui.btn_run.clicked.connect(self._on_click_run)
-        self.ui.btn_delete.clicked.connect(lambda: self._parent.signals.item_remove.emit(self.id, self.file_path))
+        self.ui.btn_run.clicked.connect(self.on_click_run)
+        self.ui.btn_delete.clicked.connect(
+            lambda: self._parent.signals.item_remove.emit(self.id, self.file_path)
+        )
 
     def _init_text(self):
         self.ui.lbl_file_name.setText(self.base_name)
@@ -90,23 +95,22 @@ class UpscaleItem(QWidget):
         icon.addFile(f":/icon/icons/{type}.png", QSize(), QIcon.Normal, QIcon.Off)
         self.ui.btn_run.setIcon(icon)
 
-    def _on_click_run(self):
+    def on_click_run(self):
         if self.state == ItemState.READY:
             self._set_run_icon("stop")
             self.state = ItemState.DOING
             self.ui.lbl_state.setText("Doing")
             self.upscaler.set(self.upscale_type, [self.file_path])
-            print('📢[UpscaleItem.py:102]: ', self.id)
-            print('📢[UpscaleItem.py:102]: ', type(self.id))
             self.signals.run.emit(self.id)
+            self._parent.signals.item_state_change.emit(
+                self.id, self.file_path, self.state
+            )
         else:
             self.state = ItemState.READY
             self._set_run_icon("play")
-    
+
     @Slot(str)
     def _on_run(self, id: str):
-        print('📢[UpscaleItem.py:109]: ', id)
-        print('📢[UpscaleItem.py:110]: ', self.id)
         if self.id != id:
             return
         if self.upscale_type == UpscaleType.IMAGE:
@@ -131,7 +135,6 @@ class UpscaleItem(QWidget):
             files = list(map(lambda x: os.path.join(self.temp_dir, x), files))
             self.upscaler.set(UpscaleType.COMPRESS_IMAGE, files)
             self.upscaler.start()
-    
 
     @Slot(str, bool, int, int)
     def _on_upscale_state(self, id: str, complete: bool, current: int, total: int):
@@ -145,10 +148,12 @@ class UpscaleItem(QWidget):
         self.ui.lbl_state.setText(f"Upscaling [{current}/{total}]")
         self.ui.pgb_progress.setValue(percent)
         if complete:
-            self.ui.btn_run.setDisabled(True)
-            self.ui.lbl_state.setText("Upscaling Complete")
-            self.optimize.start()
-    
+            if self.upscale_type == UpscaleType.IMAGE:
+                self._on_complete
+            else:
+                self.ui.btn_run.setDisabled(True)
+                self.ui.lbl_state.setText("Upscaling Complete")
+                self.optimize.start()
 
     @Slot(str, bool, int, int)
     def _on_optimize_state(self, id: str, complete: bool, current: int, total: int):
@@ -173,8 +178,11 @@ class UpscaleItem(QWidget):
             self.ui.pgb_progress.setValue(current / total * 100)
 
         if complete:
-            self.state = ItemState.DONE
-            self.ui.btn_run.setDisabled(True)
-            self.ui.lbl_state.setText("Completed")
-            self.ui.lbl_state.setStyleSheet("color: blue")
-    
+            self._on_complete()
+
+    def _on_complete(self):
+        self.state = ItemState.DONE
+        self.ui.btn_run.setDisabled(True)
+        self.ui.lbl_state.setText("Completed")
+        self.ui.lbl_state.setStyleSheet("color: blue")
+        self._parent.signals.item_state_change.emit(self.id, self.file_path, self.state)

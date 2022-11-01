@@ -1,4 +1,5 @@
 import os
+from tkinter import Widget
 
 from PySide6 import QtCore, QtGui, QtWidgets
 from PySide6.QtCore import QObject, Qt, Signal, Slot
@@ -17,7 +18,8 @@ from util.message import toast
 
 class MainWindowSignal(QObject):
     item_remove = Signal(str, str)  # id, file_path
-    item_state_change = Signal(str, str, ItemState) # id, file_path, Item state
+    item_state_change = Signal(str, str, ItemState)  # id, file_path, Item state
+
 
 class MainWindow(QMainWindow):
     signals = MainWindowSignal()
@@ -43,10 +45,11 @@ class MainWindow(QMainWindow):
         )
 
     def _init_connect(self):
-        ####
+        #### signal
         self.signals.item_remove.connect(self._on_item_remove)
+        self.signals.item_state_change.connect(self._on_item_state_change)
 
-        ####
+        #### config
         self.ui.cmb_format.activated.connect(self._save_config)
         self.ui.cmb_tile_size.activated.connect(self._save_config)
         self.ui.chb_tta_mode.stateChanged.connect(self._save_config)
@@ -55,6 +58,7 @@ class MainWindow(QMainWindow):
         self.ui.cmb_model_name.activated.connect(self._save_config)
         self.ui.cmb_jpg_optimize.activated.connect(self._save_config)
 
+        ### List
         self.ui.lst_item_list.setDragEnabled(True)
         self.ui.lst_item_list.setAcceptDrops(True)
         self.ui.lst_item_list.dragEnterEvent = self._on_list_drag_enter
@@ -66,7 +70,9 @@ class MainWindow(QMainWindow):
 
         # buttons
         self.ui.btn_start.clicked.connect(self._on_click_start)
+        self.ui.btn_start.setStyleSheet("background-color: #5CB8FF")
         self.ui.btn_list_clear.clicked.connect(self._on_click_list_clear)
+        self.ui.btn_done_clear.clicked.connect(self._on_done_clear)
 
     def _save_config(self):
         self.config.setting[SettingEnum.FORMAT] = self.ui.cmb_format.currentText()
@@ -182,6 +188,9 @@ class MainWindow(QMainWindow):
 
     def item_count(self):
         return self.ui.lst_item_list.count()
+    
+    def get_item(self, file_path: str):
+        return self.item_dict[file_path]
 
     def _add_item(self, file_path: str) -> bool:
         if not self._check_file_type(file_path) or self._check_exist_item(file_path):
@@ -194,15 +203,38 @@ class MainWindow(QMainWindow):
         title_item.setSizeHint(widget.sizeHint())
         self.ui.lst_item_list.addItem(title_item)
         self.ui.lst_item_list.setItemWidget(title_item, widget)
-        print("📢[MainWindow.py:191]", self.item_count())
         return True
 
     def closeEvent(self, event):
         self.itemState.stop()
-    
+
     @Slot(str, str)
     def _on_item_remove(self, id: str, file_path: str):
-        item = self.item_dict[file_path]
-        self.ui.lst_item_list.takeItem(self.ui.lst_item_list.row(item))
-        del self.item_dict[file_path]
+        self._remove_item(file_path)
 
+    @Slot(str, str, ItemState)
+    def _on_item_state_change(self, id: str, file_path: str, state: ItemState):
+        pass
+
+    def _on_done_clear(self):
+        for i in reversed(range(self.ui.lst_item_list.count())):
+            item = self.ui.lst_item_list.item(i)
+            widget = self.ui.lst_item_list.itemWidget(item)
+            if widget is not None:
+                if widget.state == ItemState.DONE:
+                    self._remove_item(widget.file_path)
+
+    def _get_widget(self, file_path: str) -> Widget:
+        for i in range(self.ui.item_list.count()):
+            item = self.ui.item_list.item(i)
+            widget = self.ui.item_list.itemWidget(item)
+            if widget is not None and widget.file_path == file_path:
+                return widget
+        return None
+
+    def _remove_item(self, file_name: str):
+        item = self.item_dict[file_name]
+        if item is None:
+            return
+        self.ui.lst_item_list.takeItem(self.ui.lst_item_list.row(item))
+        del self.item_dict[file_name]

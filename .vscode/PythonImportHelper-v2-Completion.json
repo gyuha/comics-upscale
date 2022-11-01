@@ -1535,6 +1535,14 @@
         "documentation": {}
     },
     {
+        "label": "Widget",
+        "importPath": "tkinter",
+        "description": "tkinter",
+        "isExtraImport": true,
+        "detail": "tkinter",
+        "documentation": {}
+    },
+    {
         "label": "ItemStateWorker",
         "importPath": "ItemStateWorker",
         "description": "ItemStateWorker",
@@ -1915,7 +1923,7 @@
         "kind": 6,
         "importPath": "app.MainWindow",
         "description": "app.MainWindow",
-        "peekOfCode": "class MainWindowSignal(QObject):\n    item_remove = Signal(str, str)  # id, file_path\n    item_state_change = Signal(str, str, ItemState) # id, file_path, Item state\nclass MainWindow(QMainWindow):\n    signals = MainWindowSignal()\n    def __init__(self, parent=None):\n        super(MainWindow, self).__init__(parent)\n        self.ui = Ui_MainWindow()\n        self.ui.setupUi(self)\n        self.config = Config()",
+        "peekOfCode": "class MainWindowSignal(QObject):\n    item_remove = Signal(str, str)  # id, file_path\n    item_state_change = Signal(str, str, ItemState)  # id, file_path, Item state\nclass MainWindow(QMainWindow):\n    signals = MainWindowSignal()\n    def __init__(self, parent=None):\n        super(MainWindow, self).__init__(parent)\n        self.ui = Ui_MainWindow()\n        self.ui.setupUi(self)\n        self.config = Config()",
         "detail": "app.MainWindow",
         "documentation": {}
     },
