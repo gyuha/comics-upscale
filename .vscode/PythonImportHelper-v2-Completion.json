@@ -1873,7 +1873,7 @@
         "kind": 2,
         "importPath": "app.util.message",
         "description": "app.util.message",
-        "peekOfCode": "def alert(text):\n    error_dialog = QtWidgets.QErrorMessage()\n    error_dialog.showMessage(text)\ndef toast(self, text):\n    QToaster.showMessage(self, text, corner=QtCore.Qt.TopRightCorner, timeout=1000, closable=False)",
+        "peekOfCode": "def alert(text):\n    error_dialog = QtWidgets.QErrorMessage()\n    error_dialog.showMessage(text)\ndef toast(self, text, timeout=1000):\n    QToaster.showMessage(self, text, corner=QtCore.Qt.TopRightCorner, timeout=timeout, closable=False)",
         "detail": "app.util.message",
         "documentation": {}
     },
@@ -1882,7 +1882,7 @@
         "kind": 2,
         "importPath": "app.util.message",
         "description": "app.util.message",
-        "peekOfCode": "def toast(self, text):\n    QToaster.showMessage(self, text, corner=QtCore.Qt.TopRightCorner, timeout=1000, closable=False)",
+        "peekOfCode": "def toast(self, text, timeout=1000):\n    QToaster.showMessage(self, text, corner=QtCore.Qt.TopRightCorner, timeout=timeout, closable=False)",
         "detail": "app.util.message",
         "documentation": {}
     },

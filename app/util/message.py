@@ -8,5 +8,5 @@ def alert(text):
     error_dialog = QtWidgets.QErrorMessage()
     error_dialog.showMessage(text)
 
-def toast(self, text):
-    QToaster.showMessage(self, text, corner=QtCore.Qt.TopRightCorner, timeout=1000, closable=False)
+def toast(self, text, timeout=1000):
+    QToaster.showMessage(self, text, corner=QtCore.Qt.TopRightCorner, timeout=timeout, closable=False)
