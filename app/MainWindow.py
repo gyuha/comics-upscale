@@ -81,6 +81,8 @@ class MainWindow(QMainWindow):
         self.ui.btn_start.setStyleSheet("background-color: #5CB8FF")
         self.ui.btn_list_clear.clicked.connect(self._on_click_list_clear)
         self.ui.btn_done_clear.clicked.connect(self._on_done_clear)
+        self.ui.btn_add_file.clicked.connect(self._on_click_add_file)
+        self.ui.btn_add_folder.clicked.connect(self._on_click_add_folder)
 
     def _save_config(self):
         self.config.setting[SettingEnum.FORMAT] = self.ui.cmb_format.currentText()
@@ -181,6 +183,7 @@ class MainWindow(QMainWindow):
                 add = self._add_item(item)
                 if add:
                     item_count += 1
+                continue
 
             if os.path.isdir(item):
                 for f in os.listdir(item):
@@ -189,6 +192,7 @@ class MainWindow(QMainWindow):
                     add = self._add_item(os.path.join(item, f))
                     if add:
                         item_count += 1
+
         if item_count == 0:
             msg = "No items have been added."
             self.ui.statusbar.showMessage("No items have been added.")
@@ -296,3 +300,20 @@ class MainWindow(QMainWindow):
                     upscaleItem.on_click_run()
                     return True
         return False
+    
+
+
+    def _on_click_add_folder(self):
+        file = str(QtWidgets.QFileDialog.getExistingDirectory(self, "Select Directory"))
+        if file:
+            self._add_items([file])
+
+    def _on_click_add_file(self):
+        fileNames = QtWidgets.QFileDialog.getOpenFileNames(self, "Select Directory")
+        if len(fileNames[0]) == 0:
+            return
+        files = []
+        for f in fileNames[0]:
+            files.append(str(f))
+        
+        self._add_items(files)
