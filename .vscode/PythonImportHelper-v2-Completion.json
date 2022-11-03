@@ -1436,6 +1436,14 @@
         "documentation": {}
     },
     {
+        "label": "Path",
+        "importPath": "pathlib",
+        "description": "pathlib",
+        "isExtraImport": true,
+        "detail": "pathlib",
+        "documentation": {}
+    },
+    {
         "label": "optimize",
         "importPath": "pickletools",
         "description": "pickletools",

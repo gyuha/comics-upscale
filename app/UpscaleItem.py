@@ -1,4 +1,6 @@
 import os
+from pathlib import Path
+import shutil
 import signal
 import uuid
 from enum import Enum
@@ -199,12 +201,18 @@ class UpscaleItem(QWidget):
         self.ui.btn_run.setDisabled(True)
         self.ui.lbl_state.setText(self.tr("Completed"))
         self.ui.lbl_state.setStyleSheet("color: blue")
+        self._remove_temp_folder()
         self._parent.signals.item_state_change.emit(self.id, self.file_path, self.state)
+
+    def _remove_temp_folder(self):
+        temp_dir = Path(self.config.data["temp_dir"]).absolute()
+        if os.path.exists(temp_dir):
+            shutil.rmtree(temp_dir)
 
     def _on_click_open_folder(self):
         if os.path.exists(self.dir_name):
             os.startfile(self.dir_name)
-    
+
     def _on_click_remove(self):
         if self._parent.state == MainWindow.MainState.START:
             self.state = ItemState.DONE
@@ -212,7 +220,6 @@ class UpscaleItem(QWidget):
         else:
             self.state = ItemState.READY
         self._parent.signals.item_remove.emit(self.id, self.file_path)
-
 
     def btn_start_enable(self, value: bool):
         self.ui.btn_run.setEnabled(value)
