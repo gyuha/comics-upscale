@@ -23,7 +23,8 @@ poetry config virtualenvs.path "./.venv"
 peotry install
 .venv/Scripts/activate
 ```
-## 언어 작업하기
+# 언어 작업하기
+![Translation Process](https://lh5.googleusercontent.com/z5YxcH23a7FM3cOZyBx4eNoeVmSnm5kciJaYhEkV8xgkJ6XTBhhntUpaKQo6yEF2XawMuZv7m3X7lqr1tjA4WlDqEzuALMwYEjwav6wSA75-3BNy62xVfahyf3h-MkQvmw)
 소스에 다국어 처리가 필요한 부분에 `self.tr("예제")`와 같이 넣어 줍니다.
 
 ```
