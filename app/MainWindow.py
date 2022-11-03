@@ -83,6 +83,7 @@ class MainWindow(QMainWindow):
         self.ui.btn_done_clear.clicked.connect(self._on_done_clear)
         self.ui.btn_add_file.clicked.connect(self._on_click_add_file)
         self.ui.btn_add_folder.clicked.connect(self._on_click_add_folder)
+        self.ui.btn_start.setText(self.tr("Start"))
 
     def _save_config(self):
         self.config.setting[SettingEnum.FORMAT] = self.ui.cmb_format.currentText()

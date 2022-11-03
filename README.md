@@ -1,6 +1,6 @@
-# 만화책 업스케일 
+# Comics upscale
+This project is the upscale the image of comic books. [realesrgan-ncnn-vulkan](https://github.com/xinntao/Real-ESRGAN-ncnn-vulkan) is used.
 
-# 기능
 
 # TODO
 - [x] 자동으로 진행하기
@@ -12,7 +12,3 @@
 - [x] 아이템 열기
 - [x] 아이템 삭제
 - [x] 팝업 만들기
-
-# 참고 사이트
-- [Real-ESRGAN ncnn Vulkan](https://github.com/xinntao/Real-ESRGAN-ncnn-vulkan)
-- [Qt for Python](https://doc.qt.io/qtforpython/)
