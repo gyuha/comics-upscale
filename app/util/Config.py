@@ -54,9 +54,10 @@ class Config(metaclass=Singleton):
     def replace_name(self, file_path: str):
         if self.setting[SettingEnum.REPLACE_ORIGIN]:
             return file_path
-        file_name = os.path.basename(file_path)
-        t = file_name.split(".")
-        t[0] = t[0] + self.setting[SettingEnum.PRE_FIX]
+        base_name = os.path.basename(file_path)
+        t = base_name.split(".")
+        if len(t) <= 2:
+            return file_path
         t[-2] = t[-2] + self.setting[SettingEnum.POST_FIX]
-        file_name = ".".join(t)
-        return os.path.join(os.path.dirname(file_path), file_name)
+        base_name = ".".join(t)
+        return os.path.join(os.path.dirname(file_path), base_name)
