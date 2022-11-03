@@ -88,7 +88,7 @@ class UpscaleItem(QWidget):
         self.ui.lbl_file_name.setText(self.base_name)
         self.ui.lbl_path.setText(self.dir_name)
         self.ui.pgb_progress.setValue(0)
-        self.ui.lbl_state.setText("Ready")
+        self.ui.lbl_state.setText(self.tr("Ready"))
 
     def _set_run_icon(self, type: str):
         icon = QIcon()
@@ -97,12 +97,13 @@ class UpscaleItem(QWidget):
 
     def on_click_run(self):
         if self.state == ItemState.READY:
+            msg = self.tr("An item is already running.")
             if self._parent.check_doing_item():
-                toast(self, "An item is already running.")
+                toast(self, msg)
                 return
-            self._set_run_icon("stop")
+            self._set_run_icon(self.tr("stop"))
             self.state = ItemState.DOING
-            self.ui.lbl_state.setText("An item is already running.")
+            self.ui.lbl_state.setText(msg)
             self.upscaler.set(self.upscale_type, [self.file_path])
             self.signals.run.emit(self.id)
             self._parent.signals.item_state_change.emit(
@@ -126,13 +127,13 @@ class UpscaleItem(QWidget):
         if self.id != id:
             return
 
-        self.ui.lbl_state.setText(f"Unzip files [{current}/{total}]")
+        self.ui.lbl_state.setText(self.tr(f"Unzip files") + " [{current}/{total}]")
         if total > 0:
             self.ui.pgb_progress.setValue(current / total * 100)
 
         if complete:
             # 이미지 업스케일 시작 하기
-            self.ui.lbl_state.setText("Unzip Complete")
+            self.ui.lbl_state.setText(self.tr("Unzip Complete"))
             files = os.listdir(self.temp_dir)
             files = list(filter(self.re_image.search, files))
             files = list(map(lambda x: os.path.join(self.temp_dir, x), files))
@@ -148,14 +149,14 @@ class UpscaleItem(QWidget):
         if total > 0:
             percent = current / total * 100
 
-        self.ui.lbl_state.setText(f"Upscaling [{current}/{total}]")
+        self.ui.lbl_state.setText(self.tr("Upscaling") + " [{current}/{total}]")
         self.ui.pgb_progress.setValue(percent)
         if complete:
             if self.upscale_type == UpscaleType.IMAGE:
                 self._on_complete()
             else:
                 self.ui.btn_run.setDisabled(True)
-                self.ui.lbl_state.setText("Upscaling Complete")
+                self.ui.lbl_state.setText(self.tr("Upscaling Complete"))
                 self.optimize.start()
 
     @Slot(str, bool, int, int)
@@ -163,12 +164,12 @@ class UpscaleItem(QWidget):
         if self.id != id:
             return
 
-        self.ui.lbl_state.setText(f"JPG Optimize [{current}/{total}]")
+        self.ui.lbl_state.setText(self.tr("JPG Optimize") + "[{current}/{total}]")
         if total > 0:
             self.ui.pgb_progress.setValue(current / total * 100)
 
         if complete:
-            self.ui.lbl_state.setText("Optimize Completed")
+            self.ui.lbl_state.setText(self.tr("Optimize Completed"))
             self.zip.start()
 
     @Slot(str, bool, int, int)
@@ -176,7 +177,7 @@ class UpscaleItem(QWidget):
         if self.id != id:
             return
 
-        self.ui.lbl_state.setText(f"Zip files [{current}/{total}]")
+        self.ui.lbl_state.setText(self.tr("Zip files" + f" [{current}/{total}]"))
         if total > 0:
             self.ui.pgb_progress.setValue(current / total * 100)
 
@@ -186,7 +187,7 @@ class UpscaleItem(QWidget):
     def _on_complete(self):
         self.state = ItemState.DONE
         self.ui.btn_run.setDisabled(True)
-        self.ui.lbl_state.setText("Completed")
+        self.ui.lbl_state.setText(self.tr("Completed"))
         self.ui.lbl_state.setStyleSheet("color: blue")
         self._parent.signals.item_state_change.emit(self.id, self.file_path, self.state)
 

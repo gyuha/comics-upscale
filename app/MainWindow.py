@@ -133,17 +133,17 @@ class MainWindow(QMainWindow):
 
     def _on_click_start(self):
         if self.state == MainState.START:
-            toast(self, "Already started")
+            toast(self, self.tr("Already started"))
             return
-        toast(self, "Start")
+        toast(self, self.tr("Start"))
         self.state = MainState.START
         res = self.start_next()
         if res == False:
-            toast(self, "nothing..")
+            toast(self, self.tr("nothing."))
 
     def _on_click_list_clear(self):
         if self.state == MainState.START:
-            toast(self, "Wait end...")
+            toast(self, self.tr("Wait end."))
             return
 
         self.ui.lst_item_list.clear()
@@ -194,8 +194,8 @@ class MainWindow(QMainWindow):
                         item_count += 1
 
         if item_count == 0:
-            msg = "No items have been added."
-            self.ui.statusbar.showMessage("No items have been added.")
+            msg = self.tr("No items have been added.")
+            self.ui.statusbar.showMessage(msg)
             toast(self, msg)
 
     def _check_exist_item(self, file_path) -> bool:
@@ -304,12 +304,12 @@ class MainWindow(QMainWindow):
 
 
     def _on_click_add_folder(self):
-        file = str(QtWidgets.QFileDialog.getExistingDirectory(self, "Select Directory"))
+        file = str(QtWidgets.QFileDialog.getExistingDirectory(self, self.tr("Select Directory")))
         if file:
             self._add_items([file])
 
     def _on_click_add_file(self):
-        fileNames = QtWidgets.QFileDialog.getOpenFileNames(self, "Select Directory")
+        fileNames = QtWidgets.QFileDialog.getOpenFileNames(self, self.tr("Select Directory"))
         if len(fileNames[0]) == 0:
             return
         files = []

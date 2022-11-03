@@ -6,7 +6,7 @@
     <message>
         <location filename="../app/ui/MainWindow.ui" line="20"/>
         <source>Comics upscale</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">만화책 업스케일</translation>
     </message>
     <message>
         <location filename="../app/ui/MainWindow.ui" line="88"/>
@@ -398,11 +398,6 @@
         <translation type="unfinished">완료 지우기</translation>
     </message>
     <message>
-        <location filename="../app/ui/MainWindow.ui" line="609"/>
-        <source>Start</source>
-        <translation type="unfinished">시작</translation>
-    </message>
-    <message>
         <location filename="../app/ui/MainWindow.ui" line="625"/>
         <source>항상위</source>
         <translation type="unfinished"></translation>
@@ -415,6 +410,103 @@
     <message>
         <location filename="../app/ui/MainWindow.ui" line="641"/>
         <source>종료(&amp;q)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../app/MainWindow.py" line="136"/>
+        <source>Already started</source>
+        <translation type="unfinished">작업 중입니다</translation>
+    </message>
+    <message>
+        <location filename="../app/MainWindow.py" line="138"/>
+        <location filename="../app/ui/MainWindow.ui" line="609"/>
+        <source>Start</source>
+        <translation type="unfinished">시작</translation>
+    </message>
+    <message>
+        <location filename="../app/MainWindow.py" line="142"/>
+        <source>nothing.</source>
+        <translation type="unfinished">시작 할 항목이 없습니다.</translation>
+    </message>
+    <message>
+        <location filename="../app/MainWindow.py" line="146"/>
+        <source>Wait end.</source>
+        <translation type="unfinished">작업이 끝나길 기다려 주세요.</translation>
+    </message>
+    <message>
+        <source>nothing..</source>
+        <translation type="obsolete">추가가 없습니다.</translation>
+    </message>
+    <message>
+        <source>Wait end...</source>
+        <translation type="obsolete">작업이 끝나길 기다려 주세요.</translation>
+    </message>
+    <message>
+        <location filename="../app/MainWindow.py" line="198"/>
+        <source>No items have been added.</source>
+        <translation type="unfinished">추가된 항목이 없습니다.</translation>
+    </message>
+    <message>
+        <location filename="../app/MainWindow.py" line="307"/>
+        <location filename="../app/MainWindow.py" line="312"/>
+        <source>Select Directory</source>
+        <translation type="unfinished">폴더 선택</translation>
+    </message>
+</context>
+<context>
+    <name>UpscaleItem</name>
+    <message>
+        <location filename="../app/UpscaleItem.py" line="91"/>
+        <source>Ready</source>
+        <translation type="unfinished">대기</translation>
+    </message>
+    <message>
+        <location filename="../app/UpscaleItem.py" line="101"/>
+        <source>An item is already running.</source>
+        <translation type="unfinished">다른 항목이 실행 중입니다.</translation>
+    </message>
+    <message>
+        <location filename="../app/UpscaleItem.py" line="104"/>
+        <source>stop</source>
+        <translation type="unfinished">중단</translation>
+    </message>
+    <message>
+        <location filename="../app/UpscaleItem.py" line="136"/>
+        <source>Unzip Complete</source>
+        <translation type="unfinished">압축풀기 완료</translation>
+    </message>
+    <message>
+        <location filename="../app/UpscaleItem.py" line="152"/>
+        <source>Upscaling</source>
+        <translation type="unfinished">업스케일 중</translation>
+    </message>
+    <message>
+        <location filename="../app/UpscaleItem.py" line="159"/>
+        <source>Upscaling Complete</source>
+        <translation type="unfinished">업스케일 완료</translation>
+    </message>
+    <message>
+        <location filename="../app/UpscaleItem.py" line="167"/>
+        <source>JPG Optimize</source>
+        <translation type="unfinished">JPG 최적화</translation>
+    </message>
+    <message>
+        <location filename="../app/UpscaleItem.py" line="172"/>
+        <source>Optimize Completed</source>
+        <translation type="unfinished">최적화 완료</translation>
+    </message>
+    <message>
+        <location filename="../app/UpscaleItem.py" line="180"/>
+        <source>Zip files</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Zip files)</source>
+        <translation type="obsolete">압축</translation>
+    </message>
+    <message>
+        <location filename="../app/UpscaleItem.py" line="190"/>
+        <source>Completed</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
