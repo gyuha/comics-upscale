@@ -56,7 +56,7 @@ class Config(metaclass=Singleton):
             return file_path
         base_name = os.path.basename(file_path)
         t = base_name.split(".")
-        if len(t) <= 2:
+        if len(t) <= 1:
             return file_path
         t[-2] = t[-2] + self.setting[SettingEnum.POST_FIX]
         base_name = ".".join(t)

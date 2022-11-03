@@ -55,8 +55,6 @@ class UpscaleItem(QWidget):
 
         self.state = ItemState.READY
 
-        self._init_text()
-        self._init_connect()
         self.upscaler = Upscaler(self, self.id)
         self.config = Config()
         self.temp_dir = self.config.data["temp_dir"]
@@ -75,9 +73,16 @@ class UpscaleItem(QWidget):
         self.upscale_type = UpscaleType.IMAGE
         if self.config.re_zip_extension().search(file_path):
             self.upscale_type = UpscaleType.COMPRESS_IMAGE
+
+        self.target_path = self.config.replace_name(self.file_path)
+        self.target_base_name = os.path.basename(self.target_path)
+
         self.upscaler.signals.upscale_state.connect(self._on_upscale_state)
 
         self.signals.run.connect(self._on_run)
+
+        self._init_text()
+        self._init_connect()
 
     def _init_connect(self):
         self.ui.btn_run.clicked.connect(self.on_click_run)
@@ -85,7 +90,10 @@ class UpscaleItem(QWidget):
         self.ui.btn_open_folder.clicked.connect(self._on_click_open_folder)
 
     def _init_text(self):
-        self.ui.lbl_file_name.setText(self.base_name)
+        item_name = self.base_name
+        if self.base_name != self.target_base_name:
+            item_name += f"  =>>  {self.target_base_name}"
+        self.ui.lbl_file_name.setText(item_name)
         self.ui.lbl_path.setText(self.dir_name)
         self.ui.pgb_progress.setValue(0)
         self.ui.lbl_state.setText(self.tr("Ready"))
@@ -101,10 +109,11 @@ class UpscaleItem(QWidget):
             if self._parent.check_doing_item():
                 toast(self, msg)
                 return
-            self._set_run_icon(self.tr("stop"))
+            self._set_run_icon("stop")
+
             self.state = ItemState.DOING
             self.ui.lbl_state.setText(msg)
-            self.upscaler.set(self.upscale_type, [self.file_path])
+
             self.signals.run.emit(self.id)
             self._parent.signals.item_state_change.emit(
                 self.id, self.file_path, self.state
@@ -118,6 +127,7 @@ class UpscaleItem(QWidget):
         if self.id != id:
             return
         if self.upscale_type == UpscaleType.IMAGE:
+            self.upscaler.set(self.upscale_type, [self.file_path], self.target_path)
             self.upscaler.start()
         else:
             self.unzip.start()

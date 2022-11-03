@@ -48,8 +48,9 @@ class Upscaler(QObject):
         if self.config.setting[SettingEnum.TTA_MODE]:
             self._options.append("-x")
     
-    def set(self, type: UpscaleType, files: List[str]):
+    def set(self, type: UpscaleType, files: List[str], target_path = None):
         self.upscaleType = type
+        self.target_path = target_path
         self.total = len(files)
         if self.total == 0:
             return
@@ -72,8 +73,8 @@ class Upscaler(QObject):
         current_file = self.file_list[self.currentIndex]
         target_file = current_file
 
-        if self.upscaleType == UpscaleType.IMAGE and self.config.setting[SettingEnum.REPLACE_ORIGIN] == False:
-            target_file = self.config.replace_name(current_file)
+        if self.upscaleType == UpscaleType.IMAGE:
+            target_file = self.target_path
 
         options = ["-i", current_file, "-o", target_file] + self._options
         self.p.start("./bin/realesrgan-ncnn-vulkan", options)
