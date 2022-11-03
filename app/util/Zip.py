@@ -12,6 +12,7 @@ from multiprocessing.pool import ThreadPool
 from PySide6.QtCore import QObject, Signal
 from multiprocessing import cpu_count
 from util.Config import Config
+from constant.SettingEnum import SettingEnum
 
 
 class ZipSignal(QObject):
@@ -30,7 +31,7 @@ class Zip(QThread):
         self.config = Config()
         self.src_path = Path(self.config.data["temp_dir"]).absolute()
 
-        self.target_dir = file_path
+        self.target_dir = self.config.replace_name(file_path)
 
     def run(self):
         self.zip_thread = threading.Thread(target=self._zip_files)

@@ -498,7 +498,7 @@
     <message>
         <location filename="../app/UpscaleItem.py" line="180"/>
         <source>Zip files</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">파일 압축</translation>
     </message>
     <message>
         <source>Zip files)</source>
@@ -507,7 +507,7 @@
     <message>
         <location filename="../app/UpscaleItem.py" line="190"/>
         <source>Completed</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">완료</translation>
     </message>
 </context>
 </TS>

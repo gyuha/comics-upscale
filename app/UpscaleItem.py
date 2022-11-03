@@ -127,7 +127,7 @@ class UpscaleItem(QWidget):
         if self.id != id:
             return
 
-        self.ui.lbl_state.setText(self.tr(f"Unzip files") + " [{current}/{total}]")
+        self.ui.lbl_state.setText(self.tr(f"Unzip files") + f" [{current}/{total}]")
         if total > 0:
             self.ui.pgb_progress.setValue(current / total * 100)
 
@@ -149,7 +149,7 @@ class UpscaleItem(QWidget):
         if total > 0:
             percent = current / total * 100
 
-        self.ui.lbl_state.setText(self.tr("Upscaling") + " [{current}/{total}]")
+        self.ui.lbl_state.setText(self.tr("Upscaling") + f" [{current}/{total}]")
         self.ui.pgb_progress.setValue(percent)
         if complete:
             if self.upscale_type == UpscaleType.IMAGE:
@@ -164,7 +164,7 @@ class UpscaleItem(QWidget):
         if self.id != id:
             return
 
-        self.ui.lbl_state.setText(self.tr("JPG Optimize") + "[{current}/{total}]")
+        self.ui.lbl_state.setText(self.tr("JPG Optimize") + f"[{current}/{total}]")
         if total > 0:
             self.ui.pgb_progress.setValue(current / total * 100)
 

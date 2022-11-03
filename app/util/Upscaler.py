@@ -49,6 +49,7 @@ class Upscaler(QObject):
             self._options.append("-x")
     
     def set(self, type: UpscaleType, files: List[str]):
+        self.upscaleType = type
         self.total = len(files)
         if self.total == 0:
             return
@@ -67,8 +68,14 @@ class Upscaler(QObject):
         self.p.finished.connect(self.on_process_next)
         self.p.readyReadStandardOutput.connect(partial(self.onReadyReadStandardOutput))
         # self.p.readyReadStandardError.connect(self.on_state_error)
+
         current_file = self.file_list[self.currentIndex]
-        options = ["-i", current_file, "-o", current_file] + self._options
+        target_file = current_file
+
+        if self.upscaleType == UpscaleType.IMAGE and self.config.setting[SettingEnum.REPLACE_ORIGIN] == False:
+            target_file = self.config.replace_name(current_file)
+
+        options = ["-i", current_file, "-o", target_file] + self._options
         self.p.start("./bin/realesrgan-ncnn-vulkan", options)
     
     def onReadyReadStandardOutput(self):

@@ -1272,6 +1272,46 @@
         "documentation": {}
     },
     {
+        "label": "SettingEnum",
+        "importPath": "constant.SettingEnum",
+        "description": "constant.SettingEnum",
+        "isExtraImport": true,
+        "detail": "constant.SettingEnum",
+        "documentation": {}
+    },
+    {
+        "label": "SettingEnum",
+        "importPath": "constant.SettingEnum",
+        "description": "constant.SettingEnum",
+        "isExtraImport": true,
+        "detail": "constant.SettingEnum",
+        "documentation": {}
+    },
+    {
+        "label": "SettingEnum",
+        "importPath": "constant.SettingEnum",
+        "description": "constant.SettingEnum",
+        "isExtraImport": true,
+        "detail": "constant.SettingEnum",
+        "documentation": {}
+    },
+    {
+        "label": "SettingEnum",
+        "importPath": "constant.SettingEnum",
+        "description": "constant.SettingEnum",
+        "isExtraImport": true,
+        "detail": "constant.SettingEnum",
+        "documentation": {}
+    },
+    {
+        "label": "SettingEnum",
+        "importPath": "constant.SettingEnum",
+        "description": "constant.SettingEnum",
+        "isExtraImport": true,
+        "detail": "constant.SettingEnum",
+        "documentation": {}
+    },
+    {
         "label": "shutil",
         "kind": 6,
         "isExtraImport": true,
@@ -1401,30 +1441,6 @@
         "description": "pickletools",
         "isExtraImport": true,
         "detail": "pickletools",
-        "documentation": {}
-    },
-    {
-        "label": "SettingEnum",
-        "importPath": "constant.SettingEnum",
-        "description": "constant.SettingEnum",
-        "isExtraImport": true,
-        "detail": "constant.SettingEnum",
-        "documentation": {}
-    },
-    {
-        "label": "SettingEnum",
-        "importPath": "constant.SettingEnum",
-        "description": "constant.SettingEnum",
-        "isExtraImport": true,
-        "detail": "constant.SettingEnum",
-        "documentation": {}
-    },
-    {
-        "label": "SettingEnum",
-        "importPath": "constant.SettingEnum",
-        "description": "constant.SettingEnum",
-        "isExtraImport": true,
-        "detail": "constant.SettingEnum",
         "documentation": {}
     },
     {
@@ -1748,7 +1764,7 @@
         "kind": 6,
         "importPath": "app.constant.SettingEnum",
         "description": "app.constant.SettingEnum",
-        "peekOfCode": "class SettingEnum(str, Enum):\n    UPSCALE_RATIO = \"upscale_ratio\"\n    TILE_SIZE = \"tile_size\"\n    MODEL_NAME = \"model_name\"\n    TTA_MODE = \"tta_mode\"\n    FORMAT = \"format\"\n    JPG_OPTIMIZE = \"jpg_optimize\"\n    REPLACE_ORIGIN = \"replace_origin\"",
+        "peekOfCode": "class SettingEnum(str, Enum):\n    UPSCALE_RATIO = \"upscale_ratio\"\n    TILE_SIZE = \"tile_size\"\n    MODEL_NAME = \"model_name\"\n    TTA_MODE = \"tta_mode\"\n    FORMAT = \"format\"\n    JPG_OPTIMIZE = \"jpg_optimize\"\n    REPLACE_ORIGIN = \"replace_origin\"\n    POST_FIX = \"post_fix\"\n    PRE_FIX = \"pre_fix\"",
         "detail": "app.constant.SettingEnum",
         "documentation": {}
     },
@@ -1937,7 +1953,7 @@
         "kind": 6,
         "importPath": "app.util.Zip",
         "description": "app.util.Zip",
-        "peekOfCode": "class Zip(QThread):\n    signals = ZipSignal()\n    def __init__(self, parent, id: str, file_path: str):\n        QThread.__init__(self, parent)\n        self._parent = parent\n        self.id = id\n        self.config = Config()\n        self.src_path = Path(self.config.data[\"temp_dir\"]).absolute()\n        self.target_dir = file_path\n    def run(self):",
+        "peekOfCode": "class Zip(QThread):\n    signals = ZipSignal()\n    def __init__(self, parent, id: str, file_path: str):\n        QThread.__init__(self, parent)\n        self._parent = parent\n        self.id = id\n        self.config = Config()\n        self.src_path = Path(self.config.data[\"temp_dir\"]).absolute()\n        self.target_dir = self.config.replace_name(file_path)\n    def run(self):",
         "detail": "app.util.Zip",
         "documentation": {}
     },

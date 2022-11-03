@@ -9,3 +9,5 @@ class SettingEnum(str, Enum):
     FORMAT = "format"
     JPG_OPTIMIZE = "jpg_optimize"
     REPLACE_ORIGIN = "replace_origin"
+    POST_FIX = "post_fix"
+    PRE_FIX = "pre_fix"

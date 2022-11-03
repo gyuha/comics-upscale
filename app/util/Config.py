@@ -1,8 +1,10 @@
 from functools import reduce
+import os
 import yaml
 import re
 
 from lib.Singleton import Singleton
+from constant.SettingEnum import SettingEnum
 
 
 class Config(metaclass=Singleton):
@@ -48,3 +50,13 @@ class Config(metaclass=Singleton):
         return re.compile(
             "\.(" + reduce(lambda x, y: x + "|" + y, self.data["allow_file"]) + ")$"
         )
+    
+    def replace_name(self, file_path: str):
+        if self.setting[SettingEnum.REPLACE_ORIGIN]:
+            return file_path
+        file_name = os.path.basename(file_path)
+        t = file_name.split(".")
+        t[0] = t[0] + self.setting[SettingEnum.PRE_FIX]
+        t[-2] = t[-2] + self.setting[SettingEnum.POST_FIX]
+        file_name = ".".join(t)
+        return os.path.join(os.path.dirname(file_path), file_name)
