@@ -1021,6 +1021,14 @@
         "documentation": {}
     },
     {
+        "label": "QProgressBar",
+        "importPath": "PySide6.QtWidgets",
+        "description": "PySide6.QtWidgets",
+        "isExtraImport": true,
+        "detail": "PySide6.QtWidgets",
+        "documentation": {}
+    },
+    {
         "label": "QPushButton",
         "importPath": "PySide6.QtWidgets",
         "description": "PySide6.QtWidgets",
@@ -1835,7 +1843,7 @@
         "kind": 6,
         "importPath": "app.ui.ui_MainWindow",
         "description": "app.ui.ui_MainWindow",
-        "peekOfCode": "class Ui_MainWindow(object):\n    def setupUi(self, MainWindow):\n        if not MainWindow.objectName():\n            MainWindow.setObjectName(u\"MainWindow\")\n        MainWindow.resize(781, 475)\n        MainWindow.setMinimumSize(QSize(640, 0))\n        icon = QIcon()\n        icon.addFile(u\":/icon/icons/icon.png\", QSize(), QIcon.Normal, QIcon.Off)\n        MainWindow.setWindowIcon(icon)\n        self.action_always_top = QAction(MainWindow)",
+        "peekOfCode": "class Ui_MainWindow(object):\n    def setupUi(self, MainWindow):\n        if not MainWindow.objectName():\n            MainWindow.setObjectName(u\"MainWindow\")\n        MainWindow.resize(800, 472)\n        MainWindow.setMinimumSize(QSize(800, 0))\n        icon = QIcon()\n        icon.addFile(u\":/icon/icons/icon.png\", QSize(), QIcon.Normal, QIcon.Off)\n        MainWindow.setWindowIcon(icon)\n        self.action_always_top = QAction(MainWindow)",
         "detail": "app.ui.ui_MainWindow",
         "documentation": {}
     },
@@ -2042,7 +2050,7 @@
         "kind": 5,
         "importPath": "app.resources_rc",
         "description": "app.resources_rc",
-        "peekOfCode": "qt_resource_struct = b\"\\\n\\x00\\x00\\x00\\x00\\x00\\x02\\x00\\x00\\x00\\x01\\x00\\x00\\x00\\x01\\\n\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\\n\\x00\\x00\\x00\\x00\\x00\\x02\\x00\\x00\\x00\\x01\\x00\\x00\\x00\\x02\\\n\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\\n\\x00\\x00\\x00\\x0e\\x00\\x02\\x00\\x00\\x00\\x05\\x00\\x00\\x00\\x03\\\n\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\\n\\x00\\x00\\x00\\x9c\\x00\\x00\\x00\\x00\\x00\\x01\\x00\\x00h\\xf0\\\n\\x00\\x00\\x01\\x84,#r\\x89\\\n\\x00\\x00\\x004\\x00\\x00\\x00\\x00\\x00\\x01\\x00\\x00\\x22$\\",
+        "peekOfCode": "qt_resource_struct = b\"\\\n\\x00\\x00\\x00\\x00\\x00\\x02\\x00\\x00\\x00\\x01\\x00\\x00\\x00\\x01\\\n\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\\n\\x00\\x00\\x00\\x00\\x00\\x02\\x00\\x00\\x00\\x01\\x00\\x00\\x00\\x02\\\n\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\\n\\x00\\x00\\x00\\x0e\\x00\\x02\\x00\\x00\\x00\\x05\\x00\\x00\\x00\\x03\\\n\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\\n\\x00\\x00\\x00\\x9c\\x00\\x00\\x00\\x00\\x00\\x01\\x00\\x00h\\xf0\\\n\\x00\\x00\\x01\\x84)\\xa4*Q\\\n\\x00\\x00\\x004\\x00\\x00\\x00\\x00\\x00\\x01\\x00\\x00\\x22$\\",
         "detail": "app.resources_rc",
         "documentation": {}
     },

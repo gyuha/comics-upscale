@@ -51,6 +51,7 @@ class MainWindow(QMainWindow):
         )
 
         self.state = MainState.STOP
+        self._set_progress()
 
     def _init_connect(self):
         #### signal
@@ -255,6 +256,7 @@ class MainWindow(QMainWindow):
             if widget is not None:
                 if widget.state == ItemState.DONE:
                     self._remove_item(widget.file_path)
+        self._set_progress()
 
     def _get_widget(self, file_path: str) -> Widget:
         for i in range(self.ui.lst_item_list.count()):
@@ -270,6 +272,7 @@ class MainWindow(QMainWindow):
             return
         self.ui.lst_item_list.takeItem(self.ui.lst_item_list.row(item))
         del self.item_dict[file_name]
+        self._set_progress()
 
     def check_doing_item(self) -> bool:
         for i in range(self.ui.lst_item_list.count()):
@@ -298,10 +301,11 @@ class MainWindow(QMainWindow):
             if upscaleItem:
                 if upscaleItem.state == ItemState.READY:
                     upscaleItem.on_click_run()
+                    self._set_progress()
                     return True
+        self._set_progress()
         return False
     
-
 
     def _on_click_add_folder(self):
         file = str(QtWidgets.QFileDialog.getExistingDirectory(self, self.tr("Select Directory")))
@@ -317,3 +321,19 @@ class MainWindow(QMainWindow):
             files.append(str(f))
         
         self._add_items(files)
+    
+    def _set_progress(self):
+        total = self.ui.lst_item_list.count()
+        count = 0
+        for i in range(total):
+            item = self.ui.lst_item_list.item(i)
+            widget: UpscaleItem = self.ui.lst_item_list.itemWidget(item)
+            if widget:
+                if widget.state == ItemState.DONE:
+                    count += 1
+        self.ui.lbl_state.setText(f"{count} / {total} ")
+        percent = 0
+        if total > 0:
+            percent = count / total * 100 
+        self.ui.pgb_state.setValue(percent)
+        

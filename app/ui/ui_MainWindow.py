@@ -18,16 +18,17 @@ from PySide6.QtGui import (QAction, QBrush, QColor, QConicalGradient,
     QTransform)
 from PySide6.QtWidgets import (QAbstractItemView, QApplication, QCheckBox, QComboBox,
     QFormLayout, QHBoxLayout, QLabel, QListWidget,
-    QListWidgetItem, QMainWindow, QPushButton, QSizePolicy,
-    QSpacerItem, QStatusBar, QVBoxLayout, QWidget)
+    QListWidgetItem, QMainWindow, QProgressBar, QPushButton,
+    QSizePolicy, QSpacerItem, QStatusBar, QVBoxLayout,
+    QWidget)
 import resources_rc
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         if not MainWindow.objectName():
             MainWindow.setObjectName(u"MainWindow")
-        MainWindow.resize(781, 475)
-        MainWindow.setMinimumSize(QSize(640, 0))
+        MainWindow.resize(800, 472)
+        MainWindow.setMinimumSize(QSize(800, 0))
         icon = QIcon()
         icon.addFile(u":/icon/icons/icon.png", QSize(), QIcon.Normal, QIcon.Off)
         MainWindow.setWindowIcon(icon)
@@ -244,6 +245,25 @@ class Ui_MainWindow(object):
 
         self.horizontalLayout_3.addItem(self.horizontalSpacer)
 
+        self.lbl_state = QLabel(self.centralwidget)
+        self.lbl_state.setObjectName(u"lbl_state")
+
+        self.horizontalLayout_3.addWidget(self.lbl_state)
+
+        self.horizontalSpacer_3 = QSpacerItem(10, 20, QSizePolicy.Fixed, QSizePolicy.Minimum)
+
+        self.horizontalLayout_3.addItem(self.horizontalSpacer_3)
+
+        self.pgb_state = QProgressBar(self.centralwidget)
+        self.pgb_state.setObjectName(u"pgb_state")
+        self.pgb_state.setValue(24)
+
+        self.horizontalLayout_3.addWidget(self.pgb_state)
+
+        self.horizontalSpacer_2 = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
+
+        self.horizontalLayout_3.addItem(self.horizontalSpacer_2)
+
         self.btn_list_clear = QPushButton(self.centralwidget)
         self.btn_list_clear.setObjectName(u"btn_list_clear")
 
@@ -365,6 +385,7 @@ class Ui_MainWindow(object):
         self.chb_replace_origin.setText(QCoreApplication.translate("MainWindow", u"Replace origin", None))
         self.btn_add_folder.setText(QCoreApplication.translate("MainWindow", u"Add folder", None))
         self.btn_add_file.setText(QCoreApplication.translate("MainWindow", u"Add file", None))
+        self.lbl_state.setText(QCoreApplication.translate("MainWindow", u"0/0", None))
         self.btn_list_clear.setText(QCoreApplication.translate("MainWindow", u"List clear", None))
         self.btn_done_clear.setText(QCoreApplication.translate("MainWindow", u"Done Clear", None))
         self.btn_start.setText(QCoreApplication.translate("MainWindow", u"Start", None))
