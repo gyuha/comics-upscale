@@ -107,6 +107,7 @@ class Ui_UpscaleItem(object):
         self.pgb_progress.setObjectName(u"pgb_progress")
         self.pgb_progress.setMaximumSize(QSize(150, 16777215))
         self.pgb_progress.setValue(24)
+        self.pgb_progress.setTextVisible(False)
 
         self.horizontalLayout_3.addWidget(self.pgb_progress)
 

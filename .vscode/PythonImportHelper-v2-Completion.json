@@ -27,6 +27,15 @@
         "documentation": {}
     },
     {
+        "label": "shutil",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "shutil",
+        "description": "shutil",
+        "detail": "shutil",
+        "documentation": {}
+    },
+    {
         "label": "Enum",
         "importPath": "enum",
         "description": "enum",
@@ -1320,15 +1329,6 @@
         "documentation": {}
     },
     {
-        "label": "shutil",
-        "kind": 6,
-        "isExtraImport": true,
-        "importPath": "shutil",
-        "description": "shutil",
-        "detail": "shutil",
-        "documentation": {}
-    },
-    {
         "label": "threading",
         "kind": 6,
         "isExtraImport": true,
@@ -1773,6 +1773,42 @@
         "description": ".venv.Scripts.activate_this",
         "peekOfCode": "sys.prefix = base",
         "detail": ".venv.Scripts.activate_this",
+        "documentation": {}
+    },
+    {
+        "label": "get_next_cache_dir",
+        "kind": 2,
+        "importPath": ".venv.Scripts.clear_comtypes_cache",
+        "description": ".venv.Scripts.clear_comtypes_cache",
+        "peekOfCode": "def get_next_cache_dir():\n    work_dir = os.getcwd()\n    try:\n        # change working directory to avoid import from local folder\n        # during installation process\n        os.chdir(os.path.dirname(sys.executable))\n        import comtypes.client\n        return comtypes.client._code_cache._find_gen_dir()\n    except ImportError:\n        return None",
+        "detail": ".venv.Scripts.clear_comtypes_cache",
+        "documentation": {}
+    },
+    {
+        "label": "remove_directory",
+        "kind": 2,
+        "importPath": ".venv.Scripts.clear_comtypes_cache",
+        "description": ".venv.Scripts.clear_comtypes_cache",
+        "peekOfCode": "def remove_directory(directory, silent):\n    if directory:\n        if silent:\n            _remove(directory)\n        else:\n            try:\n                confirm = raw_input('Remove comtypes cache directories? (y/n): ')\n            except NameError:\n                confirm = input('Remove comtypes cache directories? (y/n): ')\n            if confirm.lower() == 'y':",
+        "detail": ".venv.Scripts.clear_comtypes_cache",
+        "documentation": {}
+    },
+    {
+        "label": "directory",
+        "kind": 5,
+        "importPath": ".venv.Scripts.clear_comtypes_cache",
+        "description": ".venv.Scripts.clear_comtypes_cache",
+        "peekOfCode": "directory = get_next_cache_dir()\nremoved = remove_directory(directory, silent)\nif removed:\n    directory = get_next_cache_dir()\n    # do not request the second confirmation\n    # if the first folder was already removed\n    remove_directory(directory, silent=removed)",
+        "detail": ".venv.Scripts.clear_comtypes_cache",
+        "documentation": {}
+    },
+    {
+        "label": "removed",
+        "kind": 5,
+        "importPath": ".venv.Scripts.clear_comtypes_cache",
+        "description": ".venv.Scripts.clear_comtypes_cache",
+        "peekOfCode": "removed = remove_directory(directory, silent)\nif removed:\n    directory = get_next_cache_dir()\n    # do not request the second confirmation\n    # if the first folder was already removed\n    remove_directory(directory, silent=removed)",
+        "detail": ".venv.Scripts.clear_comtypes_cache",
         "documentation": {}
     },
     {

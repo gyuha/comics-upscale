@@ -257,6 +257,8 @@ class Ui_MainWindow(object):
         self.pgb_state = QProgressBar(self.centralwidget)
         self.pgb_state.setObjectName(u"pgb_state")
         self.pgb_state.setValue(24)
+        self.pgb_state.setTextVisible(False)
+        self.pgb_state.setTextDirection(QProgressBar.TopToBottom)
 
         self.horizontalLayout_3.addWidget(self.pgb_state)
 
